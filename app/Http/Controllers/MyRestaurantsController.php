@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RestaurantFormRequest;
+use Illuminate\Support\Facades\Storage;
+
+
+
 
 
 class MyRestaurantsController extends Controller
@@ -41,20 +46,27 @@ class MyRestaurantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RestaurantFormRequest $request)
     {
+        // dd($request);
 
-      $data = $request->all();
+
+        $validated = $request->validated();
+
+
+        // $data = $request->all();
 
         $newRestaurant = new Restaurant();
-        $newRestaurant->name = $data['name'];
-        $newRestaurant->address = $data['address'];
-        $newRestaurant->phone = $data['phone'];
-        //   aggiunta logo da implementare
+        $newRestaurant->name = $validated['name'];
+        $newRestaurant->address = $validated['address'];
+        $newRestaurant->phone = $validated['phone'];
+
+        $newRestaurant->logo = $request->file('logo')->storePublicly('logos');
+
         $newRestaurant->user_id = Auth::id();
 
         $newRestaurant->save();
-        $newRestaurant->restaurantToCategory()->attach($data['categories']);
+        $newRestaurant->restaurantToCategory()->attach($validated['categories']);
 
       return redirect()->route('my-restaurants.index');
     }
@@ -81,7 +93,10 @@ class MyRestaurantsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $categories = Category::all();
+        $restaurant = Restaurant::find($id);
+        return view('user.edit_restaurant', compact('restaurant','categories'));
     }
 
     /**
@@ -93,7 +108,19 @@ class MyRestaurantsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $editRestaurant =  Restaurant::find($id);
+        $editRestaurant->name = $data['name'];
+        $editRestaurant->address = $data['address'];
+        $editRestaurant->phone = $data['phone'];
+        //   aggiunta logo da implementare
+        $editRestaurant->user_id = Auth::id();
+
+        $editRestaurant->save();
+        $editRestaurant->restaurantToCategory()->sync($data["categories"]);
+
+      return redirect()->route('my-restaurants.index');
     }
 
     /**
@@ -106,6 +133,7 @@ class MyRestaurantsController extends Controller
     {
 
         $restaurant = Restaurant::find($id);
+        Storage::delete($restaurant->logo);
         $restaurant->restaurantToCategory()->detach();
         $restaurant->delete();
 
