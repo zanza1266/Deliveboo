@@ -19,5 +19,11 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <a href="{{route('my-restaurants.index')}}">Vai ai tuoi ristoranti</a>
+        </div>
+    </div>
 </div>
 @endsection
