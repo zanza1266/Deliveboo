@@ -81,7 +81,10 @@ class MyRestaurantsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $categories = Category::all();
+        $restaurant = Restaurant::find($id);
+        return view('user.edit_restaurant', compact('restaurant','categories'));
     }
 
     /**
@@ -93,7 +96,19 @@ class MyRestaurantsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $editRestaurant =  Restaurant::find($id);
+        $editRestaurant->name = $data['name'];
+        $editRestaurant->address = $data['address'];
+        $editRestaurant->phone = $data['phone'];
+        //   aggiunta logo da implementare
+        $editRestaurant->user_id = Auth::id();
+
+        $editRestaurant->save();
+        $editRestaurant->restaurantToCategory()->sync($data["categories"]);
+
+      return redirect()->route('my-restaurants.index');
     }
 
     /**
