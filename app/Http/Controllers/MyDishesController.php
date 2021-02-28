@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dish;
 use App\Restaurant;
+use App\Type;
 use Illuminate\Http\Request;
 
 class MyDishesController extends Controller
@@ -15,14 +16,11 @@ class MyDishesController extends Controller
      */
     public function index(Request $request)
     {
-      dd($request->all());
 
-      $restaurant_index = $request->all(['restaurant_id']);
-      dd($restaurant_index[0]);
-      dd($restaurant_index);
-      $dishes = Dish::where('restaurant_id', '=', )->get();
+      $restaurant_index = $request->all()['id_restaurant'];
+      $dishes = Dish::where('restaurant_id', '=', $restaurant_index)->get();
 
-      return view('user.my_restaurants', compact('restaurants'));
+      return view('user.my_dishes', compact('dishes'));
     }
 
     /**
@@ -32,7 +30,9 @@ class MyDishesController extends Controller
      */
     public function create()
     {
-        //
+      $types = Type::all();
+
+      return view('user.create_dish', compact('types'));
     }
 
     /**
@@ -43,7 +43,20 @@ class MyDishesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $restaurant = Restaurant::where('id', '=', );
+      dd($restaurant);
+      $data = $request->all();
+      dd($data);
+
+      $newDish = new Dish();
+      $newDish->name = $data['name'];
+      $newDish->ingredients = $data['ingredients'];
+      $newDish->description = $data['description'];
+      $newDish->price = $data['price'];
+      $newDish->type_id = $data['type'];
+      // $newDish->restaurant_id = ;
+
+
     }
 
     /**
@@ -54,7 +67,9 @@ class MyDishesController extends Controller
      */
     public function show($id)
     {
-        //
+      $dish = Dish::find($id);
+
+      return view('user.my_dish', compact('dish'));
     }
 
     /**
