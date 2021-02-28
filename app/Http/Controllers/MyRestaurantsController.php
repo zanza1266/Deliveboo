@@ -105,28 +105,16 @@ class MyRestaurantsController extends Controller
      */
     public function update(UpdateRestaurantFormRequest $request, $id)
     {
+      $editRestaurant = Restaurant::find($id);
+      $validated = $request->validated();
+      $editRestaurant->update($validated);
+      $editRestaurant->restaurantToCategory()->sync($validated["categories"]);
 
-        $validated = $request->validated();
-
-        $editRestaurant =  Restaurant::find($id);
-        $editRestaurant->name = $validated['name'];
-        $editRestaurant->address = $validated['address'];
-        $editRestaurant->phone = $validated['phone'];
-        $editRestaurant->open = $validated['open'];
-
-        $editLogo = $request->file('logo');
-
-        if($editLogo !== null) {
-
-            Storage::delete($editRestaurant->logo);
-
-            $editRestaurant->logo = $editLogo->storePublicly('logos');
-        }
-
-        $editRestaurant->user_id = Auth::id();
-
+      if(array_key_exists('logo', $validated)) {
+        Storage::delete($editRestaurant->logo);
+        $editRestaurant->logo = $request->file('logo')->storePublicly('logos');
         $editRestaurant->save();
-        $editRestaurant->restaurantToCategory()->sync($validated["categories"]);
+      }
 
       return redirect()->route('my-restaurants.index');
     }
