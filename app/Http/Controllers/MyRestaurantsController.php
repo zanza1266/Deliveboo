@@ -24,9 +24,9 @@ class MyRestaurantsController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::where('user_id', '=', Auth::id())->get();
+      $restaurants = Restaurant::where('user_id', '=', Auth::id())->get();
 
-        return view('user.my_restaurants', compact('restaurants'));
+      return view('user.my_restaurants', compact('restaurants'));
     }
 
     /**
