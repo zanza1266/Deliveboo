@@ -8,7 +8,7 @@
     
     <div class="">
         <form class="" action="{{ route('my-restaurants.update' , $restaurant->id) }}" method="post" enctype="multipart/form-data">
-        @method('PATCH')
+        @method('PUT')
         @csrf
 
         <div class="">
