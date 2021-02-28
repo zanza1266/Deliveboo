@@ -24,9 +24,9 @@ class MyRestaurantsController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::where('user_id', '=', Auth::id())->get();
+      $restaurants = Restaurant::where('user_id', '=', Auth::id())->get();
 
-        return view('user.my_restaurants', compact('restaurants'));
+      return view('user.my_restaurants', compact('restaurants'));
     }
 
     /**
@@ -57,6 +57,8 @@ class MyRestaurantsController extends Controller
         $newRestaurant->name = $validated['name'];
         $newRestaurant->address = $validated['address'];
         $newRestaurant->phone = $validated['phone'];
+        $newRestaurant->open = $validated['open'];
+
         $newRestaurant->logo = $request->file('create_logo')->storePublicly('logos');
         $newRestaurant->user_id = Auth::id();
 
@@ -77,7 +79,6 @@ class MyRestaurantsController extends Controller
         $restaurant = Restaurant::find($id);
 
         return view('user.my_restaurant', compact('restaurant'));
-
     }
 
     /**
@@ -88,7 +89,7 @@ class MyRestaurantsController extends Controller
      */
     public function edit($id)
     {
-        
+
         $categories = Category::all();
         $restaurant = Restaurant::find($id);
         return view('user.edit_restaurant', compact('restaurant','categories'));
@@ -103,20 +104,18 @@ class MyRestaurantsController extends Controller
      */
     public function update(UpdateRestaurantFormRequest $request, $id)
     {
+      $editRestaurant = Restaurant::find($id);
+      $validated = $request->validated();
+      $editRestaurant->update($validated);
+      $editRestaurant->restaurantToCategory()->sync($validated["categories"]);
 
-        $editRestaurant = Restaurant::find($id);
-        $validated = $request->validated();
-        $editRestaurant->update($validated);
-        $editRestaurant->restaurantToCategory()->sync($validated["categories"]);
+      if(array_key_exists('logo', $validated)) {
+        Storage::delete($editRestaurant->logo);
+        $editRestaurant->logo = $request->file('logo')->storePublicly('logos');
+        $editRestaurant->save();
+      }
 
-        if(array_key_exists('logo', $validated)) {
-
-            Storage::delete($editRestaurant->logo);
-            $editRestaurant->logo = $request->file('logo')->storePublicly('logos');
-            $editRestaurant->save();
-        }
-
-        return redirect()->route('my-restaurants.index');
+      return redirect()->route('my-restaurants.index');
     }
 
     /**
@@ -134,6 +133,5 @@ class MyRestaurantsController extends Controller
         $restaurant->delete();
 
         return redirect()->route('my-restaurants.index');
-
     }
 }

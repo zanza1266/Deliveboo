@@ -23,3 +23,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/my-restaurants', 'MyRestaurantsController')->middleware('auth');
+
+Route::resource('/my-dishes', 'MyDishesController')->middleware('auth');

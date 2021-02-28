@@ -5162,6 +5162,7 @@
         },
         {
             "name": "mockery/mockery",
+<<<<<<< Updated upstream
             "version": "1.3.4",
             "source": {
                 "type": "git",
@@ -5172,6 +5173,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/mockery/mockery/zipball/31467aeb3ca3188158613322d66df81cedd86626",
                 "reference": "31467aeb3ca3188158613322d66df81cedd86626",
+=======
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mockery/mockery.git",
+                "reference": "d1339f64479af1bee0e82a0413813fe5345a54ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/d1339f64479af1bee0e82a0413813fe5345a54ea",
+                "reference": "d1339f64479af1bee0e82a0413813fe5345a54ea",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -5225,9 +5238,15 @@
             ],
             "support": {
                 "issues": "https://github.com/mockery/mockery/issues",
+<<<<<<< Updated upstream
                 "source": "https://github.com/mockery/mockery/tree/1.3.4"
             },
             "time": "2021-02-24T09:51:00+00:00"
+=======
+                "source": "https://github.com/mockery/mockery/tree/1.4.3"
+            },
+            "time": "2021-02-24T09:51:49+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "myclabs/deep-copy",

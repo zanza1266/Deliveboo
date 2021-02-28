@@ -35,6 +35,6 @@ class Restaurant extends Model
     }
 
     protected $fillable = [
-        'name', 'address', 'phone'
+        'name', 'address', 'phone', 'open'
     ];
 }

@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'cf' => ['required', 'string', 'size:16'],
-            'p_iva' => ['required', 'numeric', 'between: 10000000000, 99999999999'],
+            'p_iva' => ['required', 'numeric', 'between: 00000000000, 99999999999'],
             'name_p_iva' => ['required', 'string', 'max:80'],
         ]);
     }
