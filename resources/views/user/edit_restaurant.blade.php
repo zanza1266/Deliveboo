@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <h3>logo attuale</h3>
+
+    <img src="{{asset($restaurant->logo)}}" alt="">
     
     <div class="">
         <form class="" action="{{ route('my-restaurants.update' , $restaurant->id) }}" method="post" enctype="multipart/form-data">
@@ -32,7 +36,7 @@
         </div>
 
         <div class="">
-            <label for="logo">Descrizione:</label>
+            <label for="logo">Logo:</label>
             <input type="file" id="logo" name="logo">
             @error('logo')
             <p>{{ $message }}</p>
@@ -48,6 +52,7 @@
             @endforeach
         </div>
         
+
 
 
 

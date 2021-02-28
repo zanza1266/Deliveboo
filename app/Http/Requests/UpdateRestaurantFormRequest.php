@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RestaurantFormRequest extends FormRequest
+class UpdateRestaurantFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,8 @@ class RestaurantFormRequest extends FormRequest
             'name' => 'bail|required|string|min:2|max:30',
             'address' => 'bail|required|string|min:2|max:100',
             'phone' => 'bail|required|string|min:2|max:20',
-            // 'logo' => 'bail|mimetypes:image/jpeg,image/png|max:2048',
-            'create_logo' => 'bail|required|mimetypes:image/jpeg,image/png|max:2048',
+            'logo' => 'bail|mimetypes:image/jpeg,image/png|max:2048',
+            // 'create_logo' => 'bail|required|mimetypes:image/jpeg,image/png|max:2048',
             'open' => '',
             'categories' => 'bail|required|max:3'
         ];

@@ -7,6 +7,8 @@ use App\Restaurant;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RestaurantFormRequest;
+
+use App\Http\Requests\UpdateRestaurantFormRequest;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -61,7 +63,7 @@ class MyRestaurantsController extends Controller
         $newRestaurant->address = $validated['address'];
         $newRestaurant->phone = $validated['phone'];
 
-        $newRestaurant->logo = $request->file('logo')->storePublicly('logos');
+        $newRestaurant->logo = $request->file('create_logo')->storePublicly('logos');
 
         $newRestaurant->user_id = Auth::id();
 
@@ -106,19 +108,31 @@ class MyRestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRestaurantFormRequest $request, $id)
     {
-        $data = $request->all();
+
+        // dd($request);
+        $validated = $request->validated();
 
         $editRestaurant =  Restaurant::find($id);
-        $editRestaurant->name = $data['name'];
-        $editRestaurant->address = $data['address'];
-        $editRestaurant->phone = $data['phone'];
-        //   aggiunta logo da implementare
+        $editRestaurant->name = $validated['name'];
+        $editRestaurant->address = $validated['address'];
+        $editRestaurant->phone = $validated['phone'];
+
+
+        $editLogo = $request->file('logo');
+
+        if($editLogo !== null) {
+
+            Storage::delete($editRestaurant->logo);
+
+            $editRestaurant->logo = $request->file('logo')->storePublicly('logos');
+        }
+
         $editRestaurant->user_id = Auth::id();
 
         $editRestaurant->save();
-        $editRestaurant->restaurantToCategory()->sync($data["categories"]);
+        $editRestaurant->restaurantToCategory()->sync($validated["categories"]);
 
       return redirect()->route('my-restaurants.index');
     }

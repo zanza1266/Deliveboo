@@ -32,9 +32,9 @@
         </div>
 
         <div class="">
-            <label for="logo">Descrizione:</label>
-            <input type="file" id="logo" name="logo">
-            @error('logo')
+            <label for="create_logo">Logo:</label>
+            <input type="file" id="create_logo" name="create_logo">
+            @error('create_logo')
             <p>{{ $message }}</p>
             @enderror
         </div>
