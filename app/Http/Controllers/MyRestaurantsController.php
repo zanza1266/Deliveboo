@@ -50,18 +50,14 @@ class MyRestaurantsController extends Controller
      */
     public function store(RestaurantFormRequest $request)
     {
-        // dd($request);
-
 
         $validated = $request->validated();
-
-
-        // $data = $request->all();
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = $validated['name'];
         $newRestaurant->address = $validated['address'];
         $newRestaurant->phone = $validated['phone'];
+        $newRestaurant->open = $validated['open'];
 
         $newRestaurant->logo = $request->file('create_logo')->storePublicly('logos');
 
@@ -84,7 +80,6 @@ class MyRestaurantsController extends Controller
         $restaurant = Restaurant::find($id);
 
         return view('user.my_restaurant', compact('restaurant'));
-
     }
 
     /**
@@ -95,7 +90,7 @@ class MyRestaurantsController extends Controller
      */
     public function edit($id)
     {
-        
+
         $categories = Category::all();
         $restaurant = Restaurant::find($id);
         return view('user.edit_restaurant', compact('restaurant','categories'));
@@ -111,14 +106,13 @@ class MyRestaurantsController extends Controller
     public function update(UpdateRestaurantFormRequest $request, $id)
     {
 
-        // dd($request);
         $validated = $request->validated();
 
         $editRestaurant =  Restaurant::find($id);
         $editRestaurant->name = $validated['name'];
         $editRestaurant->address = $validated['address'];
         $editRestaurant->phone = $validated['phone'];
-
+        $editRestaurant->open = $validated['open'];
 
         $editLogo = $request->file('logo');
 
@@ -126,7 +120,7 @@ class MyRestaurantsController extends Controller
 
             Storage::delete($editRestaurant->logo);
 
-            $editRestaurant->logo = $request->file('logo')->storePublicly('logos');
+            $editRestaurant->logo = $editLogo->storePublicly('logos');
         }
 
         $editRestaurant->user_id = Auth::id();
@@ -152,6 +146,5 @@ class MyRestaurantsController extends Controller
         $restaurant->delete();
 
         return redirect()->route('my-restaurants.index');
-
     }
 }

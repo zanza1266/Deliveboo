@@ -23,6 +23,14 @@
                         <p>{{$category->name}}</p>
                     @endforeach
                 </div>
+
+                <p>sei in ferie ?
+                  @if($restaurant->open == 0)
+                    no
+                  @else
+                    sì
+                  @endif
+                </p>
             </div>
         </div>
 
