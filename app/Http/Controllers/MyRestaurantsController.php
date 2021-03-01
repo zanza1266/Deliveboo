@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Category;
+use App\Dish;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RestaurantFormRequest;
 
 use App\Http\Requests\UpdateRestaurantFormRequest;
 use Illuminate\Support\Facades\Storage;
-
-
-
-
 
 class MyRestaurantsController extends Controller
 {
@@ -125,8 +122,9 @@ class MyRestaurantsController extends Controller
      */
     public function destroy($id)
     {
-
         $restaurant = Restaurant::find($id);
+        $dishes = Dish::where('restaurant_id', '=', $restaurant->id);
+        $dishes->delete();
         Storage::delete($restaurant->logo);
         $restaurant->restaurantToCategory()->detach();
         $restaurant->delete();
