@@ -43,7 +43,7 @@
                     <button type="submit">Elimina questo ristorante</button>
                 </form>
 
-                <a href="/my-dishes?id_restaurant={{$restaurant->id}}">Vedi i tuoi piatti</a>
+                <a href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
 
             </div>
         </div>
