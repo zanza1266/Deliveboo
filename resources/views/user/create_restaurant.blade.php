@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     <div class="">
         <form class="" action="{{ route('my-restaurants.store') }}" method="post" enctype="multipart/form-data">
         @method('post')
@@ -32,14 +32,12 @@
         </div>
 
         <div class="">
-            <label for="logo">Descrizione:</label>
-            <input type="file" id="logo" name="logo">
-            @error('logo')
+            <label for="create_logo">Logo:</label>
+            <input type="file" id="create_logo" name="create_logo">
+            @error('create_logo')
             <p>{{ $message }}</p>
             @enderror
         </div>
-
-
 
         <div class="">
             @foreach ($categories as $category)
@@ -51,10 +49,14 @@
             <p>{{ $message }}</p>
             @enderror
         </div>
-        
 
-
-
+        <div class="">
+          <p>Sei in ferie?</p>
+          <label for="si">Sì</label>
+          <input id="si" type="radio" name="open" value="1">
+          <label for="no">No</label>
+          <input id="no" type="radio" name="open" value="0" checked>
+        </div>
 
         <div class="">
             <button type="submit">Aggiungi</button>

@@ -23,6 +23,14 @@
                         <p>{{$category->name}}</p>
                     @endforeach
                 </div>
+
+                <p>sei in ferie ?
+                  @if($restaurant->open == 0)
+                    no
+                  @else
+                    sì
+                  @endif
+                </p>
             </div>
         </div>
 
@@ -34,6 +42,8 @@
                     @method('delete')
                     <button type="submit">Elimina questo ristorante</button>
                 </form>
+
+                <a href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
 
             </div>
         </div>

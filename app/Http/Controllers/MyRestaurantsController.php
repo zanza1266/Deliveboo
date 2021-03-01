@@ -7,6 +7,8 @@ use App\Restaurant;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RestaurantFormRequest;
+
+use App\Http\Requests\UpdateRestaurantFormRequest;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -22,9 +24,9 @@ class MyRestaurantsController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::where('user_id', '=', Auth::id())->get();
+      $restaurants = Restaurant::where('user_id', '=', Auth::id())->get();
 
-        return view('user.my_restaurants', compact('restaurants'));
+      return view('user.my_restaurants', compact('restaurants'));
     }
 
     /**
@@ -48,21 +50,16 @@ class MyRestaurantsController extends Controller
      */
     public function store(RestaurantFormRequest $request)
     {
-        // dd($request);
-
 
         $validated = $request->validated();
-
-
-        // $data = $request->all();
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = $validated['name'];
         $newRestaurant->address = $validated['address'];
         $newRestaurant->phone = $validated['phone'];
+        $newRestaurant->open = $validated['open'];
 
-        $newRestaurant->logo = $request->file('logo')->storePublicly('logos');
-
+        $newRestaurant->logo = $request->file('create_logo')->storePublicly('logos');
         $newRestaurant->user_id = Auth::id();
 
         $newRestaurant->save();
@@ -82,7 +79,6 @@ class MyRestaurantsController extends Controller
         $restaurant = Restaurant::find($id);
 
         return view('user.my_restaurant', compact('restaurant'));
-
     }
 
     /**
@@ -93,7 +89,7 @@ class MyRestaurantsController extends Controller
      */
     public function edit($id)
     {
-        
+
         $categories = Category::all();
         $restaurant = Restaurant::find($id);
         return view('user.edit_restaurant', compact('restaurant','categories'));
@@ -106,19 +102,18 @@ class MyRestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRestaurantFormRequest $request, $id)
     {
-        $data = $request->all();
+      $editRestaurant = Restaurant::find($id);
+      $validated = $request->validated();
+      $editRestaurant->update($validated);
+      $editRestaurant->restaurantToCategory()->sync($validated["categories"]);
 
-        $editRestaurant =  Restaurant::find($id);
-        $editRestaurant->name = $data['name'];
-        $editRestaurant->address = $data['address'];
-        $editRestaurant->phone = $data['phone'];
-        //   aggiunta logo da implementare
-        $editRestaurant->user_id = Auth::id();
-
+      if(array_key_exists('logo', $validated)) {
+        Storage::delete($editRestaurant->logo);
+        $editRestaurant->logo = $request->file('logo')->storePublicly('logos');
         $editRestaurant->save();
-        $editRestaurant->restaurantToCategory()->sync($data["categories"]);
+      }
 
       return redirect()->route('my-restaurants.index');
     }
@@ -138,6 +133,5 @@ class MyRestaurantsController extends Controller
         $restaurant->delete();
 
         return redirect()->route('my-restaurants.index');
-
     }
 }

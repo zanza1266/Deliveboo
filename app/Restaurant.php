@@ -33,4 +33,8 @@ class Restaurant extends Model
         return $this->hasMany('App\Dish', 'restaurant_id', 'id');
 
     }
+
+    protected $fillable = [
+        'name', 'address', 'phone', 'open'
+    ];
 }
