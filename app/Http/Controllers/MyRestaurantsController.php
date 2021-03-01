@@ -89,7 +89,6 @@ class MyRestaurantsController extends Controller
      */
     public function edit($id)
     {
-
         $categories = Category::all();
         $restaurant = Restaurant::find($id);
         return view('user.edit_restaurant', compact('restaurant','categories'));

@@ -25,4 +25,8 @@ class Dish extends Model
         return $this->belongsTo('App\Restaurant', 'restaurant_id', 'id');
 
     }
+
+    protected $fillable = [
+        'name', 'ingredients', 'description', 'price', 'type_id'
+    ];
 }

@@ -6,13 +6,13 @@ use App\Dish;
 use App\Restaurant;
 use App\Type;
 use Illuminate\Http\Request;
+use App\Http\Requests\DishesFormRequest;
+use App\Http\Requests\UpdateDishesFormRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class MyDishesController extends Controller
 {
-
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -34,9 +34,7 @@ class MyDishesController extends Controller
      */
     public function create(Request $request)
     {
-
-        $restaurant_index = $request->all()['id_restaurant'];
-
+      $restaurant_index = $request->all()['id_restaurant'];
 
       $types = Type::all();
 
@@ -49,23 +47,25 @@ class MyDishesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DishesFormRequest $request)
     {
-
       $data = $request->all();
+      $validated = $request->validated();
 
       $newDish = new Dish();
 
-      $newDish->name = $data['name'];
-      $newDish->ingredients = $data['ingredients'];
-      $newDish->description = $data['description'];
-      $newDish->price = $data['price'];
-      $newDish->type_id = $data['type'];
+      $newDish->name = $validated['name'];
+      $newDish->ingredients = $validated['ingredients'];
+      $newDish->description = $validated['description'];
+      $newDish->price = $validated['price'];
+      $newDish->type_id = $validated['type'];
+
+      $newDish->img = $request->file('create_dish_image')->storePublicly('dish_images');
+
       $newDish->restaurant_id = $data['id_restaurant'];
       $newDish->save();
 
       return redirect()->route('my-dishes.index', ['id_restaurant' => $data['id_restaurant']]);
-
     }
 
     /**
@@ -89,7 +89,9 @@ class MyDishesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $types = Type::all();
+      $dish = Dish::find($id);
+      return view('user.edit_dish', compact('dish','types'));
     }
 
     /**
@@ -99,9 +101,19 @@ class MyDishesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateDishesFormRequest $request, $id)
     {
-        //
+      $editDish = Dish::find($id);
+      $validated = $request->validated();
+      $editDish->update($validated);
+
+      if(array_key_exists('dish_image', $validated)) {
+        Storage::delete($editDish->img);
+        $editDish->img = $request->file('dish_image')->storePublicly('dish_images');
+        $editDish->save();
+      }
+
+      return redirect()->route('my-dishes.index', ['id_restaurant' => $editDish->restaurant_id]);
     }
 
     /**
@@ -112,6 +124,10 @@ class MyDishesController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $dish = Dish::find($id);
+      Storage::delete($dish->img);
+      $dish->delete();
+
+      return redirect()->route('my-dishes.index', ['id_restaurant' => $dish->restaurant_id]);
     }
 }
