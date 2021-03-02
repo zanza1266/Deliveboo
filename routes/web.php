@@ -18,12 +18,14 @@ use App\Category;
 
 Route::get('/', function () {
 
-    $restaurants = Restaurant::all();
-    $restaurants = $restaurants->toJson();
+   $restaurants = Restaurant::all(); 
     $categories = Category::all();
 
     return view('welcome', compact('restaurants', 'categories'));
 });
+
+Route::get('/restaurants', 'RestaurantsController@index')->name('restaurants.index');
+Route::get('/restaurants/{restaurant}', 'RestaurantsController@show')->name('restaurants.show');
 
 Auth::routes();
 
