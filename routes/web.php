@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Restaurant;
+use App\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +17,15 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+   $restaurants = Restaurant::all(); 
+    $categories = Category::all();
+
+    return view('welcome', compact('restaurants', 'categories'));
 });
+
+Route::get('/restaurants', 'RestaurantsController@index')->name('restaurants.index');
+Route::get('/restaurants/{restaurant}', 'RestaurantsController@show')->name('restaurants.show');
 
 Auth::routes();
 

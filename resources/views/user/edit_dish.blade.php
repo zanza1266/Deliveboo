@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<h3>imagine attuale</h3>
+
+<img src="{{asset($dish->img)}}" alt="">
+
 <div class="">
-    <form class="" action="{{route('my-dishes.store', ['id_restaurant' => $restaurant_index])}}" method="post" enctype="multipart/form-data">
-    @method('post')
+    <form class="" action="{{route('my-dishes.update', $dish->id)}}" method="post" enctype="multipart/form-data">
+    @method('PUT')
     @csrf
 
     <div class="">
         <label for="name">Nome Piatto:</label>
-        <input class="" autocomplete="off" id="name" type="text" name="name" value="{{old('name')}}">
+        <input class="" autocomplete="off" id="name" type="text" name="name" value="{{$dish->name}}">
         @error('name')
             <p>{{ $message }}</p>
         @enderror
@@ -16,7 +21,7 @@
 
     <div class="">
         <label for="ingredients">Ingredienti Piatto:</label>
-        <input class="" autocomplete="off" id="ingredients" type="text" name="ingredients" value="{{old('ingredients')}}">
+        <input class="" autocomplete="off" id="ingredients" type="text" name="ingredients" value="{{$dish->ingredients}}">
         @error('ingredients')
             <p>{{ $message }}</p>
         @enderror
@@ -24,7 +29,7 @@
 
     <div class="">
         <label for="description">Descrizione Piatto:</label>
-        <input class="" autocomplete="off" id="description" type="text" name="description" value="{{old('description')}}">
+        <input class="" autocomplete="off" id="description" type="text" name="description" value="{{$dish->description}}">
         @error('description')
             <p>{{ $message }}</p>
         @enderror
@@ -32,7 +37,7 @@
 
     <div class="">
         <label for="price">Prezzo Piatto:</label>
-        <input class="" autocomplete="off" id="price" type="number" step=".01" name="price" value="{{old('price')}}">
+        <input class="" autocomplete="off" id="price" type="number" step=".01" name="price" value="{{$dish->price}}">
         @error('price')
             <p>{{ $message }}</p>
         @enderror
@@ -42,23 +47,20 @@
       <p>A che menu appartiene?</p>
       @foreach($types as $type)
       <label for="{{$type->name}}">{{$type->name}}</label>
-      <input id="{{$type->name}}" type="radio" name="type" value="{{$type->id}}">
+      <input id="{{$type->name}}" type="radio" name="type_id" value="{{$type->id}}" {{ $type->id == $dish->type_id ? 'checked' : '' }}>
       @endforeach
-      @error('type')
-      <p>{{ $message }}</p>
-      @enderror
     </div>
 
     <div class="">
-        <label for="create_dish_image">Immagine piatto:</label>
-        <input type="file" id="create_dish_image" name="create_dish_image">
-        @error('create_dish_image')
+        <label for="dish_image">Immagine piatto:</label>
+        <input type="file" id="dish_image" name="dish_image">
+        @error('dish_image')
         <p>{{ $message }}</p>
         @enderror
     </div>
 
     <div class="">
-        <button type="submit">Aggiungi</button>
+        <button type="submit">Modifica</button>
     </div>
 
     </form>
