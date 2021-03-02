@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Restaurant;
+
 use App\Category;
 use App\Dish;
 use Illuminate\Support\Facades\Auth;

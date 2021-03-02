@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Restaurant;
+use App\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $restaurant = Restaurant::all();
+    $category = Category::all();
+
+    return view('welcome',compact('restaurant','category'));
 });
 
 Auth::routes();
