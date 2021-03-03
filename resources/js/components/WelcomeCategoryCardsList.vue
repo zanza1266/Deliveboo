@@ -65,7 +65,7 @@ export default {
 
     mounted() {
 
-        console.log(JSON.parse(this.categories));
+        // console.log(JSON.parse(this.categories));
 
     },
 
@@ -93,36 +93,19 @@ export default {
 
         displaySearched() {
 
-            for (let i = 0; i < this.selectedCategories.length; i++){
+            let categoriesString = this.selectedCategories.join()
 
-                axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${this.selectedCategories[i]}`)
-                .then((res) =>{
 
-                    console.log(res.data.data);
+            axios.get(`http://127.0.0.1:8000/api/restaurants-filtered`, {
+                params: {
+                    categories: categoriesString
+                }
+            })
+            .then((res) =>{
 
-                    res.data.data.forEach(element => {
+                console.log(res.data);
 
-                        // if (!this.restauratsGroup.some(key => key.id == element.id)) {
-
-                        //     this.restauratsGroup.push(element)
-
-                        // }
-
-                        this.restauratsGroup.push(element);
-                    });
-                })
-            }
-
-            // for (let i = 0; i < this.selectedCategories.length - 1; i++) {
-
-            //     if (this.restauratsGroup.some(key => key.id == element.id)) {
-
-            //         let arrname = i;
-            //         let arrname = []
-
-            //     }
-            // }
-
+            })
         }
     }
 

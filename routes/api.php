@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('restaurants-resource/{id}', 'RestaurantsController@restaurantsAPI');
+
+
+Route::get('restaurants-filtered', 'RestaurantsController@restaurantsFiltered');

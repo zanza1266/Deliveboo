@@ -2050,8 +2050,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     categories: String
   },
-  mounted: function mounted() {
-    console.log(JSON.parse(this.categories));
+  mounted: function mounted() {// console.log(JSON.parse(this.categories));
   },
   data: function data() {
     return {
@@ -2070,25 +2069,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     displaySearched: function displaySearched() {
-      var _this2 = this;
-
-      for (var i = 0; i < this.selectedCategories.length; i++) {
-        axios.get("http://127.0.0.1:8000/api/restaurants-resource/".concat(this.selectedCategories[i])).then(function (res) {
-          console.log(res.data.data);
-          res.data.data.forEach(function (element) {
-            // if (!this.restauratsGroup.some(key => key.id == element.id)) {
-            //     this.restauratsGroup.push(element)
-            // }
-            _this2.restauratsGroup.push(element);
-          });
-        });
-      } // for (let i = 0; i < this.selectedCategories.length - 1; i++) {
-      //     if (this.restauratsGroup.some(key => key.id == element.id)) {
-      //         let arrname = i;
-      //         let arrname = []
-      //     }
-      // }
-
+      var categoriesString = this.selectedCategories.join();
+      axios.get("http://127.0.0.1:8000/api/restaurants-filtered", {
+        params: {
+          categories: categoriesString
+        }
+      }).then(function (res) {
+        console.log(res.data);
+      });
     }
   }
 });
