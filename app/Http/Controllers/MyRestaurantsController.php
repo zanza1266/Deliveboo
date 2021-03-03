@@ -8,6 +8,7 @@ use App\Category;
 use App\Dish;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RestaurantFormRequest;
+use App\Restaurant;
 
 use App\Http\Requests\UpdateRestaurantFormRequest;
 use Illuminate\Support\Facades\Storage;

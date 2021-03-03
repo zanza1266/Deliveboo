@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Restaurant;
 use App\Category;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +17,15 @@ use App\Category;
 */
 
 Route::get('/', function () {
-    $restaurant = Restaurant::all();
-    $category = Category::all();
 
-    return view('welcome',compact('restaurant','category'));
+   $restaurants = Restaurant::all(); 
+    $categories = Category::all();
+
+    return view('welcome', compact('restaurants', 'categories'));
 });
+
+Route::get('/restaurants', 'RestaurantsController@index')->name('restaurants.index');
+Route::get('/restaurants/{restaurant}', 'RestaurantsController@show')->name('restaurants.show');
 
 Auth::routes();
 

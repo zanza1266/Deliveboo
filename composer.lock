@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18934ccd94a8203942f39a7c11b4b723",
+    "content-hash": "82e3fa0758d8b5dfeecabf4d7c1cbb25",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5161,7 +5161,6 @@
         },
         {
             "name": "mockery/mockery",
-
             "version": "1.4.3",
             "source": {
                 "type": "git",
@@ -5228,11 +5227,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mockery/mockery/issues",
-
                 "source": "https://github.com/mockery/mockery/tree/1.4.3"
             },
             "time": "2021-02-24T09:51:49+00:00"
-
         },
         {
             "name": "myclabs/deep-copy",
