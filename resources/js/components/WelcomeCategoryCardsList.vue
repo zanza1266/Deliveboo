@@ -10,7 +10,7 @@
 
                 </div>
 
-                <a href="" @click="displaySearched()">Cerca</a>
+                <a href="#" @click="displaySearched()">Cerca</a>
             </div>
         </div>
 
@@ -93,21 +93,35 @@ export default {
 
         displaySearched() {
 
-            for (let i = -1; i < this.selectedCategories.length; i++) {
-
-                console.log(this.selectedCategories[i]);
+            for (let i = 0; i < this.selectedCategories.length; i++){
 
                 axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${this.selectedCategories[i]}`)
                 .then((res) =>{
 
-                    console.log(res.data);
+                    console.log(res.data.data);
 
-                    // res.data.data.forEach(element => {
-                    //     this.restauratsGroup.push(element)
-                    // });
+                    res.data.data.forEach(element => {
+
+                        // if (!this.restauratsGroup.some(key => key.id == element.id)) {
+
+                        //     this.restauratsGroup.push(element)
+
+                        // }
+
+                        this.restauratsGroup.push(element);
+                    });
                 })
             }
 
+            // for (let i = 0; i < this.selectedCategories.length - 1; i++) {
+
+            //     if (this.restauratsGroup.some(key => key.id == element.id)) {
+
+            //         let arrname = i;
+            //         let arrname = []
+
+            //     }
+            // }
 
         }
     }

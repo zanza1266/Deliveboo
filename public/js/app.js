@@ -2070,14 +2070,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     displaySearched: function displaySearched() {
-      for (var i = -1; i < this.selectedCategories.length; i++) {
-        console.log(this.selectedCategories[i]);
+      var _this2 = this;
+
+      for (var i = 0; i < this.selectedCategories.length; i++) {
         axios.get("http://127.0.0.1:8000/api/restaurants-resource/".concat(this.selectedCategories[i])).then(function (res) {
-          console.log(res.data); // res.data.data.forEach(element => {
-          //     this.restauratsGroup.push(element)
-          // });
+          console.log(res.data.data);
+          res.data.data.forEach(function (element) {
+            // if (!this.restauratsGroup.some(key => key.id == element.id)) {
+            //     this.restauratsGroup.push(element)
+            // }
+            _this2.restauratsGroup.push(element);
+          });
         });
-      }
+      } // for (let i = 0; i < this.selectedCategories.length - 1; i++) {
+      //     if (this.restauratsGroup.some(key => key.id == element.id)) {
+      //         let arrname = i;
+      //         let arrname = []
+      //     }
+      // }
+
     }
   }
 });
@@ -37839,7 +37850,7 @@ var render = function() {
           _c(
             "a",
             {
-              attrs: { href: "" },
+              attrs: { href: "#" },
               on: {
                 click: function($event) {
                   return _vm.displaySearched()
