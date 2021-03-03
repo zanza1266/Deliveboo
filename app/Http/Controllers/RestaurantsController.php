@@ -3,27 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Resources\RestaurantsResource;
 use App\Restaurant;
 use Illuminate\Http\Request;
 
 class RestaurantsController extends Controller
 {
 
-    public function index(Request $request)
+    // public function index(Request $request)
+    // {
+
+    //     $category = Category::find($request->all()['category']);
+    //     $restaurants = $category->categoryToRestaurant;
+
+    //   return view('guest.restaurants', compact('restaurants'));
+    // }
+
+
+
+    public function show(Restaurant $restaurant)
     {
 
-        $category = Category::find($request->all()['category']);
-        $restaurants = $category->categoryToRestaurant;
+      $dishes = $restaurant->restaurantToDish;
 
-      return view('guest.restaurants', compact('restaurants'));
+      return view('guest.restaurant', compact('restaurant', 'dishes'));
     }
 
 
 
-    public function show($id)
-    {
+    // RISORSE API
 
+    public function restaurantsAPI($id) {
 
-      return view('guest.restaurants', compact('restaurants'));
+      $category = Category::find($id);
+      $restaurants = $category->categoryToRestaurant;
+
+      return RestaurantsResource::collection($restaurants);
     }
 }

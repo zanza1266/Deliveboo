@@ -17,8 +17,6 @@
 
     </head>
     <body>
-
-        {{-- @dd($categories) --}}
         <div id="app">
             <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
@@ -37,17 +35,11 @@
             </div>
 
             <div class="category-cards">
-                <div class="container">
-                    <div class="row">
-                        <card-list  categories= {{json_encode($categories)}}>
 
-                        </card-list>
-                    </div>
-                </div>
+                <card-list  categories= {{json_encode($categories)}}></card-list>
+
             </div>
 
-            <div class="tutti-ristoranti">
-            </div>
         </div>
     </body>
 </html>
