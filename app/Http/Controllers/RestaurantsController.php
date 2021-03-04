@@ -64,7 +64,7 @@ class RestaurantsController extends Controller
           array_push($restCateg, $category->id);
         }
 
-        // dd(array_diff($restCateg, $arrCategories));
+        // dd(array_diff($arrCategories, $restCateg));
 
         if (array_diff($arrCategories, $restCateg) === []) {
 
