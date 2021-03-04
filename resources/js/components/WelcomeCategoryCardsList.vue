@@ -19,10 +19,6 @@
                 <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)" >
                     <div class="card-body d-flex justify-content-start align-items-end">
                         <h3 class="card-title"> {{category.name}} </h3>
-<<<<<<< HEAD
-                        <a href="#" @click="displayRestaurants(category.id)" class="btn btn-primary"> Vedi Ristoranti </a>
-=======
->>>>>>> main
                     </div>
                 </div>
             </div>
