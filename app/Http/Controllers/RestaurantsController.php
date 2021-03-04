@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Resources\RestaurantsResource;
 use App\Restaurant;
+use App\Http\Resources\RestaurantsResource;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class RestaurantsController extends Controller
 {
@@ -39,5 +40,41 @@ class RestaurantsController extends Controller
       $restaurants = $category->categoryToRestaurant;
 
       return RestaurantsResource::collection($restaurants);
+    }
+
+
+
+    public function restaurantsFiltered(Request $request) {
+
+      $resp = $request->all()['categories'];
+      $arrCategories = explode(",", $resp);
+
+      $restaurants = Restaurant::all();
+
+      $output = [];
+
+      foreach ($restaurants as $restaurant) {
+
+        $restCateg = [];
+        $categories = $restaurant->restaurantToCategory;
+
+
+        foreach($categories as $category) {
+
+          array_push($restCateg, $category->id);
+        }
+
+        // dd(array_diff($restCateg, $arrCategories));
+
+        if (array_diff($arrCategories, $restCateg) === []) {
+
+          array_push($output, $restaurant);
+        }
+      }
+
+      $collection = collect($output);
+
+
+      return RestaurantsResource::collection($collection);
     }
 }

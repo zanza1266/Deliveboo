@@ -87,44 +87,19 @@ export default {
 
         displaySearched() {
 
-            for (let i = 0; i < this.selectedCategories.length; i++){
+            let categoriesString = this.selectedCategories.join()
 
-                axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${this.selectedCategories[i]}`)
-                .then((res) =>{
-                    // console.log(res.data.data)
 
-                    res.data.data.forEach(element => {
-
-                        // if (!this.restauratsGroup.some(key => key.id == element.id)) {
-
-                            this.restauratsGroup.push(element)
-
-                        // }
-                        // console.log(element);
-                        // this.restauratsGroup.push(element);
-                    });
-                    
-                })
-                
-
-            }
-            // console.log(this.restauratsGroup)
-            
-            console.log(this.restauratsGroup);
-            this.restauratsGroup.forEach(element => {
-                this.restauratsGroup.forEach(other => {
-                    if(element.id == other.id && element.pivot.category_id !== other.pivot.category_id  ){
-                        this.containerFilter.push(element)
-                        
-                    }
-                })
+            axios.get(`http://127.0.0.1:8000/api/restaurants-filtered`, {
+                params: {
+                    categories: categoriesString
+                }
             })
-            const uniqueRestaurants = Array.from(new Set(this.containerFilter.map(a => a.id)))
-                .map(id => {
-                return this.containerFilter.find(a => a.id ===  id)
+            .then((res) =>{
+
+                console.log(res.data);
+
             })
-            console.log(uniqueRestaurants);
-            
         }
     }
 

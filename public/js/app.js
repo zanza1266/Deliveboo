@@ -2199,38 +2199,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     displaySearched: function displaySearched() {
-      var _this2 = this;
-
-      for (var i = 0; i < this.selectedCategories.length; i++) {
-        axios.get("http://127.0.0.1:8000/api/restaurants-resource/".concat(this.selectedCategories[i])).then(function (res) {
-          // console.log(res.data.data)
-          res.data.data.forEach(function (element) {
-            // if (!this.restauratsGroup.some(key => key.id == element.id)) {
-            _this2.restauratsGroup.push(element); // }
-            // console.log(element);
-            // this.restauratsGroup.push(element);
-
-          });
-        });
-      } // console.log(this.restauratsGroup)
-
-
-      console.log(this.restauratsGroup);
-      this.restauratsGroup.forEach(function (element) {
-        _this2.restauratsGroup.forEach(function (other) {
-          if (element.id == other.id && element.pivot.category_id !== other.pivot.category_id) {
-            _this2.containerFilter.push(element);
-          }
-        });
+      var categoriesString = this.selectedCategories.join();
+      axios.get("http://127.0.0.1:8000/api/restaurants-filtered", {
+        params: {
+          categories: categoriesString
+        }
+      }).then(function (res) {
+        console.log(res.data);
       });
-      var uniqueRestaurants = Array.from(new Set(this.containerFilter.map(function (a) {
-        return a.id;
-      }))).map(function (id) {
-        return _this2.containerFilter.find(function (a) {
-          return a.id === id;
-        });
-      });
-      console.log(uniqueRestaurants);
     }
   }
 });
