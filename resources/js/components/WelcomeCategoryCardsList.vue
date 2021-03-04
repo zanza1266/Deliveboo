@@ -10,7 +10,7 @@
 
                 </div>
 
-                <a href="" @click="displaySearched()">Cerca</a>
+                <a href="#" @click="displaySearched()">Cerca</a>
             </div>
         </div>
 
@@ -19,14 +19,11 @@
                 <div v-for="(category, index) in categoriesList" :key="index" class="card text-center" style="width: 18rem;">
                     <div class="card-body">
                         <h3 class="card-title"> {{category.name}} </h3>
-
                         <a href="#" @click="displayRestaurants(category.id)" class="btn btn-primary"> Vedi Ristoranti </a>
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 <ul>
@@ -102,10 +99,12 @@ export default {
 
                     console.log(res.data);
 
-                    // res.data.data.forEach(element => {
-                    //     this.restauratsGroup.push(element)
-                    // });
+                    //res.data.data.forEach(element => {
+                        //console.log(element);
+                        // this.restauratsGroup.push(element)
+                     //});
                 })
+                console.log(res.data.data);
             }
 
 
