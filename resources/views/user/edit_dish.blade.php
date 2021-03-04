@@ -60,6 +60,14 @@
     </div>
 
     <div class="">
+      <p>Piatto disponibile?</p>
+      <label for="si">Sì</label>
+      <input id="si" type="radio" name="avilable" value="1" {{ $dish->available == 1 ? 'checked' : '' }}>
+      <label for="no">No</label>
+      <input id="no" type="radio" name="available" value="0" {{ $dish->available == 0 ? 'checked' : '' }}>
+    </div>
+
+    <div class="">
         <button type="submit">Modifica</button>
     </div>
 

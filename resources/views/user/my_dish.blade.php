@@ -33,11 +33,7 @@
 
         <div class="row">
             <div class="col">
-                <form action="{{ route('my-dishes.destroy', $dish->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit">Elimina questo piatto</button>
-                </form>
+                <a href="{{ route('my-dishes.destroy', $dish->id) }}">Elimina il piatto</a>
                 <a href="{{ route('my-dishes.edit', $dish->id) }}">Modifica il piatto</a>
             </div>
         </div>
