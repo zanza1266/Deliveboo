@@ -2179,15 +2179,12 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     categories: String
   },
-  mounted: function mounted() {// console.log(JSON.parse(this.categories));
-  },
+  mounted: function mounted() {},
   data: function data() {
     return {
       categoriesList: JSON.parse(this.categories),
       displayedRestaurants: [],
-      selectedCategories: [],
-      restauratsGroup: [],
-      containerFilter: []
+      selectedCategories: []
     };
   },
   methods: {
@@ -2199,13 +2196,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     displaySearched: function displaySearched() {
+      var _this2 = this;
+
       var categoriesString = this.selectedCategories.join();
       axios.get("http://127.0.0.1:8000/api/restaurants-filtered", {
         params: {
           categories: categoriesString
         }
       }).then(function (res) {
-        console.log(res.data);
+        console.log(res.data.data);
+        _this2.displayedRestaurants = res.data.data;
       });
     }
   }
@@ -6705,7 +6705,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}", ""]);
+exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}", ""]);
 
 // exports
 
@@ -51722,8 +51722,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\deliveboo\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\gianl\Desktop\lavori\DeliveBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\gianl\Desktop\lavori\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
