@@ -62,7 +62,7 @@ export default {
 
     mounted() {
 
-        console.log(JSON.parse(this.categories));
+        // console.log(JSON.parse(this.categories));
 
     },
 
@@ -90,24 +90,19 @@ export default {
 
         displaySearched() {
 
-            for (let i = -1; i < this.selectedCategories.length; i++) {
-
-                console.log(this.selectedCategories[i]);
-
-                axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${this.selectedCategories[i]}`)
-                .then((res) =>{
-
-                    console.log(res.data);
-
-                    //res.data.data.forEach(element => {
-                        //console.log(element);
-                        // this.restauratsGroup.push(element)
-                     //});
-                })
-                console.log(res.data.data);
-            }
+            let categoriesString = this.selectedCategories.join()
 
 
+            axios.get(`http://127.0.0.1:8000/api/restaurants-filtered`, {
+                params: {
+                    categories: categoriesString
+                }
+            })
+            .then((res) =>{
+
+                console.log(res.data);
+
+            })
         }
     }
 

@@ -2050,8 +2050,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     categories: String
   },
-  mounted: function mounted() {
-    console.log(JSON.parse(this.categories));
+  mounted: function mounted() {// console.log(JSON.parse(this.categories));
   },
   data: function data() {
     return {
@@ -2070,14 +2069,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     displaySearched: function displaySearched() {
-      for (var i = -1; i < this.selectedCategories.length; i++) {
-        console.log(this.selectedCategories[i]);
-        axios.get("http://127.0.0.1:8000/api/restaurants-resource/".concat(this.selectedCategories[i])).then(function (res) {
-          console.log(res.data); // res.data.data.forEach(element => {
-          //     this.restauratsGroup.push(element)
-          // });
-        });
-      }
+      var categoriesString = this.selectedCategories.join();
+      axios.get("http://127.0.0.1:8000/api/restaurants-filtered", {
+        params: {
+          categories: categoriesString
+        }
+      }).then(function (res) {
+        console.log(res.data);
+      });
     }
   }
 });
@@ -37839,7 +37838,7 @@ var render = function() {
           _c(
             "a",
             {
-              attrs: { href: "" },
+              attrs: { href: "#" },
               on: {
                 click: function($event) {
                   return _vm.displaySearched()

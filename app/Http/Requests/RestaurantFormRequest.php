@@ -29,7 +29,7 @@ class RestaurantFormRequest extends FormRequest
             'phone' => 'bail|required|string|min:2|max:20',
             'create_logo' => 'bail|required|mimetypes:image/jpeg,image/png|max:2048',
             'open' => '',
-            'categories' => 'bail|required|max:3'
+            'categories' => 'bail|required'
         ];
     }
 }
