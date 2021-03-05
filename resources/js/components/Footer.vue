@@ -82,6 +82,9 @@ export default {
 
 $color-li : white;
 .section-footer{
+    
+    position: relative;
+    bottom: 0;
     overflow-x:hidden;
     background-color: #2e3333;
     width: 100%;

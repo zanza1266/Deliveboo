@@ -18,7 +18,7 @@
             </div>
         </div>
     </nav>
-    <jumbotron></jumbotron>
+    
     
     
 </div>
