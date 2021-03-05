@@ -39017,7 +39017,7 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticClass: " col d-flex justify-content-center flex-nowrap" },
+        { staticClass: "col d-flex justify-content-center flex-wrap" },
         _vm._l(_vm.categoriesList, function(category, index) {
           return _c(
             "div",
