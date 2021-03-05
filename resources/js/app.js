@@ -24,6 +24,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('card-list', require('./components/WelcomeCategoryCardsList.vue').default);
 Vue.component('section-footer', require('./components/Footer.vue').default);
 Vue.component('section-navbar', require('./components/Navbar.vue').default);
+Vue.component('add-button', require('./components/AddToCartButton.vue').default);
 
 
 /**
