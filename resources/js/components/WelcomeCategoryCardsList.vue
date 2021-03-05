@@ -151,5 +151,6 @@ ul{
 .restaurants-card:hover{
     transform: scale(1.2);
 }
+
 </style>
 </style>
