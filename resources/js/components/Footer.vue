@@ -6,7 +6,7 @@
             <div class="col-3">
                 <ul>
 
-                    <li><h6>Scopri Deliveroo</h6></li>
+                    <li><h6>Scopri DeliveBoo</h6></li>
                     <li><a href="#">Chi siamo</a></li>
                     <li><a href="#">Pressroom</a></li>
                     <li><a href="#">Il nostro blog</a></li>
@@ -46,7 +46,7 @@
 
                 <ul>
 
-                    <li><h6>Porta Deliveroo con te</h6></li>
+                    <li><h6>Porta DeliveBoo con te</h6></li>
                     <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SCcWWyYL-qlyts-92R7oxQuJseBK3qeQzH4AUNNKW4qKadazLxDtjcAIZgQwfXB2ybw&usqp=CAU" alt=""></li>
                     <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Play_Store_badge_IT.svg/640px-Google_Play_Store_badge_IT.svg.png" alt=""></li>
                     

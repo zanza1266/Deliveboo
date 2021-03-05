@@ -1,8 +1,8 @@
 <template>
 
-    <div class="container-fluid center-space">
+    <div class="container-fluid ">
         <div class="row">
-            <div class="col">
+            <div class="col-2">
                 <div v-for="(category, index) in categoriesList" :key="index">
 
                     <label :for=category.name>{{category.name}}</label>
@@ -12,10 +12,14 @@
 
                 <a href="#" @click="displaySearched()">Cerca</a>
             </div>
+<<<<<<< HEAD
         </div>
 
         <div class="row">
             <div class="col d-flex justify-content-center flex-wrap">
+=======
+            <div class=" col-10 d-flex justify-content-center flex-wrap">
+>>>>>>> main
                 <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)" >
                     <div class="card-body d-flex justify-content-start align-items-end">
                         <h3 class="card-title"> {{category.name}} </h3>
@@ -23,8 +27,15 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+        
+        
+
+
+>>>>>>> main
         <div class="row">
-            <div class="col">
+            <div class="offset-2 col-10">
                 <ul>
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
 
@@ -142,4 +153,13 @@ ul{
         }
     }
 }
+
+.restaurants-card{
+    width: 18rem;
+    transition: all 1s;
+}
+.restaurants-card:hover{
+    transform: scale(1.2);
+}
+</style>
 </style>
