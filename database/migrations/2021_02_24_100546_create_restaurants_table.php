@@ -20,7 +20,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('address', 100);
             $table->string('phone', 20);
             $table->string('logo', 256)->nullable(true);
-            $table->boolean('open')->default(0);
+            $table->boolean('open')->default(1);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });

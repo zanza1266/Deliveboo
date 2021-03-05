@@ -46,8 +46,8 @@
     <div class="">
       <p>A che menu appartiene?</p>
       @foreach($types as $type)
-      <label for="{{$type->name}}">{{$type->name}}</label>
-      <input id="{{$type->name}}" type="radio" name="type_id" value="{{$type->id}}" {{ $type->id == $dish->type_id ? 'checked' : '' }}>
+      <label for="{{$types->name}}">{{$types->name}}</label>
+      <input id="{{$types->name}}" type="radio" name="type_id" value="{{$type->id}}" {{ $type->id == $dish->type_id ? 'checked' : '' }}>
       @endforeach
     </div>
 
@@ -57,6 +57,14 @@
         @error('dish_image')
         <p>{{ $message }}</p>
         @enderror
+    </div>
+
+    <div class="">
+      <p>Piatto disponibile?</p>
+      <label for="si">Sì</label>
+      <input id="si" type="radio" name="available" value="1" {{ $dish->available == 1 ? 'checked' : '' }}>
+      <label for="no">No</label>
+      <input id="no" type="radio" name="available" value="0" {{ $dish->available == 0 ? 'checked' : '' }}>
     </div>
 
     <div class="">

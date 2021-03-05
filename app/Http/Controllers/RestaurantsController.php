@@ -11,21 +11,10 @@ use Illuminate\Database\Eloquent\Builder;
 class RestaurantsController extends Controller
 {
 
-    // public function index(Request $request)
-    // {
-
-    //     $category = Category::find($request->all()['category']);
-    //     $restaurants = $category->categoryToRestaurant;
-
-    //   return view('guest.restaurants', compact('restaurants'));
-    // }
-
-
-
     public function show(Restaurant $restaurant)
     {
 
-      $dishes = $restaurant->restaurantToDish;
+      $dishes = $restaurant->restaurantToDish->where("available", "=", 1);
 
       return view('guest.restaurant', compact('restaurant', 'dishes'));
     }
@@ -37,7 +26,7 @@ class RestaurantsController extends Controller
     public function restaurantsAPI($id) {
 
       $category = Category::find($id);
-      $restaurants = $category->categoryToRestaurant;
+      $restaurants = $category->categoryToRestaurant->where("open", "=", 1);
 
       return RestaurantsResource::collection($restaurants);
     }
@@ -49,7 +38,9 @@ class RestaurantsController extends Controller
       $resp = $request->all()['categories'];
       $arrCategories = explode(",", $resp);
 
-      $restaurants = Restaurant::all();
+      $restaurants = Restaurant::where("open", "=", 1)->get();
+
+      // dd($restaurants);
 
       $output = [];
 
@@ -64,7 +55,7 @@ class RestaurantsController extends Controller
           array_push($restCateg, $category->id);
         }
 
-        // dd(array_diff($restCateg, $arrCategories));
+        // dd(array_diff($arrCategories, $restCateg));
 
         if (array_diff($arrCategories, $restCateg) === []) {
 

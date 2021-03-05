@@ -1,8 +1,8 @@
 <template>
 
-    <div class="container-fluid center-space">
+    <div class="container-fluid ">
         <div class="row">
-            <div class="col">
+            <div class="col-2">
                 <div v-for="(category, index) in categoriesList" :key="index">
 
                     <label :for=category.name>{{category.name}}</label>
@@ -12,10 +12,7 @@
 
                 <a href="#" @click="displaySearched()">Cerca</a>
             </div>
-        </div>
-
-        <div class="row">
-            <div class=" col d-flex justify-content-center ">
+            <div class=" col-10 d-flex justify-content-center flex-wrap">
                 <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)" >
                     <div class="card-body d-flex justify-content-start align-items-end">
                         <h3 class="card-title"> {{category.name}} </h3>
@@ -23,13 +20,16 @@
                 </div>
             </div>
         </div>
+        
+        
+
 
         <div class="row">
-            <div class="col">
+            <div class="offset-2 col-10">
                 <ul>
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
-                        
-                        <div class="card restaurants-card" >
+
+                        <div class="card restaurants-card" style="width: 18rem;">
                             <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" >
                             <div class="card-body">
                                 <a class="card-title" :href="'restaurant/' + restaurant.id">{{restaurant.name}}</a>
@@ -58,7 +58,6 @@ export default {
 
     mounted() {
 
-        // console.log(JSON.parse(this.categories));
 
     },
 
@@ -67,10 +66,7 @@ export default {
 
             categoriesList: JSON.parse(this.categories),
             displayedRestaurants : [],
-            selectedCategories: [],
-            restauratsGroup: [],
-            containerFilter: []
-
+            selectedCategories: []
         }
     },
 
@@ -80,7 +76,7 @@ export default {
 
             axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${id}`)
             .then((res) =>{
-
+                
                 this.displayedRestaurants = res.data.data;
             })
         },
@@ -97,7 +93,8 @@ export default {
             })
             .then((res) =>{
 
-                console.log(res.data);
+                console.log(res.data.data);
+                this.displayedRestaurants = res.data.data;
 
             })
         }
@@ -115,7 +112,7 @@ export default {
     margin: 2px  3rem;
     cursor: pointer;
     background-color: rgb(6, 121, 121);
-    position: relative; 
+    position: relative;
     h3{
         font-weight: bold;
         color: white;
@@ -126,11 +123,12 @@ export default {
 }
 ul{
     display: flex;
+    flex-wrap: wrap;
     
     li{
         margin: 2rem;
         list-style: none;
-        
+
         a{
             color: black;
             font-size: 1.3rem;
@@ -145,6 +143,7 @@ ul{
         }
     }
 }
+
 .restaurants-card{
     width: 18rem;
     transition: all 1s;
@@ -152,4 +151,5 @@ ul{
 .restaurants-card:hover{
     transform: scale(1.2);
 }
+</style>
 </style>

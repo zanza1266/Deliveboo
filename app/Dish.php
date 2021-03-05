@@ -27,6 +27,6 @@ class Dish extends Model
     }
 
     protected $fillable = [
-        'name', 'ingredients', 'description', 'price', 'type_id'
+        'name', 'ingredients', 'description', 'price', 'type_id', 'available'
     ];
 }
