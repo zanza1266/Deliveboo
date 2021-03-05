@@ -2226,16 +2226,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     categories: String
@@ -39663,8 +39653,166 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid " }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-2" },
+        [
+          _vm._l(_vm.categoriesList, function(category, index) {
+            return _c("div", { key: index }, [
+              _c("label", { attrs: { for: category.name } }, [
+                _vm._v(_vm._s(category.name))
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selectedCategories,
+                    expression: "selectedCategories"
+                  }
+                ],
+                attrs: { type: "checkbox", id: category.name },
+                domProps: {
+                  value: category.id,
+                  checked: Array.isArray(_vm.selectedCategories)
+                    ? _vm._i(_vm.selectedCategories, category.id) > -1
+                    : _vm.selectedCategories
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.selectedCategories,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = category.id,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.selectedCategories = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.selectedCategories = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.selectedCategories = $$c
+                    }
+                  }
+                }
+              })
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  return _vm.displaySearched()
+                }
+              }
+            },
+            [_vm._v("Cerca")]
+          )
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: " col-10 d-flex justify-content-center flex-wrap" },
+        _vm._l(_vm.categoriesList, function(category, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "card text-center card_style",
+              on: {
+                click: function($event) {
+                  return _vm.displayRestaurants(category.id)
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "card-body d-flex justify-content-start align-items-end"
+                },
+                [
+                  _c("h3", { staticClass: "card-title" }, [
+                    _vm._v(" " + _vm._s(category.name) + " ")
+                  ])
+                ]
+              )
+            ]
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "offset-2 col-10" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.displayedRestaurants, function(restaurant, index) {
+            return _c("li", { key: index }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card restaurants-card",
+                  staticStyle: { width: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: { src: restaurant.logo, alt: "restaurant-logo" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "card-title",
+                        attrs: { href: "restaurant/" + restaurant.id }
+                      },
+                      [_vm._v(_vm._s(restaurant.name))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Indirizzo: " + _vm._s(restaurant.address))
+                    ]),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(
+                        "\n                                Telefono: " +
+                          _vm._s(restaurant.phone) +
+                          "\n                            "
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
