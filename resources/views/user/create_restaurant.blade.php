@@ -51,11 +51,11 @@
         </div>
 
         <div class="">
-          <p>Sei in ferie?</p>
+          <p>Sei aperto?</p>
           <label for="si">Sì</label>
-          <input id="si" type="radio" name="open" value="1">
+          <input id="si" type="radio" name="open" value="1" checked>
           <label for="no">No</label>
-          <input id="no" type="radio" name="open" value="0" checked>
+          <input id="no" type="radio" name="open" value="0">
         </div>
 
         <div class="">

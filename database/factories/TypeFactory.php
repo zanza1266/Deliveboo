@@ -5,6 +5,7 @@
 use App\Model;
 use Faker\Generator as Faker;
 use Carbon\Carbon;
+use App\Type;
 
 $factory->define(Type::class, function (Faker $faker) {
 

@@ -29,7 +29,8 @@ class DishesFormRequest extends FormRequest
           'description' => 'bail|nullable|string|min:2|max:200',
           'create_dish_image' => 'bail|required|mimetypes:image/jpeg,image/png|max:4096',
           'price' => 'bail|required|numeric|between:0,9999.99',
-          'type' => 'bail|required'
+          'type' => 'bail|required',
+          'available' => ''
         ];
     }
 }

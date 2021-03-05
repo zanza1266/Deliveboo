@@ -5,6 +5,7 @@
 use App\Model;
 use Faker\Generator as Faker;
 use Carbon\Carbon;
+use App\Category;
 
 $factory->define(Category::class, function (Faker $faker) {
 

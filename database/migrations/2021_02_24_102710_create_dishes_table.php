@@ -20,6 +20,8 @@ class CreateDishesTable extends Migration
             $table->mediumText('description')->nullable(true);
             $table->string('name', 30);
             $table->double('price', 6, 2);
+            $table->boolean('available')->default(1);
+            $table->boolean('deleted')->default(0);
             $table->string('img', 256)->nullable(true);
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');

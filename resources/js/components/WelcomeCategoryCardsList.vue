@@ -27,7 +27,7 @@
             <div class="col">
                 <ul>
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
-                        
+
                         <div class="card restaurants-card" style="width: 18rem;">
                             <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" >
                             <div class="card-body">
@@ -57,7 +57,6 @@ export default {
 
     mounted() {
 
-        // console.log(JSON.parse(this.categories));
 
     },
 
@@ -66,10 +65,7 @@ export default {
 
             categoriesList: JSON.parse(this.categories),
             displayedRestaurants : [],
-            selectedCategories: [],
-            restauratsGroup: [],
-            containerFilter: []
-
+            selectedCategories: []
         }
     },
 
@@ -79,7 +75,7 @@ export default {
 
             axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${id}`)
             .then((res) =>{
-
+                
                 this.displayedRestaurants = res.data.data;
             })
         },
@@ -96,7 +92,8 @@ export default {
             })
             .then((res) =>{
 
-                console.log(res.data);
+                console.log(res.data.data);
+                this.displayedRestaurants = res.data.data;
 
             })
         }
@@ -114,7 +111,7 @@ export default {
     margin: 2px  3rem;
     cursor: pointer;
     background-color: rgb(6, 121, 121);
-    position: relative; 
+    position: relative;
     h3{
         font-weight: bold;
         color: white;
@@ -125,11 +122,12 @@ export default {
 }
 ul{
     display: flex;
+    flex-wrap: wrap;
     
     li{
         margin: 2rem;
         list-style: none;
-        
+
         a{
             color: black;
             font-size: 1.3rem;
