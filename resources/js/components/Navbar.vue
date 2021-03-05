@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import Jumbotron from './Jumbotron'
+
 export default {
     components:{
-        Jumbotron
+       
     }
 }
 </script>
@@ -38,7 +38,7 @@ export default {
 nav{
     position: relative;
     background-color: #00ccbc;
-    height: 9rem;
+    height: 8rem;
     width: 100%;
     
     

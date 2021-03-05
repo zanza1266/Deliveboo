@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-                <section-navbar>
+                <section-navbar-white>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -54,11 +54,11 @@
                             </li>
                         @endguest
                     </ul>
-                </section-navbar>
+                </section-navbar-white>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        
+        @yield('content')
+        
         <section-footer></section-footer>
     </div>
 </body>
