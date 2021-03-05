@@ -28,7 +28,7 @@
             <div class="col">
                 <ul>
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
-                        
+
                         <div class="card restaurants-card" style="width: 18rem;">
                             <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" >
                             <div class="card-body">
@@ -112,7 +112,7 @@ export default {
     margin: 2px  3rem;
     cursor: pointer;
     background-color: rgb(6, 121, 121);
-    position: relative; 
+    position: relative;
     h3{
         font-weight: bold;
         color: white;
@@ -128,7 +128,7 @@ ul{
     li{
         margin: 2rem;
         list-style: none;
-        
+
         a{
             color: black;
             font-size: 1.3rem;

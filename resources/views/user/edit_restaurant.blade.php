@@ -44,7 +44,7 @@
         </div>
 
         <div class="">
-          <p>Sei in ferie?</p>
+          <p>Sei aperto?</p>
           <label for="si">Sì</label>
           <input id="si" type="radio" name="open" value="1" {{ $restaurant->open == 1 ? 'checked' : '' }}>
           <label for="no">No</label>

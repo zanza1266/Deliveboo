@@ -22,7 +22,7 @@ class MyDishesController extends Controller
     {
 
       $restaurant_index = $request->all()['id_restaurant'];
-      $dishes = Dish::where('restaurant_id', '=', $restaurant_index)->get();
+      $dishes = Dish::where('restaurant_id', '=', $restaurant_index)->where('deleted', '=', 0)->get();
 
       return view('user.my_dishes', compact('dishes', 'restaurant_index'));
     }
@@ -59,6 +59,7 @@ class MyDishesController extends Controller
       $newDish->description = $validated['description'];
       $newDish->price = $validated['price'];
       $newDish->type_id = $validated['type'];
+      $newDish->available = $validated['available'];
 
       $newDish->img = $request->file('create_dish_image')->storePublicly('dish_images');
 
@@ -126,7 +127,9 @@ class MyDishesController extends Controller
     {
       $dish = Dish::find($id);
       Storage::delete($dish->img);
-      $dish->delete();
+      $dish->available = 0;
+      $dish->deleted = 1;
+      $dish->save();
 
       return redirect()->route('my-dishes.index', ['id_restaurant' => $dish->restaurant_id]);
     }

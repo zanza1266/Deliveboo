@@ -29,7 +29,8 @@ class UpdateDishesFormRequest extends FormRequest
           'description' => 'bail|nullable|string|min:2|max:200',
           'dish_image' => 'bail|mimetypes:image/jpeg,image/png|max:4096',
           'price' => 'bail|required|numeric|between:0,9999.99',
-          'type_id' => 'bail|required'
+          'type_id' => 'bail|required',
+          'available' => ''
         ];
     }
 }

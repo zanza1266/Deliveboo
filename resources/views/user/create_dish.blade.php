@@ -58,6 +58,14 @@
     </div>
 
     <div class="">
+      <p>Piatto disponibile?</p>
+      <label for="si">Sì</label>
+      <input id="si" type="radio" name="available" value="1" checked>
+      <label for="no">No</label>
+      <input id="no" type="radio" name="available" value="0">
+    </div>
+
+    <div class="">
         <button type="submit">Aggiungi</button>
     </div>
 

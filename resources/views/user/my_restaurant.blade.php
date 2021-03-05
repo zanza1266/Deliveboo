@@ -24,7 +24,7 @@
                     @endforeach
                 </div>
 
-                <p>sei in ferie ?
+                <p>sei aperto?
                   @if($restaurant->open == 0)
                     no
                   @else

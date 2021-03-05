@@ -125,6 +125,7 @@ class MyRestaurantsController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $dishes = Dish::where('restaurant_id', '=', $restaurant->id);
+        Storage::delete($dishes->img);
         $dishes->delete();
         Storage::delete($restaurant->logo);
         $restaurant->restaurantToCategory()->detach();

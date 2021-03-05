@@ -18,7 +18,7 @@ use App\Category;
 
 Route::get('/', function () {
 
-   $restaurants = Restaurant::all(); 
+   $restaurants = Restaurant::all();
     $categories = Category::all();
 
     return view('welcome', compact('restaurants', 'categories'));
