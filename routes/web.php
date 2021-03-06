@@ -40,5 +40,15 @@ Route::get('checkout', function (Request $request) {
 
 
     $cart = json_decode($request->cart);
-    dd($cart);
+
+    $total = 0;
+
+    foreach ($cart as $item) {
+
+        $subTotal = $item->price * $item->quantity;
+
+        $total += $subTotal;
+    }
+
+    return view('guest.checkout', compact('cart', 'total'));
  });
