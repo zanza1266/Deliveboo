@@ -25,6 +25,14 @@ Vue.component('card-list', require('./components/WelcomeCategoryCardsList.vue').
 Vue.component('section-footer', require('./components/Footer.vue').default);
 Vue.component('section-navbar', require('./components/Navbar.vue').default);
 Vue.component('dishes-cart', require('./components/DishesCart.vue').default);
+Vue.component('jumbotron', require('./components/Jumbotron.vue').default);
+Vue.component('section-welcome', require('./components/WelcomePage.vue').default);
+Vue.component('section-navbar-white', require('./components/NavbarWhite.vue').default);
+Vue.component('form-restaurant-create', require('./components/FormRestaurantCreate.vue').default);
+
+
+
+
 
 
 /**
