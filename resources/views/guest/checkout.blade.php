@@ -39,7 +39,7 @@
                 <div class="col-6">
                     <p>Prezzo totale ordine: {{$total}} euro</p>
 
-                    <form action="{{route('my-dishes.store', ['' => ])}}" method="post">
+                    <form action="{{route('my-dishes.store')}}" method="post">
                         @method('post')
                         @csrf
 

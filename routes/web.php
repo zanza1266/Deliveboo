@@ -41,6 +41,8 @@ Route::get('checkout', function (Request $request) {
 
     $cart = json_decode($request->cart);
 
+    $request->session()->put('cart', $cart);
+    
     $total = 0;
 
     foreach ($cart as $item) {
