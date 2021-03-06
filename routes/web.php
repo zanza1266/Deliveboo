@@ -54,3 +54,9 @@ Route::get('checkout', function (Request $request) {
 
     return view('guest.checkout', compact('cart', 'total'));
  });
+
+ Route::get('session' , function(Request $request){
+     $provaCart = $request->session()->get('cart');
+
+     return view('prova', compact('provaCart'));
+ });
