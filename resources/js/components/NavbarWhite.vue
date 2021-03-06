@@ -38,7 +38,7 @@ export default {
 nav{
     position: relative;
     background-color: white;
-    height: 8rem;
+    height: 6rem;
     width: 100%;
     border-bottom: 1px solid lightgray;
     
