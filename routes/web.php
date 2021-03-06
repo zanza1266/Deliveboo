@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Restaurant;
 use App\Category;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/my-restaurants', 'MyRestaurantsController')->middleware('auth');
 
 Route::resource('/my-dishes', 'MyDishesController')->middleware('auth');
+
+Route::get('checkout', function (Request $request) {
+
+
+    $cart = json_decode($request->cart);
+    dd($cart);
+ });
