@@ -37,11 +37,26 @@
         <div class="row">
             <div class="col">
                 <a class="btn btn-info" href="{{route('my-restaurants.edit', $restaurant->id) }}">Modifica il ristorante</a>
-                <form action="{{ route('my-restaurants.destroy', $restaurant->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit">Elimina questo ristorante</button>
-                </form>
+
+
+
+                <div class="banner-container" v-show="isBannerRestaurant">
+
+                    <div class="banner">
+                        <form action="{{ route('my-restaurants.destroy', $restaurant->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+
+                            <h3>Sei sicuro di voler eliminare questo ristorante?</h3>
+                            <button type="submit" @click="activeBannerRestaurant">Elimina questo ristorante</button>
+                        </form>
+
+                        <a href="#" @click="activeBannerRestaurant">Annulla</a>
+                    </div>
+
+                </div>
+
+                <a href="#" @click="activeBannerRestaurant">Elimina Ristorante</a>
 
                 <a href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
 

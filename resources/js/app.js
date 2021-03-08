@@ -43,4 +43,21 @@ Vue.component('form-restaurant-create', require('./components/FormRestaurantCrea
 
 const app = new Vue({
     el: '#app',
+    data: {
+        isBannerDish: false,
+        isBannerRestaurant: false
+    },
+
+    methods: {
+
+        activeBannerDish() {
+
+            this.isBannerDish = !this.isBannerDish;
+        },
+
+        activeBannerRestaurant() {
+
+            this.isBannerRestaurant = !this.isBannerRestaurant;
+        }
+    }
 });
