@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col">
-                <h1>
+            <div class="col text-center">
+                <h1 style="text-transform:capitalize">
                     {{$restaurant->name}}
                 </h1>
 
