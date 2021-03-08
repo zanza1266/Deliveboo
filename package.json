@@ -26,6 +26,7 @@
     "dependencies": {
         "bootstrap": "^4.6.0",
         "bootstrap-vue": "^2.21.2",
+        "braintree": "^3.2.1",
         "vue": "^2.6.12"
     }
 }

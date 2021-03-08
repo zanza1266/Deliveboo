@@ -42,13 +42,13 @@
                         <span @click="more(index)">+</span>
                     </div>
 
-                    <button @click="removeCart(item.id)">Rimuovi</button>
+                    <button @click="removeCart(item.id, index)">Rimuovi</button>
 
                 </li>
             </ul>
         </div>
 
-        <a :href="'/checkout?cart='+ JSON.stringify(this.cart)">Checkout</a>
+        <a :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
     </div>
   
 </template>
@@ -126,13 +126,13 @@ export default {
             console.log(this.cart);
         },
 
-        removeCart(id) {
+        removeCart(id, index) {
 
             this.cart.forEach(element => {
 
                 if (element.id == id) {
 
-                    
+                    this.cart.splice(index, 1);
                 }
                 
             });
@@ -151,7 +151,7 @@ export default {
 
             if (this.cart[ind].quantity < 5) {
 
-                this.cart[ind].quantity += 1
+                this.cart[ind].quantity += 1;
             }
         }
     }

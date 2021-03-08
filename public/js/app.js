@@ -2057,9 +2057,13 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(this.cart);
     },
-    removeCart: function removeCart(id) {
+    removeCart: function removeCart(id, index) {
+      var _this = this;
+
       this.cart.forEach(function (element) {
-        if (element.id == id) {}
+        if (element.id == id) {
+          _this.cart.splice(index, 1);
+        }
       });
     },
     less: function less(ind) {
@@ -39183,7 +39187,7 @@ var render = function() {
               {
                 on: {
                   click: function($event) {
-                    return _vm.removeCart(item.id)
+                    return _vm.removeCart(item.id, index)
                   }
                 }
               },
@@ -39197,8 +39201,8 @@ var render = function() {
     _vm._v(" "),
     _c(
       "a",
-      { attrs: { href: "/checkout?cart=" + JSON.stringify(this.cart) } },
-      [_vm._v("Checkout")]
+      { attrs: { href: "/order-summary?cart=" + JSON.stringify(this.cart) } },
+      [_vm._v("Riepilogo Ordine")]
     )
   ])
 }
