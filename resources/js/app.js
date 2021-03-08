@@ -29,6 +29,8 @@ Vue.component('jumbotron', require('./components/Jumbotron.vue').default);
 Vue.component('section-welcome', require('./components/WelcomePage.vue').default);
 Vue.component('section-navbar-white', require('./components/NavbarWhite.vue').default);
 Vue.component('form-restaurant-create', require('./components/FormRestaurantCreate.vue').default);
+Vue.component('show-id', require('./components/ShowId.vue').default);
+
 
 
 
