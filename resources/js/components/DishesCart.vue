@@ -27,7 +27,7 @@
                     <p>
                         Nome Piatto: {{item.name}}
                     </p>
-
+                    
                     <small>
                         Prezzo: {{item.price}}
                     </small>
