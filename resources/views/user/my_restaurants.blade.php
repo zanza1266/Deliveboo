@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-
+<restaurant-index>
     <div class="container">
         <div class="row">
             <div class="col text-center my-4">
-               <button> <a href="{{route('my-restaurants.create')}}">Aggiungi ristorante</a></button>
+                <a href="{{route('my-restaurants.create')}}">Aggiungi ristorante</a>
             </div>
         </div>
     
         
         <div class="text-center my-4">
-                <h1 style="color:#00ccbc">I tuoi ristoranti</h1>
+                <h1>I tuoi ristoranti</h1>
                @foreach($restaurants as $restaurant)
-                <div class="card d-inline-block my-4" style="width: 18rem;">
+                <div class="card d-inline-block my-4">
               
                     <img src="{{$restaurant->logo}}" class="card-img-top" alt="restaurant-logo">
                         <div class="card-body">
@@ -28,7 +28,7 @@
         </div>
            
         </div>
-    </div>
-
+    
+</restaurant-index>
 
 @endsection
