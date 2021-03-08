@@ -52681,7 +52681,19 @@ Vue.component('show-id', __webpack_require__(/*! ./components/ShowId.vue */ "./r
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    isBannerDish: false,
+    isBannerRestaurant: false
+  },
+  methods: {
+    activeBannerDish: function activeBannerDish() {
+      this.isBannerDish = !this.isBannerDish;
+    },
+    activeBannerRestaurant: function activeBannerRestaurant() {
+      this.isBannerRestaurant = !this.isBannerRestaurant;
+    }
+  }
 });
 
 /***/ }),

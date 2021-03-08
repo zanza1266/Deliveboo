@@ -30,30 +30,27 @@
 
                     </div>
                 </div>
-            <img  alt="">
 
+                {{-- banner per autorizzare aliminazione piatto --}}
 
-                <h1>
-                    
-                </h1>
+                <div class="banner-container" v-show="isBannerDish">
 
-                <p>
-                    
-                </p>
+                    <div class="banner">
+                        <form action="{{ route('my-dishes.destroy', $dish->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+    
+                            <h3>Sei sicuro di voler eliminare questo piatto?</h3>
+                            <button type="submit" @click="activeBannerDish">Elimina</button>
+                        </form>
 
-                <p>
-                    
-                </p>
+                        <a href="#" @click="activeBannerDish">Annulla</a>
+                    </div>
 
+                </div>
 
-                <p>
-                    
-                </p>
-
-                <p>
-                    
-                </p>
-
+                <a href="#" @click="activeBannerDish">Elimina Piatto</a>
+        
             </div>
 
             
