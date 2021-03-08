@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
+@section('datetime-scripts')
+
+@endsection
+
 @section('content')
+
 
     <div>
         <div class="container">
@@ -39,8 +44,8 @@
                 <div class="col-6">
                     <p>Prezzo totale ordine: {{$total}} euro</p>
 
-                    <form action="" method="post">
-                        @method('post')
+                    <form id="payment-form" action="{{route('checkout')}}" method="post">
+                        @method('POST')
                         @csrf
 
                         <div class="form-group">
@@ -83,20 +88,57 @@
                             @enderror
                         </div>
 
+
+                        {{-- braintree --}}
+
                         <div class="form-group">
-                            <label class="label-control">Datetime Picker</label>
-                            <input type="text" class="form-control datetimepicker" value="10/05/2016">
+                            <div id="dropin-container"></div>
+                            <input type="hidden" id="nonce" name="payment_method_nonce"/>
+    
+                            <input type="submit" />
                         </div>
 
-
-                        <div class="">
-                            <button type="submit">Aggiungi</button>
-                        </div>
-                    
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+@endsection
+
+
+@section('scripts')
+
+<script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
+
+<script type="text/javascript">
+
+    var form = document.getElementById('payment-form');
+
+    braintree.dropin.create({
+
+        // container: document.getElementById('dropin-container'),
+        authorization: "{{$token}}",
+        container: '#dropin-container'
+
+    }, function (error, instance) {
+    
+        if (error) console.error(error);
+
+        form.addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            instance.requestPaymentMethod(function (error, payload) {
+
+                if (error) console.error(error);
+
+                document.getElementById('nonce').value = payload.nonce;
+
+            });
+        });
+    });
+
+</script>
 
 @endsection

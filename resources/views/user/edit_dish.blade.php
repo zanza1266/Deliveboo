@@ -46,8 +46,8 @@
     <div class="">
       <p>A che menu appartiene?</p>
       @foreach($types as $type)
-      <label for="{{$types->name}}">{{$types->name}}</label>
-      <input id="{{$types->name}}" type="radio" name="type_id" value="{{$type->id}}" {{ $type->id == $dish->type_id ? 'checked' : '' }}>
+      <label for="{{$type->name}}">{{$type->name}}</label>
+      <input id="{{$type->name}}" type="radio" name="type_id" value="{{$type->id}}" {{ $type->id == $dish->type_id ? 'checked' : '' }}>
       @endforeach
     </div>
 

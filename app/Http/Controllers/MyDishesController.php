@@ -92,6 +92,7 @@ class MyDishesController extends Controller
     {
       $types = Type::all();
       $dish = Dish::find($id);
+
       return view('user.edit_dish', compact('dish','types'));
     }
 

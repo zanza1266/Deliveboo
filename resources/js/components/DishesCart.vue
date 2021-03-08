@@ -48,7 +48,7 @@
             </ul>
         </div>
 
-        <a :href="'/checkout?cart='+ JSON.stringify(this.cart)">Checkout</a>
+        <a :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
     </div>
   
 </template>

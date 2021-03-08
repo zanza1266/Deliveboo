@@ -39201,8 +39201,8 @@ var render = function() {
     _vm._v(" "),
     _c(
       "a",
-      { attrs: { href: "/checkout?cart=" + JSON.stringify(this.cart) } },
-      [_vm._v("Checkout")]
+      { attrs: { href: "/order-summary?cart=" + JSON.stringify(this.cart) } },
+      [_vm._v("Riepilogo Ordine")]
     )
   ])
 }
