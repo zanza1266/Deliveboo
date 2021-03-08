@@ -9,7 +9,7 @@ use App\OrderedDish;
 use App\Http\Requests\OrderFormRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +102,8 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
 
     if ($result->success) {
+
+        // Mail::to(Auth::user()->email)->send(new PostUpdated());
 
         $transactionId = $result->transaction;
 
