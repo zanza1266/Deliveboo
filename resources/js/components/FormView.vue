@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 div{
-    text-align: center;
+    
     input[type="text"]{
         width: 50%;
         height: 50px;
@@ -20,6 +20,7 @@ div{
     }
 }
 .card-contact{
+    text-align: center;
     background-color:white;
     width: 50%;
     margin: 30px auto;

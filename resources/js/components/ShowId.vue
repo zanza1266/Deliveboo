@@ -29,7 +29,9 @@ div{
     img{
         text-align: center;
         width: 100%;
-        height: 6rem;
+        height: 18rem;
+        // object-fit: cover;
+        background-size: cover;
     }
     a:hover{
         color: white;

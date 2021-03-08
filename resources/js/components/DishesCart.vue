@@ -1,51 +1,65 @@
 <template>
-    <div>
-        <ul>
-            <li v-for="(dish, index) in allDishes" :key="index">
+    <div class="container-fluid">
+        <div class="row">
 
-                <img :src="'/' + dish.img" alt="" style="width: 100px">
+            <div class="col-10">
 
-                <h3>
-                    Nome Piatto: {{dish.name}}
-                </h3>
+                <ul class="d-flex  flex-wrap">
+                    <li v-for="(dish, index) in allDishes" :key="index">
+                        <div class="card" style="width:18rem">
+                            <img :src="'/' + dish.img" alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{dish.name}}</h5>
+                                <p class="card-text">Prezzo: {{dish.price}}</p>
+                                <button class="btn btn-primary" @click="addCart(dish)">Aggiungi al carrello</button>
+                                
+                            </div>
+                        </div>  
+                    </li>
+                </ul>
+            </div>
+            
 
-                <p>
-                    Prezzo: {{dish.price}}
-                </p>
 
-                <button @click="addCart(dish)">Aggiungi al carrello</button>
+            <!-- CARRELLO -->
 
-            </li>
-        </ul>
+            <div class="col-2">
+                <ul class="">
+                    <li v-for="(item, index) in cart" :key="index">
 
-        <!-- CARRELLO -->
+                        <strong>
+                            {{item.name}}
+                        </strong><br>
+                        
+                        <small>
+                            {{item.price}}€
+                        </small>
 
-        <div>
-            <ul>
-                <li v-for="(item, index) in cart" :key="index">
+                        <div>
+                            <span>Quantità: </span>
 
-                    <p>
-                        Nome Piatto: {{item.name}}
-                    </p>
-                    
-                    <small>
-                        Prezzo: {{item.price}}
-                    </small>
+                            <span @click="less(index)" class="cursor">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </span>
 
-                    <div>
-                        <span>Quantità: </span>
+                            <span>{{item.quantity}}</span>
 
-                        <span @click="less(index)">-</span>
+                            <span @click="more(index)" class="cursor">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <hr style="width:10rem">    
+                        <p class="text-danger cursor" @click="removeCart(item.id, index)">Rimuovi</p>
 
-                        <span>{{item.quantity}}</span>
-
-                        <span @click="more(index)">+</span>
-                    </div>
-
-                    <button @click="removeCart(item.id, index)">Rimuovi</button>
-
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <a :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
@@ -102,27 +116,6 @@ export default {
 
             }
 
-            // if (this.cart.length == 0) {
-
-            //     this.cart.push(item) 
-
-            // } else {
-
-            //     let putting = true;
-
-            //     for (let i = 0; i < this.cart.length; i++) {
-
-            //         if (item.id == this.cart[i].id) {
-            //             putting = false; 
-            //         } 
-            //     } 
-                
-            //     if (putting) {
-
-            //         this.cart.push(item); 
-            //     } 
-            // }
-
             console.log(this.cart);
         },
 
@@ -159,6 +152,25 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+ul{
+    list-style-type: none;
+    li{
+        margin: 0.8rem;
+    }
+}
+li > *,h1{
+    text-transform: capitalize;
+}
+img{
+    width: 100%;
+    height: 10rem;
+}
 
+.cursor:hover{
+    cursor: pointer;
+}
+i{
+    width: 30px;
+}
 </style>
