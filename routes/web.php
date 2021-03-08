@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Restaurant;
 use App\Category;
+use App\Order;
+use App\OrderedDish;
+use App\Http\Requests\OrderFormRequest;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,9 +71,16 @@ Route::get('order-summary', function (Request $request) {
 
 
 
-Route::post('/checkout', function(Request $request) {
+Route::post('/checkout', function(OrderFormRequest $request) {
 
-    // dd($request->session()->get('cart'));/
+    $validated = $request->validated();
+
+    $totalDishes = 0;
+    foreach($request->session()->get('cart') as $el) {
+
+        $totalDishes += $el->quantity;
+    }
+
 
     $gateway = new Braintree\Gateway([
         'environment' => 'sandbox',
@@ -93,6 +105,29 @@ Route::post('/checkout', function(Request $request) {
 
         $transactionId = $result->transaction;
 
+        $newOrder = new Order;
+        $newOrder->name = $validated['name'];
+        $newOrder->surname = $validated['surname'];
+        $newOrder->address = $validated['address'];
+        $newOrder->phone = $validated['phone'];
+        $newOrder->information = $validated['information'];
+        $newOrder->total_price = $request->session()->get('total');
+        $newOrder->total_dishes = $totalDishes;
+        $newOrder->date_order = Carbon::now()->format('Y-m-d h:i:s');
+        $newOrder->payment = 1;
+        $newOrder->save();
+
+        foreach($request->session()->get('cart') as $element) {
+
+           $newOrderedDish = new OrderedDish;
+           $newOrderedDish->unitary_price = $element->price;
+           $newOrderedDish->dish_quantity = $element->quantity;
+           $newOrderedDish->order_id = $newOrder->id;
+           $newOrderedDish->dish_id = $element->id;
+           $newOrderedDish->save();
+        }
+
+
         return view('guest.transaction_success', compact('transactionId'));
 
     } else {
@@ -102,7 +137,6 @@ Route::post('/checkout', function(Request $request) {
     }
 
 })->name('checkout');
-
 
 
 

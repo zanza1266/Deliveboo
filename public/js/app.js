@@ -52682,7 +52682,19 @@ Vue.component('show-elements', __webpack_require__(/*! ./components/ShowElements
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    isBannerDish: false,
+    isBannerRestaurant: false
+  },
+  methods: {
+    activeBannerDish: function activeBannerDish() {
+      this.isBannerDish = !this.isBannerDish;
+    },
+    activeBannerRestaurant: function activeBannerRestaurant() {
+      this.isBannerRestaurant = !this.isBannerRestaurant;
+    }
+  }
 });
 
 /***/ }),

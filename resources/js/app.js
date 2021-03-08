@@ -49,4 +49,21 @@ Vue.component('show-elements', require('./components/ShowElements.vue').default)
 
 const app = new Vue({
     el: '#app',
+    data: {
+        isBannerDish: false,
+        isBannerRestaurant: false
+    },
+
+    methods: {
+
+        activeBannerDish() {
+
+            this.isBannerDish = !this.isBannerDish;
+        },
+
+        activeBannerRestaurant() {
+
+            this.isBannerRestaurant = !this.isBannerRestaurant;
+        }
+    }
 });

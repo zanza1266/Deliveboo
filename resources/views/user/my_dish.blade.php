@@ -37,11 +37,25 @@
                 <a href="{{ route('my-dishes.edit', $dish->id) }}">Modifica il piatto</a>
 
 
-                <form action="{{ route('my-dishes.destroy', $dish->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit">Elimina</button>
-                </form>
+                {{-- banner per autorizzare aliminazione piatto --}}
+
+                <div class="banner-container" v-show="isBannerDish">
+
+                    <div class="banner">
+                        <form action="{{ route('my-dishes.destroy', $dish->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+    
+                            <h3>Sei sicuro di voler eliminare questo piatto?</h3>
+                            <button type="submit" @click="activeBannerDish">Elimina</button>
+                        </form>
+
+                        <a href="#" @click="activeBannerDish">Annulla</a>
+                    </div>
+
+                </div>
+
+                <a href="#" @click="activeBannerDish">Elimina Piatto</a>
         
             </div>
         </div>
