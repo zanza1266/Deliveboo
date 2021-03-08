@@ -7,7 +7,7 @@
 <script>
 
 export default {
-    name:'restaurant-index'
+    name:'show-elements'
 }
 </script>
 

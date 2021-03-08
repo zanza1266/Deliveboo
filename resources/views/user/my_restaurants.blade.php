@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<restaurant-index>
+<show-elements>
     <div class="container">
         <div class="row">
             <div class="col text-center my-4">
@@ -29,6 +29,6 @@
            
         </div>
     
-</restaurant-index>
+</show-elements>
 
 @endsection

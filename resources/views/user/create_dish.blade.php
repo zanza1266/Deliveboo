@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form-dish-create>
+<form-view>
 <div class="card-contact">
     <form class="" action="{{route('my-dishes.store', ['id_restaurant' => $restaurant_index])}}" method="post" enctype="multipart/form-data">
     @method('post')
@@ -60,7 +60,7 @@
         @enderror
     </div>
 
-    <div class="radio-available">
+    <div class="radio">
       <p>Piatto disponibile?</p>
       <label for="si">Sì</label>
       <input id="si" type="radio" name="available" value="1" checked>
@@ -74,5 +74,5 @@
 
     </form>
 </div>
-</form-dish-create>
+</form-view>
 @endsection

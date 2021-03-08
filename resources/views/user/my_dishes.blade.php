@@ -3,7 +3,7 @@
 @section('content')
 
     {{-- @dd($restaurant_index) --}}
-<dish-index>
+<show-elements>
     <div class="container">
         <div class="row">
             <div class="col text-center my-4">
@@ -25,5 +25,5 @@
     </div>
     
 
-</dish-index>
+</show-elements>
 @endsection

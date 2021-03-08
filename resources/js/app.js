@@ -24,17 +24,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('card-list', require('./components/WelcomeCategoryCardsList.vue').default);
 Vue.component('section-footer', require('./components/Footer.vue').default);
 Vue.component('section-navbar', require('./components/Navbar.vue').default);
-<<<<<<< HEAD
-=======
 Vue.component('dishes-cart', require('./components/DishesCart.vue').default);
->>>>>>> main
 Vue.component('jumbotron', require('./components/Jumbotron.vue').default);
 Vue.component('section-welcome', require('./components/WelcomePage.vue').default);
 Vue.component('section-navbar-white', require('./components/NavbarWhite.vue').default);
-Vue.component('form-restaurant-create', require('./components/FormRestaurantCreate.vue').default);
-Vue.component('restaurant-index', require('./components/RestaurantIndex.vue').default);
-Vue.component('dish-index', require('./components/DishIndex.vue').default);
-Vue.component('form-dish-create', require('./components/FormDishCreate.vue').default);
+Vue.component('form-view', require('./components/FormView.vue').default);
+Vue.component('show-elements', require('./components/ShowElements.vue').default);
+
+
 
 
 

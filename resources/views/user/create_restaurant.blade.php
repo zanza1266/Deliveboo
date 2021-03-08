@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form-restaurant-create>
+<form-view>
     <div class="card-contact">
         <form class="" action="{{ route('my-restaurants.store') }}" method="post" enctype="multipart/form-data">
         @method('post')
@@ -55,7 +55,7 @@
             @enderror
         </div>
 
-        <div class="radio-open">
+        <div class="radio">
           <p>Sei aperto?</p>
           <label for="si">Sì</label>
           <input id="si" type="radio" name="open" value="1" checked>
@@ -69,5 +69,5 @@
 
         </form>
     </div>
-</form-restaurant-create>
+</form-view>
 @endsection

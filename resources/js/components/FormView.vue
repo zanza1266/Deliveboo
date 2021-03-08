@@ -30,11 +30,11 @@ div{
 label{
     font-size: 1.2rem;
 }
-label:not(.checkbox-item label,.radio-open label){
+label:not(.checkbox-item label,.radio label){
     font-size: 1.2rem;
     font-weight:bold ;
 }
-.radio-open p,h4{
+.radio p,h4{
     font-weight: bold;
 }
 p{
