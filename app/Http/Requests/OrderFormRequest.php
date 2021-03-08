@@ -28,7 +28,8 @@ class OrderFormRequest extends FormRequest
             'surname' => 'bail|required|string|min:3|max:20',
             'phone' => 'bail|required|string|min:2|max:20',
             'address' => 'bail|required|string|min:2|max:100',
-            'information' => 'bail|nullable|string|max:200'
+            'information' => 'bail|nullable|string|max:200',
+            'email' => 'bail|required|string|min:3|max:50'
 
         ];
     }

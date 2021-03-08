@@ -110,6 +110,7 @@ Route::post('/checkout', function(OrderFormRequest $request) {
         $newOrder->surname = $validated['surname'];
         $newOrder->address = $validated['address'];
         $newOrder->phone = $validated['phone'];
+        $newOrder->information = $validated['email'];
         $newOrder->information = $validated['information'];
         $newOrder->total_price = $request->session()->get('total');
         $newOrder->total_dishes = $totalDishes;

@@ -7115,7 +7115,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.center-space{\r\n    width:80%;\r\n    margin: 0 auto;\n}\nhtml{\r\n    font-size: 15px;\n}\n*{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.center-space{\n    width:80%;\n    margin: 0 auto;\n}\nhtml{\n    font-size: 15px;\n}\n*{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n", ""]);
 
 // exports
 
@@ -53796,8 +53796,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\DeliveBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/mirko/DeliveBoo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/mirko/DeliveBoo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
