@@ -28,6 +28,8 @@ class CreateOrdersTable extends Migration
             $table->integer('minutes_delivered')->nullable(true);
             $table->double('total_price', 7, 2);
             $table->integer('total_dishes')->nullable(true);
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });
     }
 

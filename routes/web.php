@@ -104,7 +104,6 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
     if ($result->success) {
 
-
         $transactionId = $result->transaction;
 
         $newOrder = new Order;
@@ -118,6 +117,7 @@ Route::post('/checkout', function(OrderFormRequest $request) {
         $newOrder->total_dishes = $totalDishes;
         $newOrder->date_order = Carbon::now()->format('Y-m-d h:i:s');
         $newOrder->payment = 1;
+        $newOrder->restaurant_id = $request->session()->get('cart')[0]->restaurant_id;
         $newOrder->save();
 
         Mail::to($newOrder->email)->send(new OrderReceived());
@@ -144,9 +144,12 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 })->name('checkout');
 
 
-Route::get('/stats/{restaurant}', function (Restaurant $restaurant) {
+Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $request) {
 
-    dd($restaurant->id);
+    $year = $request->year;
 
-    return view('user.stats');
+    dd($restaurant->restaurantToOrder);
+
+
+    return view('user.stats', compact('restaurant'));
 })->name('stats');
