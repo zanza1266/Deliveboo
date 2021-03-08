@@ -28,6 +28,6 @@ class OrderReceived extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.order_received');
+        return $this->view('mails.order_received');
     }
 }

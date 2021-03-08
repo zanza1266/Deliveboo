@@ -7,6 +7,7 @@ use App\Category;
 use App\Order;
 use App\OrderedDish;
 use App\Http\Requests\OrderFormRequest;
+use App\Mail\OrderReceived;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
@@ -103,7 +104,6 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
     if ($result->success) {
 
-        // Mail::to(Auth::user()->email)->send(new PostUpdated());
 
         $transactionId = $result->transaction;
 
@@ -112,12 +112,15 @@ Route::post('/checkout', function(OrderFormRequest $request) {
         $newOrder->surname = $validated['surname'];
         $newOrder->address = $validated['address'];
         $newOrder->phone = $validated['phone'];
+        $newOrder->email = $validated['email'];
         $newOrder->information = $validated['information'];
         $newOrder->total_price = $request->session()->get('total');
         $newOrder->total_dishes = $totalDishes;
         $newOrder->date_order = Carbon::now()->format('Y-m-d h:i:s');
         $newOrder->payment = 1;
         $newOrder->save();
+
+        Mail::to($newOrder->email)->send(new OrderReceived());
 
         foreach($request->session()->get('cart') as $element) {
 
@@ -141,10 +144,9 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 })->name('checkout');
 
 
+Route::get('/stats/{restaurant}', function (Restaurant $restaurant) {
 
+    dd($restaurant->id);
 
-// Route::get('session' , function(Request $request){
-//     $provaCart = $request->session()->get('cart');
-
-//     return view('prova', compact('provaCart'));
-// });
+    return view('user.stats');
+})->name('stats');

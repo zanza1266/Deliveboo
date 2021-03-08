@@ -35,7 +35,7 @@
 
 
                             </div>
-                            
+
                         @endforeach
                     </div>
 
@@ -55,7 +55,7 @@
                                 <p>{{ $message }}</p>
                             @enderror
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="surname">Cognome:</label>
                             <input class="" autocomplete="off" id="surname" type="text" name="surname" value="{{old('surname')}}">
@@ -63,7 +63,7 @@
                                 <p>{{ $message }}</p>
                             @enderror
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="phone">Telefono:</label>
                             <input class="" autocomplete="off" id="phone" type="text" name="phone" value="{{old('phone')}}">
@@ -71,7 +71,15 @@
                                 <p>{{ $message }}</p>
                             @enderror
                         </div>
-                    
+
+                        <div class="form-group">
+                            <label for="phone">Email:</label>
+                            <input class="" autocomplete="off" id="email" type="text" name="email" value="{{old('email')}}">
+                            @error('email')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="form-group">
                             <label for="address">Indirizzo:</label>
                             <input class="" autocomplete="off" id="address" type="text" name="address" value="{{old('address')}}">
@@ -94,7 +102,7 @@
                         <div class="form-group">
                             <div id="dropin-container"></div>
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
-    
+
                             <input type="submit" />
                         </div>
 
@@ -122,7 +130,7 @@
         container: '#dropin-container'
 
     }, function (error, instance) {
-    
+
         if (error) console.error(error);
 
         form.addEventListener('submit', function (event) {
