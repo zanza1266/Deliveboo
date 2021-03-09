@@ -42,7 +42,15 @@ Route::resource('/my-restaurants', 'MyRestaurantsController')->middleware('auth'
 
 Route::resource('/my-dishes', 'MyDishesController')->middleware('auth');
 
+Route::post('/send-cart-data', function(Request $request) {
+
+    $cart = json_decode($request->cart);
+
+    $request->session()->put('cart', $cart);
+});
+
 Route::get('order-summary', function (Request $request) {
+
 
     $gateway = new Braintree\Gateway([
         'environment' => 'sandbox',
@@ -50,13 +58,10 @@ Route::get('order-summary', function (Request $request) {
         'publicKey' => 'qpyf7g338z7k862m',
         'privateKey' => 'd9a03f66933afa31343acd753c302269'
     ]);
-
     $token = $gateway->ClientToken()->generate();
 
 
-    $cart = json_decode($request->cart);
-
-    $request->session()->put('cart', $cart);
+    $cart = $request->session()->get('cart');
 
     $total = 0;
     foreach ($cart as $item) {
