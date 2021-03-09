@@ -9,16 +9,17 @@
                 <div class="card card-container ">
                     <img class="card-img-top"  src="{{asset($restaurant->logo)}}" alt="logo-restaurant">
                     <div class="card-body">
-                        <h2 class="card-title">Nome: {{$restaurant->name}}</h2>
-                        <p class="card-text">Indirizzo: {{$restaurant->address}}</p>
-                        <p class="card-text">Telefono: {{$restaurant->phone}}</p>
-                        <label for="categories">Categorie:</label>
-                        <select name="categories" id="categories">
+                        <h2 class="card-title"><strong>Nome:</strong> {{$restaurant->name}}</h2>
+                        <p class="card-text"><strong>Indirizzo:</strong> {{$restaurant->address}}</p>
+                        <p class="card-text"><strong>Telefono:</strong> {{$restaurant->phone}}</p>
+                        <label><strong>Categorie:</strong></label>
+                        <span class="d-flex justify-content-between flex-wrap">
                             @foreach ($restaurant->restaurantToCategory as $category)
-                            <option>{{$category->name}}</option>
+                                <p>{{$category->name}}</p>
+
                             @endforeach
-                        </select>
-                        <p class="card-text">Sei aperto?
+                        </span>
+                        <p class="card-text"><strong>Sei aperto?</strong>
                           @if($restaurant->open == 0)
                             No
                           @else

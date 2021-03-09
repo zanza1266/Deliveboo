@@ -37,12 +37,12 @@
                             </div>
 
                         @endforeach
+                        <p>Prezzo totale ordine: {{$total}} euro</p>
                     </div>
 
                 </div>
 
                 <div class="col-6">
-                    <p>Prezzo totale ordine: {{$total}} euro</p>
 
                     <form id="payment-form" action="{{route('checkout')}}" method="post">
                         @method('POST')
