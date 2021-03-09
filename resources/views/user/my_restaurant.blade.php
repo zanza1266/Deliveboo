@@ -29,6 +29,8 @@
                         <div class="row">
                             <div class="col">
                                 <a class="btn btn-outline-info my-2" href="{{route('my-restaurants.edit', $restaurant->id) }}">Modifica il ristorante</a>
+
+
                                 <div class="banner-container" v-show="isBannerRestaurant">
                                     
                                     <div class="banner">
@@ -47,6 +49,8 @@
                                 <button class="btn btn-outline-danger" @click="activeBannerRestaurant">Elimina Ristorante</button>
                 
                                 <a class="my-2 btn btn-outline-success" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
+
+                                <a class="btn btn-outline-info my-2" href="{{route('stats', $restaurant->id) }}">Vedi statistiche ristorante</a>
                 
                             </div>
                         </div>
