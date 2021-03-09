@@ -21,6 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('datetime-scripts')
+    @yield('chart-css')
 </head>
 <body>
     <div id="app">
@@ -59,9 +60,9 @@
                     </ul>
                 </section-navbar-white>
 
-        
+
         @yield('content')
-        
+
         <section-footer></section-footer>
     </div>
 
