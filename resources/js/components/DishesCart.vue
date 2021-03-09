@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-10">
+            <div  :class="cart.length > 0 ? 'col-10' : 'col-12' ">
 
                 <ul class="d-flex  flex-wrap">
                     <li v-for="(dish, index) in allDishes" :key="index">
-                        <div class="card" style="width:18rem">
+                        <div class="card" style="width:17rem">
                             <img :src="'/' + dish.img" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{dish.name}}</h5>
@@ -22,9 +22,10 @@
 
 
             <!-- CARRELLO -->
-
-            <div class="col-2">
-                <ul class="">
+            
+                
+            <div :class="cart.length > 0 ? 'col-2' : null " class=" overflow-cart">
+                <ul class="" v-if="cart.length > 0">
                     <li v-for="(item, index) in cart" :key="index">
 
                         <strong>
@@ -54,15 +55,16 @@
                                 </svg>
                             </span>
                         </div>
-                        <hr style="width:10rem">    
+                        <hr style="width:8rem">    
                         <p class="text-danger cursor" @click="removeCart(item.id, index)">Rimuovi</p>
 
                     </li>
                 </ul>
             </div>
+            <a class="text-right" v-if="cart.length > 0" :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
+                
         </div>
 
-        <a :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
     </div>
   
 </template>
@@ -170,7 +172,33 @@ img{
 .cursor:hover{
     cursor: pointer;
 }
-i{
-    width: 30px;
+.bi-dash-circle:active{
+    color: red;
+}
+
+.bi-plus-circle:active{
+    color: green;
+}
+.overflow-cart{
+    overflow-y: auto;
+    height: 25rem;
+    
+    li{
+        margin: 0;
+        padding:1rem ;
+        border-radius: 10px;
+    }
+}
+a{
+    position: absolute;
+    right:5%;
+    top: -50px;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 10px;
+    background-color: #227dc7;
+    color: white;
+    width: 8.7rem;
+
 }
 </style>

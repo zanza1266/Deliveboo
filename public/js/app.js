@@ -2024,6 +2024,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     dishes_json: String
@@ -6945,7 +6947,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "ul[data-v-e8a4609a] {\n  list-style-type: none;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\ni[data-v-e8a4609a] {\n  width: 30px;\n}", ""]);
+exports.push([module.i, "ul[data-v-e8a4609a] {\n  list-style-type: none;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\na[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}", ""]);
 
 // exports
 
@@ -7040,7 +7042,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "nav[data-v-4682205e] {\n  position: relative;\n  background-color: white;\n  height: 6rem;\n  width: 100%;\n  border-bottom: 1px solid lightgray;\n}\nnav ul[data-v-4682205e] {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\nnav ul li[data-v-4682205e] {\n  list-style: none;\n}\nnav ul li select[data-v-4682205e] {\n  border-radius: 5px;\n  padding: 0.2rem;\n}\nnav ul li svg[data-v-4682205e] {\n  width: 8rem;\n  height: 4rem;\n  color: #00ccbc;\n}\nnav ul li input[type=text i][data-v-4682205e] {\n  padding-left: 5px;\n  margin-left: 3rem;\n  border-radius: 0.3rem;\n  border: 2px solid white;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\nnav ul li .links a[data-v-4682205e] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n  border: 1px solid lightgray;\n}\nnav ul li .links a[data-v-4682205e]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}", ""]);
+exports.push([module.i, "nav[data-v-4682205e] {\n  position: relative;\n  background-color: white;\n  height: 6rem;\n  width: 100%;\n  border-bottom: 1px solid lightgray;\n}\nnav ul[data-v-4682205e] {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\nnav ul li[data-v-4682205e] {\n  list-style: none;\n}\nnav ul li select[data-v-4682205e] {\n  border-radius: 5px;\n  padding: 0.2rem;\n}\nnav ul li svg[data-v-4682205e] {\n  width: 8rem;\n  height: 4rem;\n  color: #00ccbc;\n}\nnav ul li input[type=text i][data-v-4682205e] {\n  padding-left: 5px;\n  margin-left: 3rem;\n  border-radius: 0.3rem;\n  border: 2px solid white;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\nnav ul li .nav-item[data-v-4682205e] {\n  margin: 0 5px;\n}\nnav ul li .nav-item .nav-link[data-v-4682205e] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.2rem;\n  border-radius: 0.5rem;\n  background: #067979;\n  color: white;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n  border: 1px solid #e0e0e0;\n}\nnav ul li .nav-item .nav-link[data-v-4682205e]:hover {\n  background-color: rgba(6, 121, 121, 0.692);\n  text-decoration: none;\n  color: white;\n}\nnav .dropdown-item[data-v-4682205e] {\n  width: 90%;\n  margin: 0 0.5rem;\n  color: #a82909;\n}", ""]);
 
 // exports
 
@@ -7116,7 +7118,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-a4d20914] {\n  position: relative;\n  height: 33rem;\n  width: 100%;\n  background-size: cover;\n  filter: brightness(60%);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.titolo[data-v-a4d20914] {\n  width: 100%;\n}\nh1[data-v-a4d20914] {\n  position: absolute;\n  top: 10rem;\n  left: 50%;\n  transform: translateX(-50%);\n  text-align: center;\n  color: white;\n  font-weight: bold;\n  font-size: 5rem;\n}", ""]);
+exports.push([module.i, ".list-restaurant[data-v-a4d20914] {\n  position: absolute;\n  top: -300px;\n  left: 44%;\n  color: white;\n  background-color: #067979;\n  padding: 0.8rem 1.5rem;\n  border-radius: 10px;\n}\n.list-restaurant[data-v-a4d20914]:hover {\n  text-decoration: none;\n}\nimg[data-v-a4d20914] {\n  position: relative;\n  height: 33rem;\n  width: 100%;\n  background-size: cover;\n  filter: brightness(60%);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.titolo[data-v-a4d20914] {\n  width: 100%;\n}\nh1[data-v-a4d20914] {\n  white-space: nowrap;\n  overflow: hidden;\n  position: absolute;\n  top: 10rem;\n  left: 50%;\n  transform: translateX(-50%);\n  text-align: center;\n  color: white;\n  font-weight: bold;\n  font-size: 4.2rem;\n}\n.anim-typewriter[data-v-a4d20914] {\n  -webkit-animation: typewriter-data-v-a4d20914 4s steps(44) 0.2s 1 normal both,blinkTextCursor-data-v-a4d20914 500ms steps(44) infinite normal;\n          animation: typewriter-data-v-a4d20914 4s steps(44) 0.2s 1 normal both,blinkTextCursor-data-v-a4d20914 500ms steps(44) infinite normal;\n}\n@-webkit-keyframes typewriter-data-v-a4d20914 {\nfrom {\n    width: 0;\n}\nto {\n    width: 24em;\n}\n}\n@keyframes typewriter-data-v-a4d20914 {\nfrom {\n    width: 0;\n}\nto {\n    width: 24em;\n}\n}\n@-webkit-keyframes blinkTextCursor-data-v-a4d20914 {\nfrom {\n    border-right-color: rgba(255, 255, 255, 0.75);\n}\nto {\n    border-right-color: transparent;\n}\n}\n@keyframes blinkTextCursor-data-v-a4d20914 {\nfrom {\n    border-right-color: rgba(255, 255, 255, 0.75);\n}\nto {\n    border-right-color: transparent;\n}\n}", ""]);
 
 // exports
 
@@ -39280,7 +39282,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-10" }, [
+      _c("div", { class: _vm.cart.length > 0 ? "col-10" : "col-12" }, [
         _c(
           "ul",
           { staticClass: "d-flex  flex-wrap" },
@@ -39288,7 +39290,7 @@ var render = function() {
             return _c("li", { key: index }, [
               _c(
                 "div",
-                { staticClass: "card", staticStyle: { width: "18rem" } },
+                { staticClass: "card", staticStyle: { width: "17rem" } },
                 [
                   _c("img", {
                     staticClass: "card-img-top",
@@ -39325,145 +39327,161 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-2" }, [
-        _c(
-          "ul",
-          {},
-          _vm._l(_vm.cart, function(item, index) {
-            return _c("li", { key: index }, [
-              _c("strong", [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(item.name) +
-                    "\n                    "
-                )
-              ]),
-              _c("br"),
-              _vm._v(" "),
-              _c("small", [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(item.price) +
-                    "€\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c("span", [_vm._v("Quantità: ")]),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "cursor",
-                    on: {
-                      click: function($event) {
-                        return _vm.less(index)
-                      }
-                    }
-                  },
-                  [
+      _c(
+        "div",
+        {
+          staticClass: " overflow-cart",
+          class: _vm.cart.length > 0 ? "col-2" : null
+        },
+        [
+          _vm.cart.length > 0
+            ? _c(
+                "ul",
+                {},
+                _vm._l(_vm.cart, function(item, index) {
+                  return _c("li", { key: index }, [
+                    _c("strong", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.name) +
+                          "\n                    "
+                      )
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.price) +
+                          "€\n                    "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("span", [_vm._v("Quantità: ")]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "cursor",
+                          on: {
+                            click: function($event) {
+                              return _vm.less(index)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "bi bi-dash-circle",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "16",
+                                height: "16",
+                                fill: "currentColor",
+                                viewBox: "0 0 16 16"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(item.quantity))]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "cursor",
+                          on: {
+                            click: function($event) {
+                              return _vm.more(index)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "bi bi-plus-circle",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "16",
+                                height: "16",
+                                fill: "currentColor",
+                                viewBox: "0 0 16 16"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("hr", { staticStyle: { width: "8rem" } }),
+                    _vm._v(" "),
                     _c(
-                      "svg",
+                      "p",
                       {
-                        staticClass: "bi bi-dash-circle",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "16",
-                          height: "16",
-                          fill: "currentColor",
-                          viewBox: "0 0 16 16"
+                        staticClass: "text-danger cursor",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeCart(item.id, index)
+                          }
                         }
                       },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
-                          }
-                        })
-                      ]
+                      [_vm._v("Rimuovi")]
                     )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.quantity))]),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "cursor",
-                    on: {
-                      click: function($event) {
-                        return _vm.more(index)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "bi bi-plus-circle",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "16",
-                          height: "16",
-                          fill: "currentColor",
-                          viewBox: "0 0 16 16"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("hr", { staticStyle: { width: "10rem" } }),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass: "text-danger cursor",
-                  on: {
-                    click: function($event) {
-                      return _vm.removeCart(item.id, index)
-                    }
-                  }
-                },
-                [_vm._v("Rimuovi")]
+                  ])
+                }),
+                0
               )
-            ])
-          }),
-          0
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "a",
-      { attrs: { href: "/order-summary?cart=" + JSON.stringify(this.cart) } },
-      [_vm._v("Riepilogo Ordine")]
-    )
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _vm.cart.length > 0
+        ? _c(
+            "a",
+            {
+              staticClass: "text-right",
+              attrs: {
+                href: "/order-summary?cart=" + JSON.stringify(this.cart)
+              }
+            },
+            [_vm._v("Riepilogo Ordine")]
+          )
+        : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = []
@@ -40683,7 +40701,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "titolo" }, [
-      _c("h1", [_vm._v("Benvenuto su Deliveboo")])
+      _c("h1", { staticClass: "anim-typewriter " }, [
+        _vm._v("Benvenuto su Deliveboo")
+      ])
     ])
   }
 ]
