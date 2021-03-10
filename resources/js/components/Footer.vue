@@ -1,5 +1,5 @@
 <template>
-<footer class="section-footer">
+<footer class="section-footer mt-auto">
 
     <div class="container-fluid center-space">
         <div class="row  overflow_x">
@@ -80,6 +80,12 @@ export default {
 
 <style lang="scss" scoped>
 
+footer{
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 $color-li : white;
 .section-footer{
     overflow-x:hidden;
@@ -148,16 +154,10 @@ $color-li : white;
         
     }
 }
-footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-}
-
 </style>
 <style>
 body{
-    margin-bottom:22rem;
+    margin-bottom: 22rem;
 }
 .center-space{
     width:80%;
@@ -166,6 +166,8 @@ body{
 html{
     font-size: 15px;
     width:100%;
+     position: relative;
+     min-height: 100%;
 }
 *{
     margin: 0;
