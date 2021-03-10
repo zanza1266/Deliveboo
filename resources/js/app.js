@@ -31,6 +31,7 @@ Vue.component('section-navbar-white', require('./components/NavbarWhite.vue').de
 Vue.component('form-view', require('./components/FormView.vue').default);
 Vue.component('show-elements', require('./components/ShowElements.vue').default);
 Vue.component('show-id', require('./components/ShowId.vue').default);
+Vue.component('charts', require('./components/chart.vue').default);
 
 
 
