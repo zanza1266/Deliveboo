@@ -31,7 +31,6 @@ Route::get('/', function () {
     return view('welcome', compact('restaurants', 'categories'));
 });
 
-// Route::get('/restaurants', 'RestaurantsController@index')->name('restaurants.index');
 Route::get('/restaurant/{restaurant}', 'RestaurantsController@show')->name('restaurants.show');
 
 Auth::routes();
@@ -142,90 +141,7 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
 Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $request) {
 
-    $years = [];
-    foreach ($restaurant->restaurantToOrder as $order) {
-      $date = $order->date_order;
-      $year = substr($date, 0, 4);
-      if (count($years) == 0) {
-        array_push($years, $year);
-      } elseif (!in_array($year, $years)) {
-        array_push($years, $year);
-      }
-    }
-
-    $months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-    $months_names = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
-    $orders_for_years = [];
-    $sub_orders_for_years = [];
-
-    foreach ($years as $year) {
-      $i = 0;
-      $count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''];
-      $sub_count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-      foreach ($restaurant->restaurantToOrder as $order) {
-        $date = $order->date_order;
-        $order_year = substr($date, 0, 4);
-        if ($order_year == $year) {
-          $count[12] += 1;
-          $count[13] = $year;
-        }
-      }
-      foreach ($months as $month) {
-        $i += 1;
-        foreach ($restaurant->restaurantToOrder as $order) {
-          $date = $order->date_order;
-          $order_year = substr($date, 0, 4);
-          $order_month = substr($date, 5, 2);
-          if (($order_year == $year) && ($order_month == $month)) {
-            $count[$i - 1] += 1;
-            $sub_count[$i - 1] += 1;
-          }
-        }
-      }
-      array_push($sub_orders_for_years, $sub_count);
-      array_push($count, $months_names);
-      array_push($orders_for_years, $count);
-    }
-
-    return view('user.stats', compact('orders_for_years', 'sub_orders_for_years', 'years'));
 
 
 
-
-    // $data = [
-    //     'ordini' =>[
-
-    //     ],
-
-    //     'piatti' =>[]
-    // ];
-
-    // foreach ($restaurant->restaurantToOrder as $order) {
-    //     $date = $order->date_order;
-
-    //     $year = substr($date, 0, 4);
-    //     if (count($data['ordini']) == 0) {
-    //       $data['ordini'][$year] = [];
-    //     } elseif (!in_array($year, $data['ordini'])) {
-    //         $data['ordini'][$year] = [];
-    //     }
-    // }
-
-
-    // foreach ($restaurant->restaurantToOrder as $order) {
-    //     $date = $order->date_order;
-
-    //     $year = substr($date, 0, 4);
-    //     if (count($data['piatti']) == 0) {
-    //       $data['piatti'][$year] = [];
-    //     } elseif (!in_array($year, $data['piatti'])) {
-    //         $data['piatti'][$year] = [];
-    //     }
-    // }
-
-    // dd($data);
-
-    // return view('user.stats');
-
-
-})->name('stats');
+})->middleware('auth')->name('stats');
