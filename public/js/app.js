@@ -2052,6 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     dishes_json: String,
@@ -2370,6 +2371,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {}
 });
@@ -2385,6 +2388,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -7086,7 +7091,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".section-footer[data-v-61a7c374] {\n  overflow-x: hidden;\n  background-color: #2e3333;\n  width: 100%;\n  height: 22rem;\n}\n.section-footer .overflow_x[data-v-61a7c374] {\n  overflow-x: auto;\n}\n.section-footer .overflow_x ul[data-v-61a7c374] {\n  min-width: 10rem;\n  width: 90%;\n  border-radius: 5px;\n  margin: 2rem 0;\n  background-color: #434848;\n  padding: 15px;\n  height: 80%;\n}\n.section-footer .overflow_x ul li[data-v-61a7c374] {\n  display: block;\n  color: white;\n  list-style: none;\n}\n.section-footer .overflow_x ul li h6[data-v-61a7c374] {\n  font-size: 100%;\n  font-weight: bold;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374] {\n  text-decoration: none;\n  color: white;\n  font-size: 95%;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .overflow_x ul li img[data-v-61a7c374] {\n  width: 60%;\n  height: 90%;\n  border-radius: 10px;\n  margin: 5px 0;\n  cursor: pointer;\n}\n.section-footer .bottom-footer[data-v-61a7c374] {\n  width: 100%;\n  padding: 0 15px;\n}\n.section-footer .bottom-footer i[data-v-61a7c374] {\n  color: white;\n  margin: 0.3rem;\n  cursor: pointer;\n}\n.section-footer .bottom-footer i[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .bottom-footer small[data-v-61a7c374] {\n  color: white;\n  color: #4f6f85;\n  font-size: 0.7rem;\n}\nfooter[data-v-61a7c374] {\n  left: 0;\n  bottom: 0;\n}", ""]);
+exports.push([module.i, "footer[data-v-61a7c374] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n}\n.section-footer[data-v-61a7c374] {\n  overflow-x: hidden;\n  background-color: #2e3333;\n  width: 100%;\n  height: 22rem;\n}\n.section-footer .overflow_x[data-v-61a7c374] {\n  overflow-x: auto;\n}\n.section-footer .overflow_x ul[data-v-61a7c374] {\n  min-width: 10rem;\n  width: 90%;\n  border-radius: 5px;\n  margin: 2rem 0;\n  background-color: #434848;\n  padding: 15px;\n  height: 80%;\n}\n.section-footer .overflow_x ul li[data-v-61a7c374] {\n  display: block;\n  color: white;\n  list-style: none;\n}\n.section-footer .overflow_x ul li h6[data-v-61a7c374] {\n  font-size: 100%;\n  font-weight: bold;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374] {\n  text-decoration: none;\n  color: white;\n  font-size: 95%;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .overflow_x ul li img[data-v-61a7c374] {\n  width: 60%;\n  height: 90%;\n  border-radius: 10px;\n  margin: 5px 0;\n  cursor: pointer;\n}\n.section-footer .bottom-footer[data-v-61a7c374] {\n  width: 100%;\n  padding: 0 15px;\n}\n.section-footer .bottom-footer i[data-v-61a7c374] {\n  color: white;\n  margin: 0.3rem;\n  cursor: pointer;\n}\n.section-footer .bottom-footer i[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .bottom-footer small[data-v-61a7c374] {\n  color: white;\n  color: #4f6f85;\n  font-size: 0.7rem;\n}", ""]);
 
 // exports
 
@@ -7105,7 +7110,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "div input[type=text][data-v-21cc3b18] {\n  width: 50%;\n  height: 35px;\n  margin: 0 auto;\n}\n.card-contact[data-v-21cc3b18] {\n  text-align: center;\n  background-color: white;\n  width: 50%;\n  margin: 30px auto;\n  padding: 20px 0px;\n  border-radius: 10px;\n  box-shadow: 5px 10px rgba(0, 0, 0, 0.1);\n}\nlabel[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nlabel[data-v-21cc3b18]:not(.checkbox-item label, .radio label) {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.radio p[data-v-21cc3b18], h4[data-v-21cc3b18] {\n  font-weight: bold;\n}\np[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nspan[data-v-21cc3b18] {\n  margin: 0 10px;\n}\n.checkbox-item[data-v-21cc3b18] {\n  width: 70%;\n  margin: 0 auto;\n}\nbutton[data-v-21cc3b18] {\n  font-size: 1.2rem;\n  width: 150px;\n  padding: 10px 15px;\n  background-color: #00CCBC;\n  border-radius: 10px;\n  color: white;\n  border: 1px solid #00CCBC;\n}\nbutton[data-v-21cc3b18]:hover {\n  background-color: #00a597;\n  transition: 0.4s;\n}", ""]);
+exports.push([module.i, "img[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}\ndiv input[type=text][data-v-21cc3b18] {\n  width: 50%;\n  height: 35px;\n  margin: 0 auto;\n}\n.card-contact[data-v-21cc3b18] {\n  text-align: center;\n  background-color: white;\n  width: 50%;\n  margin: 30px auto;\n  padding: 20px 0px;\n  border-radius: 10px;\n  box-shadow: 5px 10px rgba(0, 0, 0, 0.1);\n}\nlabel[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nlabel[data-v-21cc3b18]:not(.checkbox-item label, .radio label) {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.radio p[data-v-21cc3b18], h4[data-v-21cc3b18] {\n  font-weight: bold;\n}\np[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nspan[data-v-21cc3b18] {\n  margin: 0 10px;\n}\n.checkbox-item[data-v-21cc3b18] {\n  width: 70%;\n  margin: 0 auto;\n}\nbutton[data-v-21cc3b18] {\n  font-size: 1.2rem;\n  width: 150px;\n  padding: 10px 15px;\n  background-color: #00CCBC;\n  border-radius: 10px;\n  color: white;\n  border: 1px solid #00CCBC;\n}\nbutton[data-v-21cc3b18]:hover {\n  background-color: #00a597;\n  transition: 0.4s;\n}", ""]);
 
 // exports
 
@@ -7295,7 +7300,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody{\r\n    /* margin-bottom:22rem; */\n}\n.center-space{\r\n    width:80%;\r\n    margin: 0 auto;\n}\nhtml{\r\n    font-size: 15px;\r\n    width:100%;\n}\n*{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\nbody{\r\n    margin-bottom: 22rem;\n}\n.center-space{\r\n    width:80%;\r\n    margin: 0 auto;\n}\nhtml{\r\n    font-size: 15px;\r\n    width:100%;\r\n     position: relative;\r\n     min-height: 100%;\n}\n*{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -39692,19 +39697,19 @@ var render = function() {
               ],
               2
             )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.cart.length > 0
+          ? _c(
+              "button",
+              {
+                staticClass: "text-right go-summary",
+                on: { click: _vm.goSummary }
+              },
+              [_vm._v("Riepilogo Ordine")]
+            )
           : _vm._e()
       ]),
-      _vm._v(" "),
-      _vm.cart.length > 0
-        ? _c(
-            "button",
-            {
-              staticClass: "text-right go-summary",
-              on: { click: _vm.goSummary }
-            },
-            [_vm._v("Riepilogo Ordine")]
-          )
-        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
@@ -39830,7 +39835,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "section-footer" }, [
+    return _c("footer", { staticClass: "section-footer mt-auto" }, [
       _c("div", { staticClass: "container-fluid center-space" }, [
         _c("div", { staticClass: "row  overflow_x" }, [
           _c("div", { staticClass: "col-3" }, [
@@ -40644,10 +40649,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c("img", {
-        staticStyle: { "margin-top": "5px" },
-        attrs: { src: "deliveboo_img/logo.png", width: "150px" }
-      })
+      _c("a", { attrs: { href: "/" } }, [
+        _c("img", {
+          staticStyle: { "margin-top": "5px" },
+          attrs: { src: "deliveboo_img/logo.png", width: "150px" }
+        })
+      ])
     ])
   }
 ]
@@ -40679,27 +40686,29 @@ var render = function() {
           _c("div", { staticClass: "col" }, [
             _c("ul", [
               _c("li", [
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      href: "",
-                      height: "839",
-                      viewBox: "-22.8 232.4 490.8 131.6",
-                      width: "2500",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
-                  [
-                    _c("path", {
+                _c("a", { attrs: { href: "/" } }, [
+                  _c(
+                    "svg",
+                    {
                       attrs: {
-                        d:
-                          "M156.5 330.9h11.2l-1.9-8.7v-51.7h-10.7v23.6c-3.2-3.7-7.7-5.9-12.9-5.9-10.7 0-19 8.9-19 21.8 0 13 8.3 21.8 19 21.8 5.3 0 9.9-2.3 13.1-6.2zm211.6-31.1c2.2 0 4.2.6 6 1.9l5.1-11.4c-2.4-1.5-5.1-2.1-7.8-2.1-4.8 0-8.9 2.2-11.4 6.3l-1.1-5.3h-11l1.8 8.2V331h10.7v-26.7c1.4-2.8 4.1-4.5 7.7-4.5zm31.3 20.8c-6.2 0-10.8-4.1-10.8-10.5 0-6.5 4.6-10.5 10.8-10.5 6.3 0 10.8 4 10.8 10.5 0 6.3-4.5 10.5-10.8 10.5zM133.6 310c0-6.5 4.6-10.5 10.8-10.5 6.3 0 10.8 4 10.8 10.5 0 6.4-4.5 10.5-10.8 10.5-6.2.1-10.8-4.1-10.8-10.5zm313.3 10.6c-6.2 0-10.8-4.1-10.8-10.5 0-6.5 4.6-10.5 10.8-10.5 6.3 0 10.8 4 10.8 10.5-.1 6.3-4.6 10.5-10.8 10.5zm-253.2-21.7c5.5 0 9.1 2.6 10.3 7.4h-20.6c1.1-4.9 4.8-7.4 10.3-7.4zm127.9 0c5.5 0 9.1 2.6 10.3 7.4h-20.6c1.3-4.9 4.9-7.4 10.3-7.4zm-52.2 32h17.2l11.2-41.9h-11.7l-8.1 34-8.2-33.9h-11.5zm-27.5 0h10.7V289h-10.7zm-46.6.8c6 0 11.8-1.7 16.7-4.8l-4.1-9.2c-3.8 2.1-8.2 3.2-12.5 3.2-5.6 0-9.5-2.2-11.3-6.3h30.2c.3-1.6.5-3 .5-4.9 0-13-9-21.6-20.9-21.6-12.1 0-20.9 8.8-20.9 21.8-.1 13.3 8.7 21.8 22.3 21.8zM468 310c0-13-9-21.8-21.1-21.8-12.2 0-21.1 8.9-21.1 21.8s9 21.8 21.1 21.8S468 323 468 310zm-144.9 21.8c6 0 11.8-1.6 16.7-4.8l-4.1-9.2c-3.8 2.1-8.2 3.2-12.5 3.2-5.6 0-9.5-2.2-11.3-6.3h30.2c.3-1.6.5-3 .5-4.9 0-13-9-21.6-20.9-21.6-12.1 0-20.9 8.8-20.9 21.8 0 13.4 8.7 21.8 22.3 21.8zm76.3 0c12.2 0 21.1-8.9 21.1-21.8s-9-21.8-21.1-21.8c-12.2 0-21.1 8.9-21.1 21.8s8.9 21.8 21.1 21.8zm-177.8-.9h10.7v-60.4h-10.7zm25.7-47.6c3.7 0 6.7-3 6.7-6.8s-2.9-6.8-6.7-6.8-6.8 3-6.8 6.8 2.9 6.8 6.8 6.8zM63.4 232.4l-6.1 58-10.4-48.9-32.8 6.9 10.3 48.9-47.2 10 8.4 39L68.7 364l19-42.5 9-85.6zm-26.3 84.2c-1.7 1.6-3.9 1.4-6.4.6-2.4-.8-3.4-3.6-2.6-7.2.7-2.6 3.8-3 5.5-3 .6 0 1.2.1 1.8.4 1.1.5 3 1.6 3.4 3.2.6 2.4 0 4.4-1.7 6zm24.1 2.6c-1.3 2.2-4.5 2.5-7.8.9-2.2-1.1-2.2-3.7-1.9-5.4.1-.9.5-1.8 1.1-2.5.8-1 2.1-2.3 3.5-2.3 2.5-.1 4.5 1 5.7 3s.6 4.2-.6 6.3z",
-                        fill: "#00ccbc"
+                        href: "",
+                        height: "839",
+                        viewBox: "-22.8 232.4 490.8 131.6",
+                        width: "2500",
+                        xmlns: "http://www.w3.org/2000/svg"
                       }
-                    })
-                  ]
-                )
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M156.5 330.9h11.2l-1.9-8.7v-51.7h-10.7v23.6c-3.2-3.7-7.7-5.9-12.9-5.9-10.7 0-19 8.9-19 21.8 0 13 8.3 21.8 19 21.8 5.3 0 9.9-2.3 13.1-6.2zm211.6-31.1c2.2 0 4.2.6 6 1.9l5.1-11.4c-2.4-1.5-5.1-2.1-7.8-2.1-4.8 0-8.9 2.2-11.4 6.3l-1.1-5.3h-11l1.8 8.2V331h10.7v-26.7c1.4-2.8 4.1-4.5 7.7-4.5zm31.3 20.8c-6.2 0-10.8-4.1-10.8-10.5 0-6.5 4.6-10.5 10.8-10.5 6.3 0 10.8 4 10.8 10.5 0 6.3-4.5 10.5-10.8 10.5zM133.6 310c0-6.5 4.6-10.5 10.8-10.5 6.3 0 10.8 4 10.8 10.5 0 6.4-4.5 10.5-10.8 10.5-6.2.1-10.8-4.1-10.8-10.5zm313.3 10.6c-6.2 0-10.8-4.1-10.8-10.5 0-6.5 4.6-10.5 10.8-10.5 6.3 0 10.8 4 10.8 10.5-.1 6.3-4.6 10.5-10.8 10.5zm-253.2-21.7c5.5 0 9.1 2.6 10.3 7.4h-20.6c1.1-4.9 4.8-7.4 10.3-7.4zm127.9 0c5.5 0 9.1 2.6 10.3 7.4h-20.6c1.3-4.9 4.9-7.4 10.3-7.4zm-52.2 32h17.2l11.2-41.9h-11.7l-8.1 34-8.2-33.9h-11.5zm-27.5 0h10.7V289h-10.7zm-46.6.8c6 0 11.8-1.7 16.7-4.8l-4.1-9.2c-3.8 2.1-8.2 3.2-12.5 3.2-5.6 0-9.5-2.2-11.3-6.3h30.2c.3-1.6.5-3 .5-4.9 0-13-9-21.6-20.9-21.6-12.1 0-20.9 8.8-20.9 21.8-.1 13.3 8.7 21.8 22.3 21.8zM468 310c0-13-9-21.8-21.1-21.8-12.2 0-21.1 8.9-21.1 21.8s9 21.8 21.1 21.8S468 323 468 310zm-144.9 21.8c6 0 11.8-1.6 16.7-4.8l-4.1-9.2c-3.8 2.1-8.2 3.2-12.5 3.2-5.6 0-9.5-2.2-11.3-6.3h30.2c.3-1.6.5-3 .5-4.9 0-13-9-21.6-20.9-21.6-12.1 0-20.9 8.8-20.9 21.8 0 13.4 8.7 21.8 22.3 21.8zm76.3 0c12.2 0 21.1-8.9 21.1-21.8s-9-21.8-21.1-21.8c-12.2 0-21.1 8.9-21.1 21.8s8.9 21.8 21.1 21.8zm-177.8-.9h10.7v-60.4h-10.7zm25.7-47.6c3.7 0 6.7-3 6.7-6.8s-2.9-6.8-6.7-6.8-6.8 3-6.8 6.8 2.9 6.8 6.8 6.8zM63.4 232.4l-6.1 58-10.4-48.9-32.8 6.9 10.3 48.9-47.2 10 8.4 39L68.7 364l19-42.5 9-85.6zm-26.3 84.2c-1.7 1.6-3.9 1.4-6.4.6-2.4-.8-3.4-3.6-2.6-7.2.7-2.6 3.8-3 5.5-3 .6 0 1.2.1 1.8.4 1.1.5 3 1.6 3.4 3.2.6 2.4 0 4.4-1.7 6zm24.1 2.6c-1.3 2.2-4.5 2.5-7.8.9-2.2-1.1-2.2-3.7-1.9-5.4.1-.9.5-1.8 1.1-2.5.8-1 2.1-2.3 3.5-2.3 2.5-.1 4.5 1 5.7 3s.6 4.2-.6 6.3z",
+                          fill: "#00ccbc"
+                        }
+                      })
+                    ]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c("li", [_vm._t("default")], 2)

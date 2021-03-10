@@ -69,10 +69,11 @@
 
                     </li>
                 </ul>
+                <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+
 
             </div>
 
-            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
             <!-- Banner -->
 
