@@ -123,6 +123,31 @@
 
 <script type="text/javascript">
 
+var form = document.getElementById('payment-form');
+
+braintree.dropin.create({
+
+    // container: document.getElementById('dropin-container'),
+    authorization: "{{$token}}",
+    container: '#dropin-container'
+
+}, function (error, instance) {
+
+    if (error) console.error(error);
+
+    form.addEventListener('submit', function (event) {
+
+        event.preventDefault();
+
+        instance.requestPaymentMethod(function (error, payload) {
+
+            if (error) console.error(error);
+
+            document.getElementById('nonce').value = payload.nonce;
+
+        });
+    });
+});
 
 </script>
 

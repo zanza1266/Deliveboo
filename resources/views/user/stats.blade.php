@@ -7,22 +7,9 @@
 
 @section('content')
 
-{{-- @foreach ($years as $year)
-  <button type="button" name="button">{{$year}}</button>
-@endforeach --}}
-<canvas id="myChart" width="400" height="400"></canvas>
-@foreach ($orders_for_years as $orders_for_year)
-  <?php $index = 0; ?>
-  <h1>Nell'anno {{$orders_for_year[13]}} il tuo ristorante ha ricevuto un totale di {{$orders_for_year[12]}} ordini</h1>
-  <h3>Ordini per mese:</h3>
-  @foreach ($orders_for_year[14] as $month_name)
-    <ul>
-      <li>{{$month_name}}: {{$orders_for_year[$index]}}</li>
-    </ul>
-    <?php $index += 1; ?>
-  @endforeach
 
-@endforeach
+<canvas id="myChart" width="400" height="400"></canvas>
+
 
 
 @endsection

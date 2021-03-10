@@ -44,14 +44,14 @@ Route::resource('/my-dishes', 'MyDishesController')->middleware('auth');
 
 Route::get('order-summary', function (Request $request) {
 
-    // $gateway = new Braintree\Gateway([
-    //     'environment' => 'sandbox',
-    //     'merchantId' => '78rb6wd4qwjzhq8j',
-    //     'publicKey' => 'qpyf7g338z7k862m',
-    //     'privateKey' => 'd9a03f66933afa31343acd753c302269'
-    // ]);
+    $gateway = new Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => '78rb6wd4qwjzhq8j',
+        'publicKey' => 'qpyf7g338z7k862m',
+        'privateKey' => 'd9a03f66933afa31343acd753c302269'
+    ]);
 
-    // $token = $gateway->ClientToken()->generate();
+    $token = $gateway->ClientToken()->generate();
 
 
     $cart = json_decode($request->cart);
@@ -67,8 +67,7 @@ Route::get('order-summary', function (Request $request) {
 
     $request->session()->put('total', $total);
 
-    return view('guest.order_summary', compact('cart', 'total'));
-    // 'token'
+    return view('guest.order_summary', compact('cart', 'total', 'token'));
 });
 
 
@@ -84,61 +83,61 @@ Route::post('/checkout', function(OrderFormRequest $request) {
     }
 
 
-    // $gateway = new Braintree\Gateway([
-    //     'environment' => 'sandbox',
-    //     'merchantId' => '78rb6wd4qwjzhq8j',
-    //     'publicKey' => 'qpyf7g338z7k862m',
-    //     'privateKey' => 'd9a03f66933afa31343acd753c302269'
-    // ]);
+    $gateway = new Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => '78rb6wd4qwjzhq8j',
+        'publicKey' => 'qpyf7g338z7k862m',
+        'privateKey' => 'd9a03f66933afa31343acd753c302269'
+    ]);
 
 
 
-    // $result = $gateway->transaction()->sale([
-    //     'amount' => $request->session()->get('total'),
-    //     'paymentMethodNonce' => 'fake-valid-nonce',
-    //     'options' => [
-    //       'submitForSettlement' => True
-    //     ]
-    // ]);
+    $result = $gateway->transaction()->sale([
+        'amount' => $request->session()->get('total'),
+        'paymentMethodNonce' => 'fake-valid-nonce',
+        'options' => [
+          'submitForSettlement' => True
+        ]
+    ]);
 
 
 
-    // if ($result->success) {
-    //
-    //     $transactionId = $result->transaction;
-    //
-    //     $newOrder = new Order;
-    //     $newOrder->name = $validated['name'];
-    //     $newOrder->surname = $validated['surname'];
-    //     $newOrder->address = $validated['address'];
-    //     $newOrder->phone = $validated['phone'];
-    //     $newOrder->email = $validated['email'];
-    //     $newOrder->information = $validated['information'];
-    //     $newOrder->total_price = $request->session()->get('total');
-    //     $newOrder->total_dishes = $totalDishes;
-    //     $newOrder->date_order = Carbon::now()->format('Y-m-d h:i:s');
-    //     $newOrder->payment = 1;
-    //     $newOrder->restaurant_id = $request->session()->get('cart')[0]->restaurant_id;
-    //     $newOrder->save();
-    //
-    //     Mail::to($newOrder->email)->send(new OrderReceived());
-    //
-    //     foreach($request->session()->get('cart') as $element) {
-    //
-    //        $newOrderedDish = new OrderedDish;
-    //        $newOrderedDish->unitary_price = $element->price;
-    //        $newOrderedDish->dish_quantity = $element->quantity;
-    //        $newOrderedDish->order_id = $newOrder->id;
-    //        $newOrderedDish->dish_id = $element->id;
-    //        $newOrderedDish->save();
-    //     }
-    //
-    //
-    //     return view('guest.transaction_success', compact('transactionId'));
-    //
-    // }
+    if ($result->success) {
 
-    // $transactionId = $result->transaction;
+        $transactionId = $result->transaction;
+
+        $newOrder = new Order;
+        $newOrder->name = $validated['name'];
+        $newOrder->surname = $validated['surname'];
+        $newOrder->address = $validated['address'];
+        $newOrder->phone = $validated['phone'];
+        $newOrder->email = $validated['email'];
+        $newOrder->information = $validated['information'];
+        $newOrder->total_price = $request->session()->get('total');
+        $newOrder->total_dishes = $totalDishes;
+        $newOrder->date_order = Carbon::now()->format('Y-m-d h:i:s');
+        $newOrder->payment = 1;
+        $newOrder->restaurant_id = $request->session()->get('cart')[0]->restaurant_id;
+        $newOrder->save();
+
+        Mail::to($newOrder->email)->send(new OrderReceived());
+
+        foreach($request->session()->get('cart') as $element) {
+
+           $newOrderedDish = new OrderedDish;
+           $newOrderedDish->unitary_price = $element->price;
+           $newOrderedDish->dish_quantity = $element->quantity;
+           $newOrderedDish->order_id = $newOrder->id;
+           $newOrderedDish->dish_id = $element->id;
+           $newOrderedDish->save();
+        }
+
+
+        return view('guest.transaction_success', compact('transactionId'));
+
+    }
+
+    $transactionId = $result->transaction;
 
     $newOrder = new Order;
     $newOrder->name = $validated['name'];
@@ -154,7 +153,7 @@ Route::post('/checkout', function(OrderFormRequest $request) {
     $newOrder->restaurant_id = $request->session()->get('cart')[0]->restaurant_id;
     $newOrder->save();
 
-    // Mail::to($newOrder->email)->send(new OrderReceived());
+    Mail::to($newOrder->email)->send(new OrderReceived());
 
     foreach($request->session()->get('cart') as $element) {
 
@@ -167,8 +166,7 @@ Route::post('/checkout', function(OrderFormRequest $request) {
     }
 
 
-    return view('guest.transaction_success');
-    // compact('transactionId')
+    return view('guest.transaction_success', compact('transactionId'));
 
 })->name('checkout');
 
