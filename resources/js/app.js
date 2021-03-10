@@ -33,8 +33,9 @@ Vue.component('show-elements', require('./components/ShowElements.vue').default)
 Vue.component('show-id', require('./components/ShowId.vue').default);
 
 
-
-
+// VUE SESSION STORAGE
+import VueSessionStorage from 'vue-sessionstorage'
+Vue.use(VueSessionStorage)
 
 
 
@@ -49,6 +50,9 @@ const app = new Vue({
     data: {
         isBannerDish: false,
         isBannerRestaurant: false
+    },
+    mounted () {
+
     },
 
     methods: {
