@@ -141,7 +141,45 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
 Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $request) {
 
+    $years = [];
+    foreach ($restaurant->restaurantToOrder as $order) {
+      $date = $order->date_order;
+      $year = substr($date, 0, 4);
+      if (!in_array($year, $years)) {
+        array_push($years, $year);
+      }
+    }
 
+    $months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+    $months_names = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+    $orders_for_years = [];
 
+    foreach ($years as $year) {
+      $i = 0;
+      $count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''];
+      foreach ($restaurant->restaurantToOrder as $order) {
+        $date = $order->date_order;
+        $order_year = substr($date, 0, 4);
+        if ($order_year == $year) {
+          $count[12] += 1;
+          $count[13] = $year;
+        }
+      }
+      foreach ($months as $month) {
+        $i += 1;
+        foreach ($restaurant->restaurantToOrder as $order) {
+          $date = $order->date_order;
+          $order_year = substr($date, 0, 4);
+          $order_month = substr($date, 5, 2);
+          if (($order_year == $year) && ($order_month == $month)) {
+            $count[$i - 1] += 1;
+          }
+        }
+      }
+      array_push($count, $months_names);
+      array_push($orders_for_years, $count);
+    }
+
+    return view('user.stats', compact('orders_for_years', 'years'));
 
 })->middleware('auth')->name('stats');

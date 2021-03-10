@@ -64,35 +64,38 @@
 
     </div>
 
+    @foreach ($orders_for_years as $orders_for_year)
+      <div class="">
+        <h1>Nell'anno {{$orders_for_year[13]}} il tuo ristorante ha ricevuto un totale di {{$orders_for_year[12]}} ordini</h1>
+        <div class="" style="width: 800px; height: 400px;">
+          <canvas id="myChart{{$orders_for_year[13]}}"></canvas>
+        </div>
+      </div>
+    @endforeach
 
-    <canvas id="myChart" width="400" height="400"></canvas>
 
-
-
+    @foreach ($orders_for_years as $orders_for_year)
+    <?php
+      $clean_orders_for_year = [];
+      for ($i = 0; $i < 12 ; $i++) {
+        array_push($clean_orders_for_year, $orders_for_year[$i]);
+      }
+      $json = json_encode($clean_orders_for_year);
+    ?>
     <script>
-        var ctx = document.getElementById('myChart');
+        var ctx = document.getElementById('myChart{{$orders_for_year[13]}}');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [10, 19, 3, 5, 2, 3],
+                    label: 'numero di ordini',
+                    data: JSON.parse('{{$json}}'),
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -107,9 +110,8 @@
                 }
             }
         });
-
-        myChart.data.datasets[0].data = [3,3,3,3,3,3]
     </script>
+    @endforeach
 
 </body>
 </html>

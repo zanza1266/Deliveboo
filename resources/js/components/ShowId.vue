@@ -46,9 +46,15 @@ div{
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.733);
+    margin-top: 0px;
     .banner{
-        background-color: black;
+        background-color: white;
+        border: 2px solid #00ccbc;
+        border-radius: 5px;
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
