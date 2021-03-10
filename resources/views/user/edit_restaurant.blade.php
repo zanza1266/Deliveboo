@@ -3,9 +3,9 @@
 @section('content')
 <form-view>
     
-
-    <img src="{{asset($restaurant->logo)}}" alt="">
-
+    <div class="d-flex justify-content-center">
+        <img src="{{asset($restaurant->logo)}}" alt="">
+        </div>
     <div class="card-contact">
         <form class="" action="{{ route('my-restaurants.update' , $restaurant->id) }}" method="post" enctype="multipart/form-data">
         @method('PUT')

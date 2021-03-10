@@ -31,11 +31,16 @@ Vue.component('section-navbar-white', require('./components/NavbarWhite.vue').de
 Vue.component('form-view', require('./components/FormView.vue').default);
 Vue.component('show-elements', require('./components/ShowElements.vue').default);
 Vue.component('show-id', require('./components/ShowId.vue').default);
+Vue.component('register', require('./components/Register.vue').default);
+Vue.component('login', require('./components/Login.vue').default);
+
+
+
 
 
 // VUE SESSION STORAGE
-import VueSessionStorage from 'vue-sessionstorage'
-Vue.use(VueSessionStorage)
+    import VueSessionStorage from 'vue-sessionstorage'
+    Vue.use(VueSessionStorage)
 
 
 

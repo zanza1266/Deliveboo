@@ -26,6 +26,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 
 </head>
 <body>
@@ -34,6 +35,7 @@
 
         <section-navbar-white>
             <!-- Right Side Of Navbar -->
+            
             <ul class="navbar-nav ml-auto d-flex flex-row ">
                 <!-- Authentication Links -->
                 @guest
@@ -65,6 +67,7 @@
                     </li>
                 @endguest
             </ul>
+            
         </section-navbar-white>
 
         @yield('content')

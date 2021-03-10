@@ -15,7 +15,7 @@ div{
     
     input[type="text"]{
         width: 50%;
-        height: 50px;
+        height: 35px;
         margin: 0 auto;
     }
 }
@@ -62,7 +62,11 @@ button:hover{
     background-color:#00a597 ;
     transition: 0.4s;
 }
+img{
+    width: 15%;
+    height: 30%;
 
+}
 
 
 </style>

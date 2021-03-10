@@ -31,7 +31,6 @@ Route::get('/', function () {
     return view('welcome', compact('restaurants', 'categories'));
 });
 
-// Route::get('/restaurants', 'RestaurantsController@index')->name('restaurants.index');
 Route::get('/restaurant/{restaurant}', 'RestaurantsController@show')->name('restaurants.show');
 
 Auth::routes();

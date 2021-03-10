@@ -46,7 +46,7 @@
                         </small>
 
                         <div>
-                            <span>Quantità: </span>
+                            
 
                             <span @click="less(index)" class="cursor">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
@@ -69,9 +69,11 @@
 
                     </li>
                 </ul>
-            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
                 
+               
+ 
             </div>
+             <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
 
             <!-- Banner -->
@@ -79,13 +81,10 @@
             <div class="banner-container" v-show="isBannerCart">
 
                 <div class="banner">
-                  
-
                     <h3>Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?</h3>
 
                     <button class="btn btn-outline-success mx-2" @click="keepCurrentCart">Annulla</button>
-                    <button class="btn btn-outline-success mx-2" @click="startNewCart">Annulla</button>
-                    
+                    <button class="btn btn-outline-success mx-2" @click="startNewCart">Crea nuovo carrello</button>
                 </div>
 
             </div>
@@ -235,91 +234,159 @@ export default {
 
 <style lang="scss" scoped>
 
-.overflow-cart::-webkit-scrollbar {
-  width: 12px;               
-}
-
-.overflow-cart::-webkit-scrollbar-track {
-  background: black;        
-}
-
-.overflow-cart::-webkit-scrollbar-thumb {
-  background-color: #00ccbc;    
-  border-radius: 20px;       
-  border: 3px solid black; 
-  
-}
-h4{
-    font-size: 1.5rem;
-    font-family: 'Akaya Telivigala', cursive;
-}
-.overflow-cart{
-    font-family: 'Akaya Telivigala', cursive;
-    font-size: 1.2rem;
-    background-image: url("https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg");
-    background-size: cover;
-    border-radius:10px;
-    
-}
-ul{
-    list-style-type: none;
-    padding: 0;
-    li{
-        margin: 0.8rem;
+    .overflow-cart::-webkit-scrollbar {
+     width: 12px;               
     }
-}
-li > *,h1{
-    text-transform: capitalize;
-}
-img{
-    width: 100%;
-    height: 10rem;
-}
 
-.cursor:hover{
-    cursor: pointer;
-}
-.bi-dash-circle:active{
-    color: red;
-}
+    a{
 
-.bi-plus-circle:active{
-    color: green;
-}
-.overflow-cart{
-    overflow-y: auto;
-    height: 25rem;
+        color: #fff;
+        background-color: #00ccbc;
+        border-color: #00ccdc;
+        padding:0.5rem 0.75rem;
+        border-radius:5px;
+        margin-left: 15px;
+    }
+
+    a:hover{
+
+        text-decoration: none;
+        color: #fff;
+        background-color: #227dc7;
+        border-color: #2176bd;
+    }
+
+    .overflow-cart::-webkit-scrollbar {
+
+        width: 12px;
+    }
+
+    .overflow-cart::-webkit-scrollbar-track {
     
-    li{
-        margin: 0;
-        padding:1rem ;
+        background: black;
+    }
+
+    .overflow-cart::-webkit-scrollbar-thumb {
+
+        background-color: #00ccbc;    
+        border-radius: 20px;       
+        border: 3px solid black; 
+    }
+
+    h4{
+
+        font-size: 1.5rem;
+        font-family: 'Akaya Telivigala', cursive;
+    }
+
+    .overflow-cart{
+
+        font-family: 'Akaya Telivigala', cursive;
+        font-size: 1.2rem;
+        
+        border-radius:10px;
+    }
+
+    ul{
+    
+        list-style-type: none;
+        padding: 0;
+
+        li{
+
+            margin: 0.8rem;
+        }
+    }
+
+    li > *,h1{
+
+        text-transform: capitalize;
+    }
+
+    img{
+
+        width: 100%;
+        height: 10rem;
+    }
+
+    .cursor:hover{
+
+        cursor: pointer;
+    }
+    .bi-dash-circle:active{
+
+        color: red;
+    }
+
+    .bi-plus-circle:active{
+
+        color: green;
+    }
+
+    .overflow-cart{
+
+        overflow-y: auto;
+        height: 25rem;
+
+        li{
+
+            margin: 0;
+            padding:1rem ;
+            border-radius: 10px;
+        }
+    }
+
+    .go-summary{
+
+        position: absolute;
+        right:5%;
+        top: -50px;
+        text-decoration: none;
+        padding: 5px 12px;
         border-radius: 10px;
+        background-color: #227dc7;
+        color: white;
+        width: 8.7rem;
+    }
+
+    .go-summary{
+    
+        text-decoration: none;
+        padding: 5px 12px;
+        border-radius: 10px;
+        background-color: #227dc7;
+        color: white;
+        width: 8.7rem;
+    }
+    .d-flex li{
+        text-align: center;
         
     }
-}
-.go-summary{
-    
-    text-decoration: none;
-    padding: 5px 12px;
-    border-radius: 10px;
-    background-color: #227dc7;
-    color: white;
-    width: 8.7rem;
-}
-.d-flex li{
-    text-align: center;
-        
-}
-.card:hover{
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-}
-.card{
-border-radius:4px;
-border:0;  
+    .card:hover{
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
     }
+    .card{
+        border-radius:4px;
+        border:0;  
+        transition: 0.4s;
+    }
+
+    .card:hover{
     
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .card{
+
+        border-radius:4px;
+        border:0;
+ 
+    }
+
     .image-overlay {
-    position: relative;
+
+        position: relative;
+
         .middle {
         transition: .5s ease;
         opacity: 0;
@@ -339,21 +406,22 @@ border:0;
                       }
                     }
                 }  
-.image-overlay:hover img {
-    opacity: 0.3;
-    cursor: pointer;
-}
-.image-overlay:hover .middle {
-    opacity: 1;
-    cursor: pointer;
-}
-.btn{
-    width:50%;
-    margin: 0 auto;
-}
+    .image-overlay:hover img {
+        opacity: 0.3;
+        transition: 0.4s;
+        cursor: pointer;
+    }
+    .image-overlay:hover .middle {
+        opacity: 1;
+        cursor: pointer;
+    }
+    .btn{
+        width:50%;
+        margin: 0 auto;
+    }
 
-.banner-container {
-    border: 2px solid red;
-}
+    .banner-container {
+        border: 2px solid red;
+    }
 
 </style>

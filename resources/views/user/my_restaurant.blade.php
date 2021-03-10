@@ -34,15 +34,19 @@
                                 <div class="banner-container" v-show="isBannerRestaurant">
                                     
                                     <div class="banner">
+
+                                        <h3>Sei sicuro di voler eliminare questo ristorante?</h3>
+
                                         <form action="{{ route('my-restaurants.destroy', $restaurant->id) }}" method="post">
                                             @csrf
                                             @method('delete')
 
-                                            <h3>Sei sicuro di voler eliminare questo ristorante?</h3>
                                             <button class="btn btn-outline-danger" type="submit" @click="activeBannerRestaurant">Elimina questo ristorante</button>
                                         </form>
 
                                         <button class="btn btn-outline-success" @click="activeBannerRestaurant">Annulla</button>
+
+
                                     </div>
 
                                 </div>
