@@ -7,7 +7,7 @@
                 <h1 style="text-transform:capitalize">
                     {{$restaurant->name}}
                 </h1>
-
+                
                 <img src="{{asset($restaurant->logo)}}" alt="logo" style="width: 200px">
             </div>
         </div>
