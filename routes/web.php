@@ -140,6 +140,16 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
 
 Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $request) {
+    $years = [];
+    foreach ($restaurant->restaurantToOrder as $order) {
+      $date = $order->date_order;
+      $year = substr($date, 0, 4);
+      if (count($years) == 0) {
+        array_push($years, $year);
+      } elseif (!in_array($year, $years)) {
+        array_push($years, $year);
+      }
+    }
 
     $years = [];
     foreach ($restaurant->restaurantToOrder as $order) {

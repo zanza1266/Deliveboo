@@ -33,15 +33,15 @@ Vue.component('show-elements', require('./components/ShowElements.vue').default)
 Vue.component('show-id', require('./components/ShowId.vue').default);
 Vue.component('register', require('./components/Register.vue').default);
 Vue.component('login', require('./components/Login.vue').default);
-Vue.component('navbar-payment', require('./components/NavbarPayment.vue').default);
+
 
 
 
 
 
 // VUE SESSION STORAGE
-    import VueSessionStorage from 'vue-sessionstorage'
-    Vue.use(VueSessionStorage)
+import VueSessionStorage from 'vue-sessionstorage'
+Vue.use(VueSessionStorage)
 
 
 
@@ -57,7 +57,7 @@ const app = new Vue({
         isBannerDish: false,
         isBannerRestaurant: false
     },
-    mounted () {
+    mounted() {
 
     },
 

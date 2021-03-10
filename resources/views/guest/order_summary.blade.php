@@ -1,7 +1,7 @@
-<navbar-payment>
 
-    @extends('layouts.app')
-</navbar-payment>
+
+@extends('layouts.app')
+
 
 @section('datetime-scripts')
 
