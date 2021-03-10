@@ -38,8 +38,8 @@ Vue.component('login', require('./components/Login.vue').default);
 
 
 // VUE SESSION STORAGE
-    import VueSessionStorage from 'vue-sessionstorage'
-    Vue.use(VueSessionStorage)
+import VueSessionStorage from 'vue-sessionstorage'
+Vue.use(VueSessionStorage)
 
 
 
@@ -55,7 +55,7 @@ const app = new Vue({
         isBannerDish: false,
         isBannerRestaurant: false
     },
-    mounted () {
+    mounted() {
 
     },
 

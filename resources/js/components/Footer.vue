@@ -1,5 +1,5 @@
 <template>
-<div class="section-footer">
+<footer class="section-footer">
 
     <div class="container-fluid center-space">
         <div class="row  overflow_x">
@@ -69,7 +69,7 @@
 
         </div>
     </div>
-</div>
+</footer>
 </template>
 
 <script>
@@ -148,16 +148,24 @@ $color-li : white;
         
     }
 }
-
+footer{
+    // position: fixed;
+    left: 0;
+    bottom: 0;
+}
 
 </style>
 <style>
+body{
+    /* margin-bottom:22rem; */
+}
 .center-space{
     width:80%;
     margin: 0 auto;
 }
 html{
     font-size: 15px;
+    width:100%;
 }
 *{
     margin: 0;

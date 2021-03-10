@@ -78,8 +78,9 @@ class MyDishesController extends Controller
     public function show($id)
     {
       $dish = Dish::find($id);
+      $restaurant_index = $dish->restaurant_id;
 
-      return view('user.my_dish', compact('dish'));
+      return view('user.my_dish', compact('dish', 'restaurant_index'));
     }
 
     /**
@@ -92,8 +93,9 @@ class MyDishesController extends Controller
     {
       $types = Type::all();
       $dish = Dish::find($id);
+      $restaurant_index = $dish->restaurant_id;
 
-      return view('user.edit_dish', compact('dish','types'));
+      return view('user.edit_dish', compact('dish','types', 'restaurant_index'));
     }
 
     /**
