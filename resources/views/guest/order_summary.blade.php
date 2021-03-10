@@ -102,11 +102,8 @@
                         <div class="form-group">
                             <div id="dropin-container"></div>
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
-
-                            <input type="submit" />
+                            <button type="submit" name="button">Conferma Ordine</button>
                         </div>
-
-                        <button type="submit" name="button">button</button>
 
                     </form>
                 </div>
@@ -123,31 +120,31 @@
 
 <script type="text/javascript">
 
-var form = document.getElementById('payment-form');
+    var form = document.getElementById('payment-form');
 
-braintree.dropin.create({
+    braintree.dropin.create({
 
-    // container: document.getElementById('dropin-container'),
-    authorization: "{{$token}}",
-    container: '#dropin-container'
+        container: document.getElementById('dropin-container'),
+        authorization: "{{$token}}",
+        container: '#dropin-container'
 
-}, function (error, instance) {
+    }, function (error, instance) {
 
-    if (error) console.error(error);
+        if (error) console.error(error);
 
-    form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function (event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        instance.requestPaymentMethod(function (error, payload) {
+            instance.requestPaymentMethod(function (error, payload) {
 
-            if (error) console.error(error);
+                if (error) console.error(error);
 
-            document.getElementById('nonce').value = payload.nonce;
+                document.getElementById('nonce').value = payload.nonce;
 
+            });
         });
     });
-});
 
 </script>
 

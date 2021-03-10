@@ -22,8 +22,7 @@
 
 
             <!-- CARRELLO -->
-            
-                
+
             <div :class="cart.length > 0 ? 'col-2' : null " class=" overflow-cart">
                 <ul class="" v-if="cart.length > 0">
                     <li v-for="(item, index) in cart" :key="index">
@@ -61,8 +60,31 @@
                     </li>
                 </ul>
             </div>
-            <a class="text-right" v-if="cart.length > 0" :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
-                
+
+            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+
+            <!-- Banner -->
+
+            <div class="banner-container" v-show="isBannerCart">
+
+                <div class="banner">
+                    <!-- <form action="{{ route('my-dishes.destroy', $dish->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+
+                        <h3>Sei sicuro di voler eliminare questo piatto?</h3>
+                        <button class="btn btn-outline-danger" @click="activeBannerDish">Elimina</button>
+                    </form> -->
+
+                    <h3>Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?</h3>
+
+                    <button class="btn btn-outline-success mx-2" @click="keepCurrentCart">Annulla</button>
+                    <button class="btn btn-outline-success mx-2" @click="startNewCart">Annulla</button>
+                    
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -76,49 +98,65 @@ export default {
     },
     mounted() {
 
-        this.allDishes = JSON.parse(this.dishes_json)
+        this.allDishes = JSON.parse(this.dishes_json);
 
+        if (this.$session.exists('cart')) {
+
+            this.cart = this.$session.get('cart');
+        }
     },
     data: function() {
         return {
 
             allDishes: null,
-            cart: []
-
+            cart: [],
+            idRestaurantInCart: null,
+            isBannerCart: false,
+            tmpItem: null
         }
     },
+
     methods: {
 
         addCart (item) {
 
             if (!item.quantity) {
-                
-            Vue.set(item, 'quantity', 1);
 
+                Vue.set(item, 'quantity', 1);
             }
 
 
             if (this.cart.length == 0) {
 
                 this.cart.push(item);
+                this.$session.set('idRestInCart', item.restaurant_id);
 
             } else {
 
-                let indexes = [];
 
-                this.cart.forEach(element => {
+                if (item.restaurant_id == this.$session.get('idRestInCart')) {
 
-                    indexes.push(element.id);
-                });
+                    let indexes = [];
 
-                if (!indexes.includes(item.id)) {
+                    this.cart.forEach(element => {
 
-                    this.cart.push(item);
+                        indexes.push(element.id);
+                    });
+
+                    if (!indexes.includes(item.id)) {
+
+                        this.cart.push(item);
+                    }
+
+                } else {
+                    this.isBannerCart = !this.isBannerCart;
+                    this.tmpItem = item;
+
                 }
 
             }
 
-            console.log(this.cart);
+            this.$session.set('cart', this.cart);
         },
 
         removeCart(id, index) {
@@ -132,6 +170,8 @@ export default {
                 
             });
 
+            this.$session.set('cart', this.cart);
+
         },
 
         less (ind) {
@@ -140,6 +180,7 @@ export default {
 
                this.cart[ind].quantity -= 1;
             }
+            this.$session.set('cart', this.cart);
         },
 
         more (ind) {
@@ -148,6 +189,38 @@ export default {
 
                 this.cart[ind].quantity += 1;
             }
+            this.$session.set('cart', this.cart);
+        },
+
+
+        goSummary () {
+
+            let cartjson = JSON.stringify(this.cart);
+
+            this.$session.clear('cart');
+
+            axios.post('/send-cart-data', {
+                cart: cartjson
+            })
+            .then(function (response) {
+
+                window.location.href = "/order-summary";
+            })
+        },
+
+        keepCurrentCart () {
+
+            this.isBannerCart = !this.isBannerCart;
+
+        },
+
+        startNewCart () {
+
+            this.isBannerCart = !this.isBannerCart;
+            this.cart = []
+            this.addCart(this.tmpItem);
+            this.tmpItem = null
+
         }
     }
 
@@ -189,7 +262,7 @@ img{
         border-radius: 10px;
     }
 }
-a{
+.go-summary{
     position: absolute;
     right:5%;
     top: -50px;
@@ -200,5 +273,9 @@ a{
     color: white;
     width: 8.7rem;
 
+}
+
+.banner-container {
+    border: 2px solid red;
 }
 </style>

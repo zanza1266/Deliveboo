@@ -2026,17 +2026,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     dishes_json: String
   },
   mounted: function mounted() {
     this.allDishes = JSON.parse(this.dishes_json);
+
+    if (this.$session.exists('cart')) {
+      this.cart = this.$session.get('cart');
+    }
   },
   data: function data() {
     return {
       allDishes: null,
-      cart: []
+      cart: [],
+      idRestaurantInCart: null,
+      isBannerCart: false,
+      tmpItem: null
     };
   },
   methods: {
@@ -2047,18 +2076,24 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cart.length == 0) {
         this.cart.push(item);
+        this.$session.set('idRestInCart', item.restaurant_id);
       } else {
-        var indexes = [];
-        this.cart.forEach(function (element) {
-          indexes.push(element.id);
-        });
+        if (item.restaurant_id == this.$session.get('idRestInCart')) {
+          var indexes = [];
+          this.cart.forEach(function (element) {
+            indexes.push(element.id);
+          });
 
-        if (!indexes.includes(item.id)) {
-          this.cart.push(item);
+          if (!indexes.includes(item.id)) {
+            this.cart.push(item);
+          }
+        } else {
+          this.isBannerCart = !this.isBannerCart;
+          this.tmpItem = item;
         }
       }
 
-      console.log(this.cart);
+      this.$session.set('cart', this.cart);
     },
     removeCart: function removeCart(id, index) {
       var _this = this;
@@ -2068,16 +2103,39 @@ __webpack_require__.r(__webpack_exports__);
           _this.cart.splice(index, 1);
         }
       });
+      this.$session.set('cart', this.cart);
     },
     less: function less(ind) {
       if (this.cart[ind].quantity > 1) {
         this.cart[ind].quantity -= 1;
       }
+
+      this.$session.set('cart', this.cart);
     },
     more: function more(ind) {
       if (this.cart[ind].quantity < 5) {
         this.cart[ind].quantity += 1;
       }
+
+      this.$session.set('cart', this.cart);
+    },
+    goSummary: function goSummary() {
+      var cartjson = JSON.stringify(this.cart);
+      this.$session.clear('cart');
+      axios.post('/send-cart-data', {
+        cart: cartjson
+      }).then(function (response) {
+        window.location.href = "/order-summary";
+      });
+    },
+    keepCurrentCart: function keepCurrentCart() {
+      this.isBannerCart = !this.isBannerCart;
+    },
+    startNewCart: function startNewCart() {
+      this.isBannerCart = !this.isBannerCart;
+      this.cart = [];
+      this.addCart(this.tmpItem);
+      this.tmpItem = null;
     }
   }
 });
@@ -6947,7 +7005,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "ul[data-v-e8a4609a] {\n  list-style-type: none;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\na[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}", ""]);
+exports.push([module.i, "ul[data-v-e8a4609a] {\n  list-style-type: none;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.banner-container[data-v-e8a4609a] {\n  border: 2px solid red;\n}", ""]);
 
 // exports
 
@@ -39471,16 +39529,56 @@ var render = function() {
       _vm._v(" "),
       _vm.cart.length > 0
         ? _c(
-            "a",
+            "button",
             {
-              staticClass: "text-right",
-              attrs: {
-                href: "/order-summary?cart=" + JSON.stringify(this.cart)
-              }
+              staticClass: "text-right go-summary",
+              on: { click: _vm.goSummary }
             },
             [_vm._v("Riepilogo Ordine")]
           )
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isBannerCart,
+              expression: "isBannerCart"
+            }
+          ],
+          staticClass: "banner-container"
+        },
+        [
+          _c("div", { staticClass: "banner" }, [
+            _c("h3", [
+              _vm._v(
+                "Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?"
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success mx-2",
+                on: { click: _vm.keepCurrentCart }
+              },
+              [_vm._v("Annulla")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success mx-2",
+                on: { click: _vm.startNewCart }
+              },
+              [_vm._v("Annulla")]
+            )
+          ])
+        ]
+      )
     ])
   ])
 }
@@ -40822,6 +40920,17 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-sessionstorage/dist/vue-sessionstorage.min.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/vue-sessionstorage/dist/vue-sessionstorage.min.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,function(){return function(t){function e(i){if(s[i])return s[i].exports;var n=s[i]={exports:{},id:i,loaded:!1};return t[i].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var s={};return e.m=t,e.c=s,e.p="",e(0)}([function(t,e,s){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}var n=s(2),o=i(n),r=s(1),u=i(r);window.sessionStorage||(window.sessionStorage=u.default);var a={install:function(t,e){t.prototype.$session=new o.default}};t.exports=a},function(t,e){"use strict";function s(){this.data={},this.setItem=function(t,e){this.data[t]=e},this.getItem=function(t){return this.data[t]}}t.exports=s},function(t,e){"use strict";function s(){this.key=null,this.__getRandomString=function(){for(var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:10,e="";t--;)e+=String.fromCharCode(48+~~(42*Math.random()));return e},this.__getKey=function(){var t=window.sessionStorage.getItem("sessionKey");t||(t=this.__getRandomString(),window.sessionStorage.setItem("sessionKey",t)),this.key=t},this.__get=function(){this.key||this.__getKey();var t=JSON.parse(window.sessionStorage.getItem(this.key));return t||{}},this.get=function(t){var e=this.__get();return e[t]},this.__set=function(t){this.key||this.__getKey(),window.sessionStorage.setItem(this.key,JSON.stringify(t))},this.set=function(t,e){var s=this.__get();s[t]=e,this.__set(s)},this.exists=function(t){var e=this.__get();return t in e},this.remove=function(t){var e=this.__get();delete e[t],this.__set(e)},this.clear=function(){this.__set({})}}t.exports=s}])});
 
 /***/ }),
 
@@ -52879,9 +52988,13 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-sessionstorage */ "./node_modules/vue-sessionstorage/dist/vue-sessionstorage.min.js");
+/* harmony import */ var vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -52910,7 +53023,10 @@ Vue.component('section-welcome', __webpack_require__(/*! ./components/WelcomePag
 Vue.component('section-navbar-white', __webpack_require__(/*! ./components/NavbarWhite.vue */ "./resources/js/components/NavbarWhite.vue")["default"]);
 Vue.component('form-view', __webpack_require__(/*! ./components/FormView.vue */ "./resources/js/components/FormView.vue")["default"]);
 Vue.component('show-elements', __webpack_require__(/*! ./components/ShowElements.vue */ "./resources/js/components/ShowElements.vue")["default"]);
-Vue.component('show-id', __webpack_require__(/*! ./components/ShowId.vue */ "./resources/js/components/ShowId.vue")["default"]);
+Vue.component('show-id', __webpack_require__(/*! ./components/ShowId.vue */ "./resources/js/components/ShowId.vue")["default"]); // VUE SESSION STORAGE
+
+
+Vue.use(vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0___default.a);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -52923,6 +53039,7 @@ var app = new Vue({
     isBannerDish: false,
     isBannerRestaurant: false
   },
+  mounted: function mounted() {},
   methods: {
     activeBannerDish: function activeBannerDish() {
       this.isBannerDish = !this.isBannerDish;
