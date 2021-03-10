@@ -28,7 +28,6 @@ class UpdateRestaurantFormRequest extends FormRequest
             'address' => 'bail|required|string|min:2|max:100',
             'phone' => 'bail|required|string|min:2|max:20',
             'logo' => 'bail|mimetypes:image/jpeg,image/png|max:2048',
-            // 'create_logo' => 'bail|required|mimetypes:image/jpeg,image/png|max:2048',
             'open' => '',
             'categories' => 'bail|required|max:3'
         ];

@@ -102,8 +102,7 @@
                         <div class="form-group">
                             <div id="dropin-container"></div>
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
-
-                            <input type="submit" />
+                            <button type="submit" name="button">Conferma Ordine</button>
                         </div>
 
                     </form>
@@ -125,7 +124,7 @@
 
     braintree.dropin.create({
 
-        // container: document.getElementById('dropin-container'),
+        container: document.getElementById('dropin-container'),
         authorization: "{{$token}}",
         container: '#dropin-container'
 

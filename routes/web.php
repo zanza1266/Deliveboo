@@ -31,7 +31,6 @@ Route::get('/', function () {
     return view('welcome', compact('restaurants', 'categories'));
 });
 
-// Route::get('/restaurants', 'RestaurantsController@index')->name('restaurants.index');
 Route::get('/restaurant/{restaurant}', 'RestaurantsController@show')->name('restaurants.show');
 
 Auth::routes();
@@ -41,6 +40,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/my-restaurants', 'MyRestaurantsController')->middleware('auth');
 
 Route::resource('/my-dishes', 'MyDishesController')->middleware('auth');
+
+Route::post('/send-cart-data', function(Request $request) {
+
+    $cart = json_decode($request->cart);
+    $request->session()->put('cart', $cart);
+});
 
 Route::get('order-summary', function (Request $request) {
 
@@ -53,21 +58,19 @@ Route::get('order-summary', function (Request $request) {
 
     $token = $gateway->ClientToken()->generate();
 
-
-    $cart = json_decode($request->cart);
-
-    $request->session()->put('cart', $cart);
+    $cart = $request->session()->get('cart');
 
     $total = 0;
     foreach ($cart as $item) {
 
-        $subTotal = $item->price * $item->quantity;
+    $subTotal = $item->price * $item->quantity;
         $total += $subTotal;
     }
 
     $request->session()->put('total', $total);
 
     return view('guest.order_summary', compact('cart', 'total', 'token'));
+
 });
 
 
@@ -91,15 +94,13 @@ Route::post('/checkout', function(OrderFormRequest $request) {
     ]);
 
 
-
     $result = $gateway->transaction()->sale([
         'amount' => $request->session()->get('total'),
         'paymentMethodNonce' => 'fake-valid-nonce',
         'options' => [
-          'submitForSettlement' => True
+        'submitForSettlement' => True
         ]
     ]);
-
 
 
     if ($result->success) {
@@ -124,21 +125,15 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
         foreach($request->session()->get('cart') as $element) {
 
-           $newOrderedDish = new OrderedDish;
-           $newOrderedDish->unitary_price = $element->price;
-           $newOrderedDish->dish_quantity = $element->quantity;
-           $newOrderedDish->order_id = $newOrder->id;
-           $newOrderedDish->dish_id = $element->id;
-           $newOrderedDish->save();
+            $newOrderedDish = new OrderedDish;
+            $newOrderedDish->unitary_price = $element->price;
+            $newOrderedDish->dish_quantity = $element->quantity;
+            $newOrderedDish->order_id = $newOrder->id;
+            $newOrderedDish->dish_id = $element->id;
+            $newOrderedDish->save();
         }
 
-
         return view('guest.transaction_success', compact('transactionId'));
-
-    } else {
-
-        dd($result->errors->deepAll());
-
     }
 
 })->name('checkout');
@@ -156,15 +151,22 @@ Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $req
       }
     }
 
+    $years = [];
+    foreach ($restaurant->restaurantToOrder as $order) {
+      $date = $order->date_order;
+      $year = substr($date, 0, 4);
+      if (!in_array($year, $years)) {
+        array_push($years, $year);
+      }
+    }
+
     $months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
     $months_names = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
     $orders_for_years = [];
-    $sub_orders_for_years = [];
 
     foreach ($years as $year) {
       $i = 0;
       $count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''];
-      $sub_count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       foreach ($restaurant->restaurantToOrder as $order) {
         $date = $order->date_order;
         $order_year = substr($date, 0, 4);
@@ -181,14 +183,13 @@ Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $req
           $order_month = substr($date, 5, 2);
           if (($order_year == $year) && ($order_month == $month)) {
             $count[$i - 1] += 1;
-            $sub_count[$i - 1] += 1;
           }
         }
       }
-      array_push($sub_orders_for_years, $sub_count);
       array_push($count, $months_names);
       array_push($orders_for_years, $count);
     }
 
-    return view('user.stats', compact('orders_for_years'));
-})->name('stats');
+    return view('user.stats', compact('orders_for_years', 'years'));
+
+})->middleware('auth')->name('stats');

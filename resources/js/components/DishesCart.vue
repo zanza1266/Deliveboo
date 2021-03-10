@@ -6,15 +6,22 @@
 
                 <ul class="d-flex  flex-wrap">
                     <li v-for="(dish, index) in allDishes" :key="index">
-                        <div class="card" style="width:17rem">
-                            <img :src="'/' + dish.img" alt="" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">{{dish.name}}</h5>
-                                <p class="card-text">Prezzo: {{dish.price}}</p>
-                                <button class="btn btn-primary" @click="addCart(dish)">Aggiungi al carrello</button>
+                        <div class="card" style="width:20rem">
+                            <div class="image-overlay"> <img :src="'/' + dish.img" alt="" class="card-img-top">
+                                 <div class="middle d-flex align-items-center justify-content-center">
+                                    <div class="text"> 
+                                        <h3 class="card-title">{{dish.name}}</h3>
+                                        <p class="card-text">Prezzo: {{dish.price}}</p>
+                                        
+                                        
+                                     </div>
+                                     
+                                </div>
                                 
                             </div>
-                        </div>  
+                            <button class="btn btn-primary my-3" @click="addCart(dish)">Aggiungi al carrello</button>
+                        </div>
+                        
                     </li>
                 </ul>
             </div>
@@ -24,8 +31,10 @@
             <!-- CARRELLO -->
             
                 
-            <div :class="cart.length > 0 ? 'col-2' : null " class=" overflow-cart">
-                <ul class="" v-if="cart.length > 0">
+            <div :class="cart.length > 0 ? 'col-2' : null ">
+                
+                <ul  v-if="cart.length > 0" class="overflow-cart px-2">
+                    <h4 class="py-2">~ Il tuo Menu ~</h4>
                     <li v-for="(item, index) in cart" :key="index">
 
                         <strong>
@@ -60,9 +69,24 @@
 
                     </li>
                 </ul>
+ -->
             </div>
-            <a class="text-right" v-if="cart.length > 0" :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
-                
+
+            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+
+            <!-- Banner -->
+
+            <div class="banner-container" v-show="isBannerCart">
+
+                <div class="banner">
+                    <h3>Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?</h3>
+
+                    <button class="btn btn-outline-success mx-2" @click="keepCurrentCart">Annulla</button>
+                    <button class="btn btn-outline-success mx-2" @click="startNewCart">Crea nuovo carrello</button>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -76,49 +100,66 @@ export default {
     },
     mounted() {
 
-        this.allDishes = JSON.parse(this.dishes_json)
+        this.allDishes = JSON.parse(this.dishes_json);
 
+        if (this.$session.exists('cart')) {
+
+            this.cart = this.$session.get('cart');
+        }
     },
     data: function() {
         return {
 
             allDishes: null,
-            cart: []
-
+            cart: [],
+            idRestaurantInCart: null,
+            isBannerCart: false,
+            tmpItem: null
         }
     },
+
     methods: {
+       
 
         addCart (item) {
 
             if (!item.quantity) {
-                
-            Vue.set(item, 'quantity', 1);
 
+                Vue.set(item, 'quantity', 1);
             }
 
 
             if (this.cart.length == 0) {
 
                 this.cart.push(item);
+                this.$session.set('idRestInCart', item.restaurant_id);
 
             } else {
 
-                let indexes = [];
 
-                this.cart.forEach(element => {
+                if (item.restaurant_id == this.$session.get('idRestInCart')) {
 
-                    indexes.push(element.id);
-                });
+                    let indexes = [];
 
-                if (!indexes.includes(item.id)) {
+                    this.cart.forEach(element => {
 
-                    this.cart.push(item);
+                        indexes.push(element.id);
+                    });
+
+                    if (!indexes.includes(item.id)) {
+
+                        this.cart.push(item);
+                    }
+
+                } else {
+                    this.isBannerCart = !this.isBannerCart;
+                    this.tmpItem = item;
+
                 }
 
             }
 
-            console.log(this.cart);
+            this.$session.set('cart', this.cart);
         },
 
         removeCart(id, index) {
@@ -132,6 +173,8 @@ export default {
                 
             });
 
+            this.$session.set('cart', this.cart);
+
         },
 
         less (ind) {
@@ -140,6 +183,7 @@ export default {
 
                this.cart[ind].quantity -= 1;
             }
+            this.$session.set('cart', this.cart);
         },
 
         more (ind) {
@@ -148,6 +192,38 @@ export default {
 
                 this.cart[ind].quantity += 1;
             }
+            this.$session.set('cart', this.cart);
+        },
+
+
+        goSummary () {
+
+            let cartjson = JSON.stringify(this.cart);
+
+            this.$session.clear('cart');
+
+            axios.post('/send-cart-data', {
+                cart: cartjson
+            })
+            .then(function (response) {
+
+                window.location.href = "/order-summary";
+            })
+        },
+
+        keepCurrentCart () {
+
+            this.isBannerCart = !this.isBannerCart;
+
+        },
+
+        startNewCart () {
+
+            this.isBannerCart = !this.isBannerCart;
+            this.cart = []
+            this.addCart(this.tmpItem);
+            this.tmpItem = null
+
         }
     }
 
@@ -155,50 +231,186 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul{
-    list-style-type: none;
-    li{
-        margin: 0.8rem;
+
+    a{
+
+        color: #fff;
+        background-color: #00ccbc;
+        border-color: #00ccdc;
+        padding:0.5rem 0.75rem;
+        border-radius:5px;
+        margin-left: 15px;
     }
-}
-li > *,h1{
-    text-transform: capitalize;
-}
-img{
-    width: 100%;
-    height: 10rem;
-}
 
-.cursor:hover{
-    cursor: pointer;
-}
-.bi-dash-circle:active{
-    color: red;
-}
+    a:hover{
 
-.bi-plus-circle:active{
-    color: green;
-}
-.overflow-cart{
-    overflow-y: auto;
-    height: 25rem;
+        text-decoration: none;
+        color: #fff;
+        background-color: #227dc7;
+        border-color: #2176bd;
+    }
+
+    .overflow-cart::-webkit-scrollbar {
+
+        width: 12px;
+    }
+
+    .overflow-cart::-webkit-scrollbar-track {
     
-    li{
-        margin: 0;
-        padding:1rem ;
-        border-radius: 10px;
+        background: black;
     }
-}
-a{
-    position: absolute;
-    right:5%;
-    top: -50px;
-    text-decoration: none;
-    padding: 5px 12px;
-    border-radius: 10px;
-    background-color: #227dc7;
-    color: white;
-    width: 8.7rem;
 
-}
+    .overflow-cart::-webkit-scrollbar-thumb {
+
+        background-color: #00ccbc;    
+        border-radius: 20px;       
+        border: 3px solid black; 
+    }
+
+    h4{
+
+        font-size: 1.5rem;
+        font-family: 'Akaya Telivigala', cursive;
+    }
+
+    .overflow-cart{
+
+        font-family: 'Akaya Telivigala', cursive;
+        font-size: 1.2rem;
+        background-image: url("https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg");
+        background-size: cover;
+        border-radius:10px;
+    }
+
+    ul{
+    
+        list-style-type: none;
+        padding: 0;
+
+        li{
+
+            margin: 0.8rem;
+        }
+    }
+
+    li > *,h1{
+
+        text-transform: capitalize;
+    }
+
+    img{
+
+        width: 100%;
+        height: 10rem;
+    }
+
+    .cursor:hover{
+
+        cursor: pointer;
+    }
+    .bi-dash-circle:active{
+
+        color: red;
+    }
+
+    .bi-plus-circle:active{
+
+        color: green;
+    }
+
+    .overflow-cart{
+
+        overflow-y: auto;
+        height: 25rem;
+
+        li{
+
+            margin: 0;
+            padding:1rem ;
+            border-radius: 10px;
+        }
+    }
+
+    .go-summary{
+
+        position: absolute;
+        right:5%;
+        top: -50px;
+        text-decoration: none;
+        padding: 5px 12px;
+        border-radius: 10px;
+        background-color: #227dc7;
+        color: white;
+        width: 8.7rem;
+    }
+
+    .d-flex li{
+
+        text-align: center;
+    }
+
+    .card:hover{
+    
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .card{
+
+        border-radius:4px;
+        border:0;
+ 
+    }
+
+    .image-overlay {
+
+        position: relative;
+
+        .middle {
+
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+
+            .text {
+
+                color: #222;
+
+                h3, p {
+
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .image-overlay:hover img {
+
+        opacity: 0.3;
+        cursor: pointer;
+    }
+
+    .image-overlay:hover .middle {
+
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .btn{
+
+        width:50%;
+        margin: 0 auto;
+    }
+
+    .banner-container {
+
+        border: 2px solid red;
+    }
+
 </style>
