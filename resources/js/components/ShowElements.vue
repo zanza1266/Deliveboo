@@ -41,4 +41,10 @@ a:hover:not(.card-body a){
 .card{
     width:300px;
 }
+img{
+    width: 100%;
+    height: 15rem;
+    background-size: contain;
+    // object-fit: cover;
+}
 </style>

@@ -34,6 +34,13 @@ class Restaurant extends Model
 
     }
 
+
+    public function restaurantToOrder () {
+
+        return $this->hasMany('App\Order', 'restaurant_id', 'id');
+
+    }
+
     protected $fillable = [
         'name', 'address', 'phone', 'open'
     ];

@@ -1,4 +1,4 @@
-<template>
+    <template>
 
 <div>
     <nav>
@@ -68,23 +68,31 @@ nav{
 
                 
             }
-            .links{
-                a{
+            .nav-item{
+                margin: 0 5px;
+                .nav-link{
+                    
                     margin: 0 0.5rem;
-                    padding: 0.6rem 1.5rem;
+                    padding: 0.6rem 1.2rem;
                     border-radius: 0.5rem;
-                    background: white;
-                    color:  rgb(6, 121, 121);
+                    background: rgb(6, 121, 121);
+                    color: white ;
                     box-shadow:2px 3px rgba(0, 0, 0, 0.226);
-                    border: 1px solid lightgray;
+                    border: 1px solid rgb(224, 224, 224);
                 }
-                a:hover{
-                    background-color: rgb(231, 231, 231);
+                .nav-link:hover{
+                    background-color: rgba(6, 121, 121, 0.692);
                     text-decoration: none;
-                    color: rgb(6, 121, 121);
+                    color: rgb(255, 255, 255);
                 }
             }
         }
+    }
+    .dropdown-item{
+        width: 90%;
+        margin: 0 0.5rem;    
+        color: rgb(168, 41, 9);
+        
     }
 
 }

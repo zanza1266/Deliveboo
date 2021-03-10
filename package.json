@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "animate.css": "^4.1.1",
         "bootstrap": "^4.6.0",
         "bootstrap-vue": "^2.21.2",
         "braintree": "^3.2.1",
