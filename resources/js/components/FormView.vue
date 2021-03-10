@@ -11,6 +11,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img{
+    width: 15%;
+    height: 30%;
+}
 div{
     
     input[type="text"]{

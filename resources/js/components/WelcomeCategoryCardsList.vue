@@ -1,26 +1,34 @@
 <template>
 
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-2">
-                <div v-for="(category, index) in categoriesList" :key="index">
+                <div class="row">
+                    <div class="col multipleSearch d-none animate__animated">
+                        <div v-for="(category, index) in categoriesList" :key="index">
 
-                    <label :for=category.name>{{category.name}}</label>
-                    <input type="checkbox" :id=category.name  :value=category.id v-model="selectedCategories">
+                            <label :for=category.name>{{category.name}}</label>
+                            <input type="checkbox" :id=category.name  :value=category.id v-model="selectedCategories">
 
+                        </div>
+
+                        <a href="#" @click="displaySearched()">Cerca</a>
+                    </div>
+                    <div class="col">
+                            <a class="btn custom-btn animate__animated btnSearch animate__fadeInRight" @click="showMultipleSearch()">
+                                Ricerca Avanzata
+                            </a> 
+                    </div>
                 </div>
-
-                <a href="#" @click="displaySearched()">Cerca</a>
             </div>
             <div class=" col-10 d-flex justify-content-center flex-wrap">
-                <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)" >
+                <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
                     <div class="card-body d-flex justify-content-start align-items-end">
                         <h3 class="card-title"> {{category.name}} </h3>
                     </div>
                 </div>
             </div>
         </div>
-        
         
 
 
@@ -71,7 +79,13 @@ export default {
     },
 
     methods: {
+        showMultipleSearch(){
+            document.querySelector('.multipleSearch').classList.toggle('animate__fadeInLeft');
+            document.querySelector('.multipleSearch').classList.toggle('d-none');
+            document.querySelector('.btnSearch').classList.toggle('animate__fadeInLeft');
+            document.querySelector('.btnSearch').classList.toggle('animate__fadeInRight');
 
+        },
         displayRestaurants(id) {
 
             axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${id}`)
@@ -151,6 +165,17 @@ ul{
 .restaurants-card:hover{
     transform: scale(1.2);
 }
-
-</style>
+.custom-btn{
+        margin: 0 0.5rem;
+        padding: 0.6rem 1.5rem;
+        border-radius: 0.5rem;
+        background: white;
+        color:  rgb(6, 121, 121);
+        box-shadow:2px 3px rgba(0, 0, 0, 0.226);
+}
+.custom-btn:hover{
+    background-color: rgb(231, 231, 231);
+    text-decoration: none;
+    color: rgb(6, 121, 121);
+}
 </style>
