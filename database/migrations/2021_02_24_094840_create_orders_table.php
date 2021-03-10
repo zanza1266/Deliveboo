@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('email', 50);
             $table->string('phone', 20);
             $table->dateTime('date_order');
-            $table->dateTime('scheduled_delivery')->nullable(true);  //nullable da vedere
+            $table->dateTime('scheduled_delivery')->nullable(true);
             $table->integer('minutes_delivered')->nullable(true);
             $table->double('total_price', 7, 2);
             $table->integer('total_dishes')->nullable(true);
