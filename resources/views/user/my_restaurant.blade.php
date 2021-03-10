@@ -41,10 +41,17 @@
                                             @csrf
                                             @method('delete')
 
-                                            <button class="btn btn-outline-danger" type="submit" @click="activeBannerRestaurant">Elimina questo ristorante</button>
+                                            <div class="button-wrapper">
+
+                                                <button class="btn btn-outline-danger" type="submit" @click="activeBannerRestaurant">Elimina questo ristorante</button>
+
+                                                <a class="btn btn-outline-success" @click="activeBannerRestaurant">Annulla</a>
+                                            </div>
+
+
                                         </form>
 
-                                        <button class="btn btn-outline-success" @click="activeBannerRestaurant">Annulla</button>
+
 
 
                                     </div>
