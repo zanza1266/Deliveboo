@@ -7,7 +7,9 @@
                 <div class="col">
                     <ul>
                             <li>
-                                <img src="deliveboo_img/logo.png" width="150px" style="margin-top:5px;">
+                                <a href="/">
+                                    <img src="deliveboo_img/logo.png" width="150px" style="margin-top:5px;">
+                                </a>
                             </li>
                             <li>
                                 <slot></slot>
