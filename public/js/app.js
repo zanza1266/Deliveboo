@@ -2053,12 +2053,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     dishes_json: String
@@ -7016,7 +7010,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "a[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  background-image: url(\"https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg\");\n  background-size: cover;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.go-summary .d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.go-summary .card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.go-summary .card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.go-summary .image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.go-summary .image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.go-summary .image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.go-summary .image-overlay .middle .text h3[data-v-e8a4609a], .go-summary .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.go-summary .image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  cursor: pointer;\n}\n.go-summary .image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.go-summary .btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}\n.go-summary .banner-container[data-v-e8a4609a] {\n  border: 2px solid red;\n}", ""]);
+exports.push([module.i, ".overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  background-image: url(\"https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg\");\n  background-size: cover;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}\n.banner-container[data-v-e8a4609a] {\n  border: 2px solid red;\n}", ""]);
 
 // exports
 
@@ -39547,28 +39541,15 @@ var render = function() {
         _vm._v(" "),
         _vm.cart.length > 0
           ? _c(
-              "a",
+              "button",
               {
-                staticClass: "text-right mt-4",
-                attrs: {
-                  href: "/order-summary?cart=" + JSON.stringify(this.cart)
-                }
+                staticClass: "text-right go-summary",
+                on: { click: _vm.goSummary }
               },
               [_vm._v("Riepilogo Ordine")]
             )
           : _vm._e()
       ]),
-      _vm._v(" "),
-      _vm.cart.length > 0
-        ? _c(
-            "button",
-            {
-              staticClass: "text-right go-summary",
-              on: { click: _vm.goSummary }
-            },
-            [_vm._v("Riepilogo Ordine")]
-          )
-        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
@@ -40952,6 +40933,17 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-sessionstorage/dist/vue-sessionstorage.min.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/vue-sessionstorage/dist/vue-sessionstorage.min.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,function(){return function(t){function e(i){if(s[i])return s[i].exports;var n=s[i]={exports:{},id:i,loaded:!1};return t[i].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var s={};return e.m=t,e.c=s,e.p="",e(0)}([function(t,e,s){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}var n=s(2),o=i(n),r=s(1),u=i(r);window.sessionStorage||(window.sessionStorage=u.default);var a={install:function(t,e){t.prototype.$session=new o.default}};t.exports=a},function(t,e){"use strict";function s(){this.data={},this.setItem=function(t,e){this.data[t]=e},this.getItem=function(t){return this.data[t]}}t.exports=s},function(t,e){"use strict";function s(){this.key=null,this.__getRandomString=function(){for(var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:10,e="";t--;)e+=String.fromCharCode(48+~~(42*Math.random()));return e},this.__getKey=function(){var t=window.sessionStorage.getItem("sessionKey");t||(t=this.__getRandomString(),window.sessionStorage.setItem("sessionKey",t)),this.key=t},this.__get=function(){this.key||this.__getKey();var t=JSON.parse(window.sessionStorage.getItem(this.key));return t||{}},this.get=function(t){var e=this.__get();return e[t]},this.__set=function(t){this.key||this.__getKey(),window.sessionStorage.setItem(this.key,JSON.stringify(t))},this.set=function(t,e){var s=this.__get();s[t]=e,this.__set(s)},this.exists=function(t){var e=this.__get();return t in e},this.remove=function(t){var e=this.__get();delete e[t],this.__set(e)},this.clear=function(){this.__set({})}}t.exports=s}])});
 
 /***/ }),
 
@@ -53014,7 +53006,8 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-sessionstorage'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-sessionstorage */ "./node_modules/vue-sessionstorage/dist/vue-sessionstorage.min.js");
+/* harmony import */ var vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -53046,7 +53039,7 @@ Vue.component('show-elements', __webpack_require__(/*! ./components/ShowElements
 Vue.component('show-id', __webpack_require__(/*! ./components/ShowId.vue */ "./resources/js/components/ShowId.vue")["default"]); // VUE SESSION STORAGE
 
 
-Vue.use(!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-sessionstorage'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+Vue.use(vue_sessionstorage__WEBPACK_IMPORTED_MODULE_0___default.a);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

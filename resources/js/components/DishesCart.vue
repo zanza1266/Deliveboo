@@ -69,23 +69,17 @@
 
                     </li>
                 </ul>
-                <a class="text-right mt-4" v-if="cart.length > 0" :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
+            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+                
             </div>
 
-            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
             <!-- Banner -->
 
             <div class="banner-container" v-show="isBannerCart">
 
                 <div class="banner">
-                    <!-- <form action="{{ route('my-dishes.destroy', $dish->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-
-                        <h3>Sei sicuro di voler eliminare questo piatto?</h3>
-                        <button class="btn btn-outline-danger" @click="activeBannerDish">Elimina</button>
-                    </form> -->
+                  
 
                     <h3>Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?</h3>
 
@@ -240,20 +234,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a{
-    color: #fff;
-    background-color: #00ccbc;
-    border-color: #00ccdc;
-    padding:0.5rem 0.75rem;
-    border-radius:5px;
-    margin-left: 15px;
-}
-a:hover{
-    text-decoration: none;
-    color: #fff;
-    background-color: #227dc7;
-    border-color: #2176bd;
-}
+
 .overflow-cart::-webkit-scrollbar {
   width: 12px;               
 }
@@ -317,16 +298,14 @@ img{
     }
 }
 .go-summary{
-    position: absolute;
-    right:5%;
-    top: -50px;
+    
     text-decoration: none;
     padding: 5px 12px;
     border-radius: 10px;
     background-color: #227dc7;
     color: white;
     width: 8.7rem;
-
+}
 .d-flex li{
     text-align: center;
         
@@ -352,14 +331,14 @@ border:0;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         text-align: center;
-            .text {
-            color: #222;
-                h3, p{
+                .text {
+                color: #222;
+                    h3, p{
                     font-weight: bold;
-                }
-                  }
-                }
-            }  
+                        }
+                      }
+                    }
+                }  
 .image-overlay:hover img {
     opacity: 0.3;
     cursor: pointer;
@@ -376,5 +355,5 @@ border:0;
 .banner-container {
     border: 2px solid red;
 }
-}
+
 </style>
