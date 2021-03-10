@@ -69,10 +69,10 @@
 
                     </li>
                 </ul>
-                <a class="text-right mt-4" v-if="cart.length > 0" :href="'/order-summary?cart='+ JSON.stringify(this.cart)">Riepilogo Ordine</a>
+                <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+                
             </div>
 
-            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
             <!-- Banner -->
 
@@ -317,27 +317,25 @@ img{
     }
 }
 .go-summary{
-    position: absolute;
-    right:5%;
-    top: -50px;
+    
     text-decoration: none;
     padding: 5px 12px;
     border-radius: 10px;
     background-color: #227dc7;
     color: white;
     width: 8.7rem;
-
+}
 .d-flex li{
     text-align: center;
-        
-}
-.card:hover{
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-}
+}      
+
 .card{
-border-radius:4px;
-border:0;  
+    border-radius:4px;
+    border:0;  
+    .card:hover{
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
     }
+
     
     .image-overlay {
     position: relative;
@@ -359,7 +357,8 @@ border:0;
                 }
                   }
                 }
-            }  
+            }
+}  
 .image-overlay:hover img {
     opacity: 0.3;
     cursor: pointer;
@@ -376,5 +375,5 @@ border:0;
 .banner-container {
     border: 2px solid red;
 }
-}
+
 </style>
