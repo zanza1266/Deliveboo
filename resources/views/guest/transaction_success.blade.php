@@ -18,9 +18,10 @@
 
                 <div class="d-flex flex-column align-items-center">
 
-                    <h3>L' ID del tuo ordine è: {{$transactionId->id}}</h3>
+                    <h3>L' ID del tuo ordine è: hfds743</h3>
+                    {{-- <h3>L' ID del tuo ordine è: {{$transactionId->id}}</h3> --}}
 
-                    <a href="/" class="pt-4">Torna alla Homepage</a>
+                    <a href="/" class="homepage">Torna alla Homepage</a>
 
                 </div>
 
