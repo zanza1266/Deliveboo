@@ -2051,12 +2051,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    dishes_json: String
+    dishes_json: String,
+    restaurant_json: String
   },
   mounted: function mounted() {
     this.allDishes = JSON.parse(this.dishes_json);
+    this.restaurant = JSON.parse(this.restaurant_json);
 
     if (this.$session.exists('cart')) {
       this.cart = this.$session.get('cart');
@@ -2068,7 +2075,9 @@ __webpack_require__.r(__webpack_exports__);
       cart: [],
       idRestaurantInCart: null,
       isBannerCart: false,
-      tmpItem: null
+      tmpItem: null,
+      restaurant: null,
+      maxiumOrderQuantity: 100
     };
   },
   methods: {
@@ -2080,6 +2089,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.cart.length == 0) {
         this.cart.push(item);
         this.$session.set('idRestInCart', item.restaurant_id);
+        this.$session.set('nameRastaurantInCart', this.restaurant.name);
       } else {
         if (item.restaurant_id == this.$session.get('idRestInCart')) {
           var indexes = [];
@@ -2116,7 +2126,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$session.set('cart', this.cart);
     },
     more: function more(ind) {
-      if (this.cart[ind].quantity < 5) {
+      if (this.cart[ind].quantity < this.maxiumOrderQuantity) {
         this.cart[ind].quantity += 1;
       }
 
@@ -7068,7 +7078,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "a[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  background-image: url(\"https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg\");\n  background-size: cover;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}\n.banner-container[data-v-e8a4609a] {\n  border: 2px solid red;\n}", ""]);
+exports.push([module.i, ".order-btn[data-v-e8a4609a] {\n  border: 1px solid #e8ebeb;\n  background-color: #fff;\n  color: #00b8a9;\n  margin-bottom: 0.7rem;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\na[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-size: 1.2rem;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.banner-container[data-v-e8a4609a] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-e8a4609a] {\n  background-color: white;\n  border-radius: 20px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.banner-container .banner h3[data-v-e8a4609a] {\n  text-align: center;\n}\n.banner-container .banner .button-wrapper[data-v-e8a4609a] {\n  display: flex;\n  flex-direction: row;\n  padding-top: 20px;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n  transition: 0.4s;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  transition: 0.4s;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.cart-dish[data-v-e8a4609a] {\n  position: absolute;\n  top: -12rem;\n  right: 0;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".square-logo {\n  width: 6rem;\n  height: 6rem;\n  border-radius: 5px;\n  border: 1px solid #f3f3f3;\n}\n.square-logo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details-restaurant span {\n  font-size: 1rem;\n  margin-left: 0.5rem;\n}", ""]);
 
 // exports
 
@@ -7106,7 +7135,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}\ndiv input[type=text][data-v-21cc3b18] {\n  width: 50%;\n  height: 35px;\n  margin: 0 auto;\n}\n.card-contact[data-v-21cc3b18] {\n  text-align: center;\n  background-color: white;\n  width: 50%;\n  margin: 30px auto;\n  padding: 20px 0px;\n  border-radius: 10px;\n  box-shadow: 5px 10px rgba(0, 0, 0, 0.1);\n}\nlabel[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nlabel[data-v-21cc3b18]:not(.checkbox-item label, .radio label) {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.radio p[data-v-21cc3b18], h4[data-v-21cc3b18] {\n  font-weight: bold;\n}\np[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nspan[data-v-21cc3b18] {\n  margin: 0 10px;\n}\n.checkbox-item[data-v-21cc3b18] {\n  width: 70%;\n  margin: 0 auto;\n}\nbutton[data-v-21cc3b18] {\n  font-size: 1.2rem;\n  width: 150px;\n  padding: 10px 15px;\n  background-color: #00CCBC;\n  border-radius: 10px;\n  color: white;\n  border: 1px solid #00CCBC;\n}\nbutton[data-v-21cc3b18]:hover {\n  background-color: #00a597;\n  transition: 0.4s;\n}", ""]);
+exports.push([module.i, "img[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}\ndiv input[type=text][data-v-21cc3b18] {\n  width: 50%;\n  height: 35px;\n  margin: 0 auto;\n}\n.card-contact[data-v-21cc3b18] {\n  text-align: center;\n  background-color: white;\n  width: 50%;\n  margin: 30px auto;\n  padding: 20px 0px;\n  border-radius: 10px;\n  box-shadow: 5px 10px rgba(0, 0, 0, 0.1);\n}\nlabel[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nlabel[data-v-21cc3b18]:not(.checkbox-item label, .radio label) {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.radio p[data-v-21cc3b18], h4[data-v-21cc3b18] {\n  font-weight: bold;\n}\np[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nspan[data-v-21cc3b18] {\n  margin: 0 10px;\n}\n.checkbox-item[data-v-21cc3b18] {\n  width: 70%;\n  margin: 0 auto;\n}\nbutton[data-v-21cc3b18] {\n  font-size: 1.2rem;\n  width: 150px;\n  padding: 10px 15px;\n  background-color: #00CCBC;\n  border-radius: 10px;\n  color: white;\n  border: 1px solid #00CCBC;\n}\nbutton[data-v-21cc3b18]:hover {\n  background-color: #00a597;\n  transition: 0.4s;\n}\nimg[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}", ""]);
 
 // exports
 
@@ -7239,7 +7268,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "div[data-v-d1a4e9ba] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.card-container[data-v-d1a4e9ba] {\n  border-radius: 5px;\n  width: 45%;\n  margin: 0 auto;\n}\n.card-container > *[data-v-d1a4e9ba] {\n  margin: 0 auto;\n  font-size: 1rem;\n  margin-top: 10px;\n}\n.card-container img[data-v-d1a4e9ba] {\n  text-align: center;\n  width: 100%;\n  height: 18rem;\n  background-size: cover;\n}\n.card-container a[data-v-d1a4e9ba]:hover {\n  color: white;\n}\n.banner-container[data-v-d1a4e9ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-d1a4e9ba] {\n  background-color: white;\n  border: 2px solid #00ccbc;\n  border-radius: 5px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}", ""]);
+exports.push([module.i, "div[data-v-d1a4e9ba] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.card-container[data-v-d1a4e9ba] {\n  border-radius: 5px;\n  width: 45%;\n  margin: 0 auto;\n}\n.card-container > *[data-v-d1a4e9ba] {\n  margin: 0 auto;\n  font-size: 1rem;\n  margin-top: 10px;\n}\n.card-container img[data-v-d1a4e9ba] {\n  text-align: center;\n  width: 100%;\n  height: 18rem;\n  background-size: cover;\n}\n.card-container a[data-v-d1a4e9ba]:hover {\n  color: white;\n}\n.banner-container[data-v-d1a4e9ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-d1a4e9ba] {\n  background-color: white;\n  border: 5px solid red;\n  border-radius: 20px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}", ""]);
 
 // exports
 
@@ -7258,7 +7287,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}\n.restaurants-card[data-v-576b7eec] {\n  width: 18rem;\n  transition: all 1s;\n}\n.restaurants-card[data-v-576b7eec]:hover {\n  transform: scale(1.2);\n}\n.custom-btn[data-v-576b7eec] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\n.custom-btn[data-v-576b7eec]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}", ""]);
+exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}\n.restaurants-card[data-v-576b7eec] {\n  width: 18rem;\n  transition: all 1s;\n}\n.restaurants-card[data-v-576b7eec]:hover {\n  transform: scale(1.2);\n}\n.custom-btn[data-v-576b7eec] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\n.custom-btn[data-v-576b7eec]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}\n.searchElements[data-v-576b7eec] {\n  display: flex;\n  justify-content: space-between;\n}\n.searchElements label[data-v-576b7eec] {\n  padding-left: 50px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.multipleSearch a[data-v-576b7eec] {\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n  margin-left: 50px;\n  margin-bottom: 20px;\n}\n.multipleSearch a[data-v-576b7eec]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}", ""]);
 
 // exports
 
@@ -38568,6 +38597,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./DishesCart.vue?vue&type=style&index=1&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=style&index=0&id=61a7c374&lang=scss&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Footer.vue?vue&type=style&index=0&id=61a7c374&lang=scss&scoped=true& ***!
@@ -39527,7 +39586,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
+  return _c("div", { staticClass: "container-fluid  " }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { class: _vm.cart.length > 0 ? "col-10" : "col-12" }, [
         _c(
@@ -39585,155 +39644,159 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { class: _vm.cart.length > 0 ? "col-2" : null }, [
-        _vm.cart.length > 0
-          ? _c(
-              "ul",
-              { staticClass: "overflow-cart px-2" },
-              [
-                _c("h4", { staticClass: "py-2" }, [_vm._v("~ Il tuo Menu ~")]),
-                _vm._v(" "),
-                _vm._l(_vm.cart, function(item, index) {
-                  return _c("li", { key: index }, [
-                    _c("strong", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.name) +
-                          "\n                    "
-                      )
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.price) +
-                          "€\n                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", [_vm._v("Quantità: ")]),
+      _c(
+        "div",
+        {
+          staticClass: "d-flex flex-column cart-dish",
+          class: _vm.cart.length > 0 ? "col-2" : null
+        },
+        [
+          _vm.cart.length > 0
+            ? _c(
+                "button",
+                { staticClass: " btn order-btn", on: { click: _vm.goSummary } },
+                [_vm._v("Riepilogo Ordine")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.cart.length > 0
+            ? _c(
+                "ul",
+                { staticClass: "overflow-cart px-2" },
+                [
+                  _c("h4", { staticClass: "py-2" }, [
+                    _vm._v("~ Il tuo Menu ~")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.cart, function(item, index) {
+                    return _c("li", { key: index }, [
+                      _c("strong", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(item.name) +
+                            "\n                    "
+                        )
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("small", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(item.price) +
+                            "€\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "cursor",
+                            on: {
+                              click: function($event) {
+                                return _vm.less(index)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-dash-circle",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "16",
+                                  height: "16",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(item.quantity))]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "cursor",
+                            on: {
+                              click: function($event) {
+                                return _vm.more(index)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-plus-circle",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "16",
+                                  height: "16",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("hr", { staticStyle: { width: "8rem" } }),
                       _vm._v(" "),
                       _c(
-                        "span",
+                        "p",
                         {
-                          staticClass: "cursor",
+                          staticClass: "text-danger cursor",
                           on: {
                             click: function($event) {
-                              return _vm.less(index)
+                              return _vm.removeCart(item.id, index)
                             }
                           }
                         },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "bi bi-dash-circle",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "16",
-                                height: "16",
-                                fill: "currentColor",
-                                viewBox: "0 0 16 16"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(item.quantity))]),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "cursor",
-                          on: {
-                            click: function($event) {
-                              return _vm.more(index)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "bi bi-plus-circle",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "16",
-                                height: "16",
-                                fill: "currentColor",
-                                viewBox: "0 0 16 16"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                                }
-                              })
-                            ]
-                          )
-                        ]
+                        [_vm._v("Rimuovi")]
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c("hr", { staticStyle: { width: "8rem" } }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "text-danger cursor",
-                        on: {
-                          click: function($event) {
-                            return _vm.removeCart(item.id, index)
-                          }
-                        }
-                      },
-                      [_vm._v("Rimuovi")]
-                    )
-                  ])
-                })
-              ],
-              2
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.cart.length > 0
-          ? _c(
-              "button",
-              {
-                staticClass: "text-right go-summary",
-                on: { click: _vm.goSummary }
-              },
-              [_vm._v("Riepilogo Ordine")]
-            )
-          : _vm._e()
-      ]),
+                    ])
+                  })
+                ],
+                2
+              )
+            : _vm._e()
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -39752,27 +39815,31 @@ var render = function() {
           _c("div", { staticClass: "banner" }, [
             _c("h3", [
               _vm._v(
-                "Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?"
+                'Il tuo carrello contiene già un ordine di "' +
+                  _vm._s(this.$session.get("nameRastaurantInCart")) +
+                  '", vuoi svuotarlo e creare un nuovo carrello?'
               )
             ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success mx-2",
-                on: { click: _vm.keepCurrentCart }
-              },
-              [_vm._v("Annulla")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success mx-2",
-                on: { click: _vm.startNewCart }
-              },
-              [_vm._v("Crea nuovo carrello")]
-            )
+            _c("div", { staticClass: "button-wrapper" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success mx-2",
+                  on: { click: _vm.keepCurrentCart }
+                },
+                [_vm._v("Annulla")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success mx-2",
+                  on: { click: _vm.startNewCart }
+                },
+                [_vm._v("Crea nuovo carrello")]
+              )
+            ])
           ])
         ]
       )
@@ -40842,51 +40909,55 @@ var render = function() {
             { staticClass: "col multipleSearch d-none animate__animated" },
             [
               _vm._l(_vm.categoriesList, function(category, index) {
-                return _c("div", { key: index }, [
-                  _c("label", { attrs: { for: category.name } }, [
-                    _vm._v(_vm._s(category.name))
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedCategories,
-                        expression: "selectedCategories"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: category.name },
-                    domProps: {
-                      value: category.id,
-                      checked: Array.isArray(_vm.selectedCategories)
-                        ? _vm._i(_vm.selectedCategories, category.id) > -1
-                        : _vm.selectedCategories
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.selectedCategories,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = category.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              (_vm.selectedCategories = $$a.concat([$$v]))
+                return _c(
+                  "div",
+                  { key: index, staticClass: "searchElements" },
+                  [
+                    _c("label", { attrs: { for: category.name } }, [
+                      _vm._v(_vm._s(category.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedCategories,
+                          expression: "selectedCategories"
+                        }
+                      ],
+                      attrs: { type: "checkbox", id: category.name },
+                      domProps: {
+                        value: category.id,
+                        checked: Array.isArray(_vm.selectedCategories)
+                          ? _vm._i(_vm.selectedCategories, category.id) > -1
+                          : _vm.selectedCategories
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.selectedCategories,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = category.id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.selectedCategories = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectedCategories = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
                           } else {
-                            $$i > -1 &&
-                              (_vm.selectedCategories = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
+                            _vm.selectedCategories = $$c
                           }
-                        } else {
-                          _vm.selectedCategories = $$c
                         }
                       }
-                    }
-                  })
-                ])
+                    })
+                  ]
+                )
               }),
               _vm._v(" "),
               _c(
@@ -40905,7 +40976,7 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "col pt-4" }, [
             _c(
               "a",
               {
@@ -53378,7 +53449,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DishesCart_vue_vue_type_template_id_e8a4609a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DishesCart.vue?vue&type=template&id=e8a4609a&scoped=true& */ "./resources/js/components/DishesCart.vue?vue&type=template&id=e8a4609a&scoped=true&");
 /* harmony import */ var _DishesCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DishesCart.vue?vue&type=script&lang=js& */ "./resources/js/components/DishesCart.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _DishesCart_vue_vue_type_style_index_0_id_e8a4609a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DishesCart.vue?vue&type=style&index=0&id=e8a4609a&lang=scss&scoped=true& */ "./resources/js/components/DishesCart.vue?vue&type=style&index=0&id=e8a4609a&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _DishesCart_vue_vue_type_style_index_1_lang_scss___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DishesCart.vue?vue&type=style&index=1&lang=scss& */ "./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -53387,7 +53460,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
   _DishesCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _DishesCart_vue_vue_type_template_id_e8a4609a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _DishesCart_vue_vue_type_template_id_e8a4609a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -53431,6 +53504,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_0_id_e8a4609a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./DishesCart.vue?vue&type=style&index=0&id=e8a4609a&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DishesCart.vue?vue&type=style&index=0&id=e8a4609a&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_0_id_e8a4609a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_0_id_e8a4609a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_0_id_e8a4609a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_0_id_e8a4609a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss& ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_1_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./DishesCart.vue?vue&type=style&index=1&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DishesCart.vue?vue&type=style&index=1&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_1_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_1_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_1_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishesCart_vue_vue_type_style_index_1_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
