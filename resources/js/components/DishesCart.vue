@@ -46,7 +46,7 @@
                         </small>
 
                         <div>
-                            <span>Quantità: </span>
+                            
 
                             <span @click="less(index)" class="cursor">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
@@ -69,10 +69,11 @@
 
                     </li>
                 </ul>
-                <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+                
 
 
             </div>
+             <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
 
             <!-- Banner -->
@@ -240,6 +241,10 @@ export default {
 
 <style lang="scss" scoped>
 
+    .overflow-cart::-webkit-scrollbar {
+     width: 12px;               
+    }
+
     a{
 
         color: #fff;
@@ -285,8 +290,7 @@ export default {
 
         font-family: 'Akaya Telivigala', cursive;
         font-size: 1.2rem;
-        background-image: url("https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg");
-        background-size: cover;
+        
         border-radius:10px;
     }
 
@@ -388,8 +392,16 @@ export default {
     }
 
     .d-flex li{
-
         text-align: center;
+        
+    }
+    .card:hover{
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    }
+    .card{
+        border-radius:4px;
+        border:0;  
+        transition: 0.4s;
     }
 
     .card:hover{
@@ -409,44 +421,34 @@ export default {
         position: relative;
 
         .middle {
-
-            transition: .5s ease;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            text-align: center;
-
-            .text {
-
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+                .text {
                 color: #222;
-
-                h3, p {
-
+                    h3, p{
                     font-weight: bold;
-                }
-            }
-        }
-    }
-
+                        }
+                      }
+                    }
+                }  
     .image-overlay:hover img {
-
         opacity: 0.3;
+        transition: 0.4s;
         cursor: pointer;
     }
-
     .image-overlay:hover .middle {
-
         opacity: 1;
         cursor: pointer;
     }
-
     .btn{
-
         width:50%;
         margin: 0 auto;
     }

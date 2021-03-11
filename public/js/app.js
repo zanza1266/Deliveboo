@@ -2053,6 +2053,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     dishes_json: String,
@@ -7072,7 +7073,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "a[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  background-image: url(\"https://p7.hiclipart.com/preview/166/648/1011/paper-brown-rectangle-paper-sheet-png-image.jpg\");\n  background-size: cover;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.banner-container[data-v-e8a4609a] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-e8a4609a] {\n  background-color: white;\n  border-radius: 20px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.banner-container .banner h3[data-v-e8a4609a] {\n  text-align: center;\n}\n.banner-container .banner .button-wrapper[data-v-e8a4609a] {\n  display: flex;\n  flex-direction: row;\n  padding-top: 20px;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, ".overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\na[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.banner-container[data-v-e8a4609a] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-e8a4609a] {\n  background-color: white;\n  border-radius: 20px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.banner-container .banner h3[data-v-e8a4609a] {\n  text-align: center;\n}\n.banner-container .banner .button-wrapper[data-v-e8a4609a] {\n  display: flex;\n  flex-direction: row;\n  padding-top: 20px;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n  transition: 0.4s;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  transition: 0.4s;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}", ""]);
 
 // exports
 
@@ -7110,7 +7111,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}\ndiv input[type=text][data-v-21cc3b18] {\n  width: 50%;\n  height: 35px;\n  margin: 0 auto;\n}\n.card-contact[data-v-21cc3b18] {\n  text-align: center;\n  background-color: white;\n  width: 50%;\n  margin: 30px auto;\n  padding: 20px 0px;\n  border-radius: 10px;\n  box-shadow: 5px 10px rgba(0, 0, 0, 0.1);\n}\nlabel[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nlabel[data-v-21cc3b18]:not(.checkbox-item label, .radio label) {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.radio p[data-v-21cc3b18], h4[data-v-21cc3b18] {\n  font-weight: bold;\n}\np[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nspan[data-v-21cc3b18] {\n  margin: 0 10px;\n}\n.checkbox-item[data-v-21cc3b18] {\n  width: 70%;\n  margin: 0 auto;\n}\nbutton[data-v-21cc3b18] {\n  font-size: 1.2rem;\n  width: 150px;\n  padding: 10px 15px;\n  background-color: #00CCBC;\n  border-radius: 10px;\n  color: white;\n  border: 1px solid #00CCBC;\n}\nbutton[data-v-21cc3b18]:hover {\n  background-color: #00a597;\n  transition: 0.4s;\n}", ""]);
+exports.push([module.i, "img[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}\ndiv input[type=text][data-v-21cc3b18] {\n  width: 50%;\n  height: 35px;\n  margin: 0 auto;\n}\n.card-contact[data-v-21cc3b18] {\n  text-align: center;\n  background-color: white;\n  width: 50%;\n  margin: 30px auto;\n  padding: 20px 0px;\n  border-radius: 10px;\n  box-shadow: 5px 10px rgba(0, 0, 0, 0.1);\n}\nlabel[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nlabel[data-v-21cc3b18]:not(.checkbox-item label, .radio label) {\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.radio p[data-v-21cc3b18], h4[data-v-21cc3b18] {\n  font-weight: bold;\n}\np[data-v-21cc3b18] {\n  font-size: 1.2rem;\n}\nspan[data-v-21cc3b18] {\n  margin: 0 10px;\n}\n.checkbox-item[data-v-21cc3b18] {\n  width: 70%;\n  margin: 0 auto;\n}\nbutton[data-v-21cc3b18] {\n  font-size: 1.2rem;\n  width: 150px;\n  padding: 10px 15px;\n  background-color: #00CCBC;\n  border-radius: 10px;\n  color: white;\n  border: 1px solid #00CCBC;\n}\nbutton[data-v-21cc3b18]:hover {\n  background-color: #00a597;\n  transition: 0.4s;\n}\nimg[data-v-21cc3b18] {\n  width: 15%;\n  height: 30%;\n}", ""]);
 
 // exports
 
@@ -7262,7 +7263,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}\n.restaurants-card[data-v-576b7eec] {\n  width: 18rem;\n  transition: all 1s;\n}\n.restaurants-card[data-v-576b7eec]:hover {\n  transform: scale(1.2);\n}\n.custom-btn[data-v-576b7eec] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\n.custom-btn[data-v-576b7eec]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}", ""]);
+exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}\n.restaurants-card[data-v-576b7eec] {\n  width: 18rem;\n  transition: all 1s;\n}\n.restaurants-card[data-v-576b7eec]:hover {\n  transform: scale(1.2);\n}\n.custom-btn[data-v-576b7eec] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\n.custom-btn[data-v-576b7eec]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}\n.searchElements[data-v-576b7eec] {\n  display: flex;\n  justify-content: space-between;\n}\n.searchElements label[data-v-576b7eec] {\n  padding-left: 50px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.multipleSearch a[data-v-576b7eec] {\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n  margin-left: 50px;\n  margin-bottom: 20px;\n}\n.multipleSearch a[data-v-576b7eec]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}", ""]);
 
 // exports
 
@@ -39589,8 +39590,6 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", [
-                      _c("span", [_vm._v("Quantità: ")]),
-                      _vm._v(" "),
                       _c(
                         "span",
                         {
@@ -39697,19 +39696,19 @@ var render = function() {
               ],
               2
             )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.cart.length > 0
-          ? _c(
-              "button",
-              {
-                staticClass: "text-right go-summary",
-                on: { click: _vm.goSummary }
-              },
-              [_vm._v("Riepilogo Ordine")]
-            )
           : _vm._e()
       ]),
+      _vm._v(" "),
+      _vm.cart.length > 0
+        ? _c(
+            "button",
+            {
+              staticClass: "text-right go-summary",
+              on: { click: _vm.goSummary }
+            },
+            [_vm._v("Riepilogo Ordine")]
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
@@ -40822,51 +40821,55 @@ var render = function() {
             { staticClass: "col multipleSearch d-none animate__animated" },
             [
               _vm._l(_vm.categoriesList, function(category, index) {
-                return _c("div", { key: index }, [
-                  _c("label", { attrs: { for: category.name } }, [
-                    _vm._v(_vm._s(category.name))
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedCategories,
-                        expression: "selectedCategories"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: category.name },
-                    domProps: {
-                      value: category.id,
-                      checked: Array.isArray(_vm.selectedCategories)
-                        ? _vm._i(_vm.selectedCategories, category.id) > -1
-                        : _vm.selectedCategories
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.selectedCategories,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = category.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              (_vm.selectedCategories = $$a.concat([$$v]))
+                return _c(
+                  "div",
+                  { key: index, staticClass: "searchElements" },
+                  [
+                    _c("label", { attrs: { for: category.name } }, [
+                      _vm._v(_vm._s(category.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedCategories,
+                          expression: "selectedCategories"
+                        }
+                      ],
+                      attrs: { type: "checkbox", id: category.name },
+                      domProps: {
+                        value: category.id,
+                        checked: Array.isArray(_vm.selectedCategories)
+                          ? _vm._i(_vm.selectedCategories, category.id) > -1
+                          : _vm.selectedCategories
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.selectedCategories,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = category.id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.selectedCategories = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectedCategories = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
                           } else {
-                            $$i > -1 &&
-                              (_vm.selectedCategories = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
+                            _vm.selectedCategories = $$c
                           }
-                        } else {
-                          _vm.selectedCategories = $$c
                         }
                       }
-                    }
-                  })
-                ])
+                    })
+                  ]
+                )
               }),
               _vm._v(" "),
               _c(
@@ -40885,7 +40888,7 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "col pt-4" }, [
             _c(
               "a",
               {
@@ -54489,8 +54492,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\gianl\Desktop\lavori\DeliveBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\gianl\Desktop\lavori\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\DeliveBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\DeliveBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
