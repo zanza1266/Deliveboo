@@ -196,9 +196,3 @@ Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $req
     return view('user.stats', compact('orders_for_years', 'years'));
 
 })->middleware('auth')->name('stats');
-
-
-Route::get('prova', function() {
-
-    return view('guest.transaction_success');
-})->name('prova');

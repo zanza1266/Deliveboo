@@ -33,7 +33,7 @@
         <link href="{{ asset('css/order_summary_style.css') }}" rel="stylesheet">
     @endif
 
-    @if(Route::is('prova'))
+    @if(Route::is('checkout'))
         <link href="{{ asset('css/checkout.css') }}" rel="stylesheet">
     @endif
 
