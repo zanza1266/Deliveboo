@@ -1,5 +1,5 @@
 <template>
-<div class="section-footer">
+<footer class="section-footer mt-auto">
 
     <div class="container-fluid center-space">
         <div class="row  overflow_x">
@@ -69,7 +69,7 @@
 
         </div>
     </div>
-</div>
+</footer>
 </template>
 
 <script>
@@ -79,6 +79,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+footer{
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 $color-li : white;
 .section-footer{
@@ -148,16 +154,20 @@ $color-li : white;
         
     }
 }
-
-
 </style>
 <style>
+body{
+    margin-bottom: 22rem;
+}
 .center-space{
     width:80%;
     margin: 0 auto;
 }
 html{
     font-size: 15px;
+    width:100%;
+     position: relative;
+     min-height: 100%;
 }
 *{
     margin: 0;

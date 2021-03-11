@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col">
 
-                <dishes-cart dishes_json='{!!json_encode($dishes)!!}'></dishes-cart>
+                <dishes-cart dishes_json='{!!json_encode($dishes)!!}' restaurant_json='{!!json_encode($restaurant)!!}'></dishes-cart>
 
             </div>
         </div>
