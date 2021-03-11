@@ -11,6 +11,8 @@ use App\Http\Requests\RestaurantFormRequest;
 use App\Restaurant;
 
 use App\Http\Requests\UpdateRestaurantFormRequest;
+use App\Order;
+use App\OrderedDish;
 use Illuminate\Support\Facades\Storage;
 
 class MyRestaurantsController extends Controller
@@ -124,9 +126,34 @@ class MyRestaurantsController extends Controller
     public function destroy($id)
     {
         $restaurant = Restaurant::find($id);
-        $dishes = Dish::where('restaurant_id', '=', $restaurant->id);
-        Storage::delete($dishes->img);
-        $dishes->delete();
+
+
+        $dishes = Dish::where('restaurant_id', '=', $restaurant->id)->get();
+
+        foreach ($dishes as $dish) {
+
+            $orderedDishes = OrderedDish::where('dish_id', '=', $dish->id)->get();
+
+            foreach ($orderedDishes as $orderedDish) {
+
+
+                $orderedDish->delete();
+            }
+        }
+
+        $orders = Order::where('restaurant_id', '=', $restaurant->id)->get();
+
+        foreach ($orders as $order) {
+
+            $order->delete();
+        }
+
+        foreach ($dishes as $dish) {
+
+            Storage::delete($dish->img);
+            $dish->delete();
+        }
+
         Storage::delete($restaurant->logo);
         $restaurant->restaurantToCategory()->detach();
         $restaurant->delete();
