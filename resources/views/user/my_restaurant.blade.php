@@ -41,21 +41,23 @@
                                             @csrf
                                             @method('delete')
 
-                                            <button class="btn btn-outline-danger" type="submit" @click="activeBannerRestaurant">Elimina questo ristorante</button>
+                                            <div class="button-wrapper">
+
+                                                <button class="btn btn-outline-danger" type="submit" @click="activeBannerRestaurant">Elimina questo ristorante</button>
+
+                                                <a class="btn btn-outline-success" @click="activeBannerRestaurant">Annulla</a>
+                                            </div>
                                         </form>
-
-                                        <button class="btn btn-outline-success" @click="activeBannerRestaurant">Annulla</button>
-
 
                                     </div>
 
                                 </div>
                                 <button class="btn btn-outline-danger" @click="activeBannerRestaurant">Elimina Ristorante</button>
-                
+
                                 <a class="my-2 btn btn-outline-success" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
 
                                 <a class="btn btn-outline-info my-2" href="{{route('stats', $restaurant->id) }}">Vedi statistiche ristorante</a>
-                
+
                             </div>
                         </div>
                     </div>

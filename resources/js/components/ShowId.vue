@@ -47,14 +47,16 @@ div{
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.733);
     margin-top: 0px;
+
     .banner{
         background-color: white;
-        border: 2px solid #00ccbc;
-        border-radius: 5px;
+        border: 5px solid red;
+        border-radius: 20px;
         position: absolute;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 30px;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);

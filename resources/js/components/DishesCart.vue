@@ -81,10 +81,12 @@
             <div class="banner-container" v-show="isBannerCart">
 
                 <div class="banner">
-                    <h3>Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?</h3>
+                    <h3>Il tuo carrello contiene già un ordine di "{{this.$session.get('nameRastaurantInCart')}}", vuoi svuotarlo e creare un nuovo carrello?</h3>
 
-                    <button class="btn btn-outline-success mx-2" @click="keepCurrentCart">Annulla</button>
-                    <button class="btn btn-outline-success mx-2" @click="startNewCart">Crea nuovo carrello</button>
+                    <div class="button-wrapper">
+                        <button class="btn btn-outline-success mx-2" @click="keepCurrentCart">Annulla</button>
+                        <button class="btn btn-outline-success mx-2" @click="startNewCart">Crea nuovo carrello</button>
+                    </div>
                 </div>
 
             </div>
@@ -98,11 +100,13 @@
 <script>
 export default {
     props: {
-        dishes_json: String 
+        dishes_json: String,
+        restaurant_json: String
     },
     mounted() {
 
         this.allDishes = JSON.parse(this.dishes_json);
+        this.restaurant = JSON.parse(this.restaurant_json);
 
         if (this.$session.exists('cart')) {
 
@@ -116,7 +120,9 @@ export default {
             cart: [],
             idRestaurantInCart: null,
             isBannerCart: false,
-            tmpItem: null
+            tmpItem: null,
+            restaurant: null,
+            maxiumOrderQuantity: 100
         }
     },
 
@@ -135,6 +141,7 @@ export default {
 
                 this.cart.push(item);
                 this.$session.set('idRestInCart', item.restaurant_id);
+                this.$session.set('nameRastaurantInCart', this.restaurant.name);
 
             } else {
 
@@ -190,7 +197,7 @@ export default {
 
         more (ind) {
 
-            if (this.cart[ind].quantity < 5) {
+            if (this.cart[ind].quantity < this.maxiumOrderQuantity) {
 
                 this.cart[ind].quantity += 1;
             }
@@ -349,15 +356,41 @@ export default {
         width: 8.7rem;
     }
 
-    .go-summary{
-    
-        text-decoration: none;
-        padding: 5px 12px;
-        border-radius: 10px;
-        background-color: #227dc7;
-        color: white;
-        width: 8.7rem;
+    .banner-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.733);
+        margin-top: 0px;
+
+        .banner{
+            background-color: white;
+            border-radius: 20px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            h3 {
+                text-align: center;
+            }
+
+            .button-wrapper {
+
+                display: flex;
+                flex-direction: row;
+                padding-top: 20px;
+            }
+        }
     }
+
     .d-flex li{
         text-align: center;
         
@@ -418,10 +451,6 @@ export default {
     .btn{
         width:50%;
         margin: 0 auto;
-    }
-
-    .banner-container {
-        border: 2px solid red;
     }
 
 </style>

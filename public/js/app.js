@@ -2052,12 +2052,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    dishes_json: String
+    dishes_json: String,
+    restaurant_json: String
   },
   mounted: function mounted() {
     this.allDishes = JSON.parse(this.dishes_json);
+    this.restaurant = JSON.parse(this.restaurant_json);
 
     if (this.$session.exists('cart')) {
       this.cart = this.$session.get('cart');
@@ -2069,7 +2073,9 @@ __webpack_require__.r(__webpack_exports__);
       cart: [],
       idRestaurantInCart: null,
       isBannerCart: false,
-      tmpItem: null
+      tmpItem: null,
+      restaurant: null,
+      maxiumOrderQuantity: 100
     };
   },
   methods: {
@@ -2081,6 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.cart.length == 0) {
         this.cart.push(item);
         this.$session.set('idRestInCart', item.restaurant_id);
+        this.$session.set('nameRastaurantInCart', this.restaurant.name);
       } else {
         if (item.restaurant_id == this.$session.get('idRestInCart')) {
           var indexes = [];
@@ -2117,7 +2124,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$session.set('cart', this.cart);
     },
     more: function more(ind) {
-      if (this.cart[ind].quantity < 5) {
+      if (this.cart[ind].quantity < this.maxiumOrderQuantity) {
         this.cart[ind].quantity += 1;
       }
 
@@ -7066,7 +7073,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\na[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.go-summary[data-v-e8a4609a] {\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n  transition: 0.4s;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  transition: 0.4s;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}\n.banner-container[data-v-e8a4609a] {\n  border: 2px solid red;\n}", ""]);
+exports.push([module.i, ".overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\na[data-v-e8a4609a] {\n  color: #fff;\n  background-color: #00ccbc;\n  border-color: #00ccdc;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n}\na[data-v-e8a4609a]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar {\n  width: 12px;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-track {\n  background: black;\n}\n.overflow-cart[data-v-e8a4609a]::-webkit-scrollbar-thumb {\n  background-color: #00ccbc;\n  border-radius: 20px;\n  border: 3px solid black;\n}\nh4[data-v-e8a4609a] {\n  font-size: 1.5rem;\n  font-family: \"Akaya Telivigala\", cursive;\n}\n.overflow-cart[data-v-e8a4609a] {\n  font-family: \"Akaya Telivigala\", cursive;\n  font-size: 1.2rem;\n  border-radius: 10px;\n}\nul[data-v-e8a4609a] {\n  list-style-type: none;\n  padding: 0;\n}\nul li[data-v-e8a4609a] {\n  margin: 0.8rem;\n}\nli > *[data-v-e8a4609a], h1[data-v-e8a4609a] {\n  text-transform: capitalize;\n}\nimg[data-v-e8a4609a] {\n  width: 100%;\n  height: 10rem;\n}\n.cursor[data-v-e8a4609a]:hover {\n  cursor: pointer;\n}\n.bi-dash-circle[data-v-e8a4609a]:active {\n  color: red;\n}\n.bi-plus-circle[data-v-e8a4609a]:active {\n  color: green;\n}\n.overflow-cart[data-v-e8a4609a] {\n  overflow-y: auto;\n  height: 25rem;\n}\n.overflow-cart li[data-v-e8a4609a] {\n  margin: 0;\n  padding: 1rem;\n  border-radius: 10px;\n}\n.go-summary[data-v-e8a4609a] {\n  position: absolute;\n  right: 5%;\n  top: -50px;\n  text-decoration: none;\n  padding: 5px 12px;\n  border-radius: 10px;\n  background-color: #227dc7;\n  color: white;\n  width: 8.7rem;\n}\n.banner-container[data-v-e8a4609a] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-e8a4609a] {\n  background-color: white;\n  border-radius: 20px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.banner-container .banner h3[data-v-e8a4609a] {\n  text-align: center;\n}\n.banner-container .banner .button-wrapper[data-v-e8a4609a] {\n  display: flex;\n  flex-direction: row;\n  padding-top: 20px;\n}\n.d-flex li[data-v-e8a4609a] {\n  text-align: center;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n  transition: 0.4s;\n}\n.card[data-v-e8a4609a]:hover {\n  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n}\n.card[data-v-e8a4609a] {\n  border-radius: 4px;\n  border: 0;\n}\n.image-overlay[data-v-e8a4609a] {\n  position: relative;\n}\n.image-overlay .middle[data-v-e8a4609a] {\n  transition: 0.5s ease;\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 100%;\n  height: 100%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  text-align: center;\n}\n.image-overlay .middle .text[data-v-e8a4609a] {\n  color: #222;\n}\n.image-overlay .middle .text h3[data-v-e8a4609a], .image-overlay .middle .text p[data-v-e8a4609a] {\n  font-weight: bold;\n}\n.image-overlay:hover img[data-v-e8a4609a] {\n  opacity: 0.3;\n  transition: 0.4s;\n  cursor: pointer;\n}\n.image-overlay:hover .middle[data-v-e8a4609a] {\n  opacity: 1;\n  cursor: pointer;\n}\n.btn[data-v-e8a4609a] {\n  width: 50%;\n  margin: 0 auto;\n}", ""]);
 
 // exports
 
@@ -7237,7 +7244,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "div[data-v-d1a4e9ba] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.card-container[data-v-d1a4e9ba] {\n  border-radius: 5px;\n  width: 45%;\n  margin: 0 auto;\n}\n.card-container > *[data-v-d1a4e9ba] {\n  margin: 0 auto;\n  font-size: 1rem;\n  margin-top: 10px;\n}\n.card-container img[data-v-d1a4e9ba] {\n  text-align: center;\n  width: 100%;\n  height: 18rem;\n  background-size: cover;\n}\n.card-container a[data-v-d1a4e9ba]:hover {\n  color: white;\n}\n.banner-container[data-v-d1a4e9ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-d1a4e9ba] {\n  background-color: white;\n  border: 2px solid #00ccbc;\n  border-radius: 5px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}", ""]);
+exports.push([module.i, "div[data-v-d1a4e9ba] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.card-container[data-v-d1a4e9ba] {\n  border-radius: 5px;\n  width: 45%;\n  margin: 0 auto;\n}\n.card-container > *[data-v-d1a4e9ba] {\n  margin: 0 auto;\n  font-size: 1rem;\n  margin-top: 10px;\n}\n.card-container img[data-v-d1a4e9ba] {\n  text-align: center;\n  width: 100%;\n  height: 18rem;\n  background-size: cover;\n}\n.card-container a[data-v-d1a4e9ba]:hover {\n  color: white;\n}\n.banner-container[data-v-d1a4e9ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.733);\n  margin-top: 0px;\n}\n.banner-container .banner[data-v-d1a4e9ba] {\n  background-color: white;\n  border: 5px solid red;\n  border-radius: 20px;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}", ""]);
 
 // exports
 
@@ -39720,27 +39727,31 @@ var render = function() {
           _c("div", { staticClass: "banner" }, [
             _c("h3", [
               _vm._v(
-                "Il tuo carrello contiene un ordine da un altro ristorante, vuoi svuotarlo e creare un nuovo carrello?"
+                'Il tuo carrello contiene già un ordine di "' +
+                  _vm._s(this.$session.get("nameRastaurantInCart")) +
+                  '", vuoi svuotarlo e creare un nuovo carrello?'
               )
             ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success mx-2",
-                on: { click: _vm.keepCurrentCart }
-              },
-              [_vm._v("Annulla")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success mx-2",
-                on: { click: _vm.startNewCart }
-              },
-              [_vm._v("Crea nuovo carrello")]
-            )
+            _c("div", { staticClass: "button-wrapper" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success mx-2",
+                  on: { click: _vm.keepCurrentCart }
+                },
+                [_vm._v("Annulla")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success mx-2",
+                  on: { click: _vm.startNewCart }
+                },
+                [_vm._v("Crea nuovo carrello")]
+              )
+            ])
           ])
         ]
       )
