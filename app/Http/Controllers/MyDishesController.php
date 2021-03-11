@@ -41,6 +41,7 @@ class MyDishesController extends Controller
       return view('user.create_dish', compact('types', 'restaurant_index'));
     }
 
+
     /**
      * Store a newly created resource in storage.
      *

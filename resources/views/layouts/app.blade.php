@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -27,7 +28,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
+    @if(Route::is('summary'))
+        <link href="{{ asset('css/order_summary_style.css') }}" rel="stylesheet">
+    @endif
+
+    @if(Route::is('checkout'))
+        <link href="{{ asset('css/checkout.css') }}" rel="stylesheet">
+    @endif
+
 
 </head>
 <body>
