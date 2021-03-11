@@ -5,7 +5,7 @@
             <div class="col-2">
                 <div class="row">
                     <div class="col multipleSearch d-none animate__animated">
-                        <div v-for="(category, index) in categoriesList" :key="index">
+                        <div v-for="(category, index) in categoriesList" :key="index" class="searchElements">
 
                             <label :for=category.name>{{category.name}}</label>
                             <input type="checkbox" :id=category.name  :value=category.id v-model="selectedCategories">
@@ -14,7 +14,7 @@
 
                         <a href="#" @click="displaySearched()">Cerca</a>
                     </div>
-                    <div class="col">
+                    <div class="col pt-4">
                             <a class="btn custom-btn animate__animated btnSearch animate__fadeInRight" @click="showMultipleSearch()">
                                 Ricerca Avanzata
                             </a> 
@@ -158,24 +158,51 @@ ul{
     }
 }
 
-.restaurants-card{
-    width: 18rem;
-    transition: all 1s;
-}
-.restaurants-card:hover{
-    transform: scale(1.2);
-}
-.custom-btn{
+    .restaurants-card{
+        width: 18rem;
+        transition: all 1s;
+    }
+    .restaurants-card:hover{
+        transform: scale(1.2);
+    }
+    .custom-btn{
         margin: 0 0.5rem;
         padding: 0.6rem 1.5rem;
         border-radius: 0.5rem;
         background: white;
         color:  rgb(6, 121, 121);
         box-shadow:2px 3px rgba(0, 0, 0, 0.226);
-}
-.custom-btn:hover{
-    background-color: rgb(231, 231, 231);
-    text-decoration: none;
-    color: rgb(6, 121, 121);
-}
+    }
+    .custom-btn:hover{
+        background-color: rgb(231, 231, 231);
+        text-decoration: none;
+        color: rgb(6, 121, 121);
+    }
+    .searchElements{
+        display: flex;
+        justify-content: space-between;
+            label{
+                padding-left: 50px;
+                font-weight: bold;
+                text-transform: capitalize;
+            }   
+    }
+    .multipleSearch a{
+        color: #fff;
+        background-color: #227dc7;
+        border-color: #2176bd;
+        padding:0.5rem 0.75rem;
+        border-radius:5px;
+        margin-left: 15px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+    }
+    .multipleSearch a:hover{
+
+        text-decoration: none;
+        color: #fff;
+        background-color: #227dc7;
+        border-color: #2176bd;
+    }
+    
 </style>

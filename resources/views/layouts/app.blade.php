@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <!--Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Great+Vibes&display=swap" rel="stylesheet">
+
     {{-- CDN bootstrap  --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -36,6 +36,7 @@
 
         <section-navbar-white>
             <!-- Right Side Of Navbar -->
+            
             <ul class="navbar-nav ml-auto d-flex flex-row ">
                 <!-- Authentication Links -->
                 @guest
@@ -54,6 +55,28 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{{ route('home') }}">
+                                {{ __('Home') }}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('my-restaurants.index') }}">
+                                {{ __('I tuoi ristoranti') }}
+                            </a>
+
+
+                            @if(Route::is('my-restaurants.show'))
+                                <a class="dropdown-item" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">
+                                    {{ __('I tuoi piatti') }}
+                                </a>
+                            @endif
+
+                            @if(Route::is('my-dishes.create') || Route::is('my-dishes.show') || Route::is('my-dishes.edit'))
+                                <a class="dropdown-item" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant_index])}}">
+                                    {{ __('I tuoi piatti') }}
+                                </a>
+                            @endif
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -67,6 +90,7 @@
                     </li>
                 @endguest
             </ul>
+            
         </section-navbar-white>
 
         @yield('content')

@@ -66,7 +66,11 @@ button:hover{
     background-color:#00a597 ;
     transition: 0.4s;
 }
+img{
+    width: 15%;
+    height: 30%;
 
+}
 
 
 </style>
