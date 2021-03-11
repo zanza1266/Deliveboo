@@ -7085,7 +7085,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".section-footer[data-v-61a7c374] {\n  overflow-x: hidden;\n  background-color: #2e3333;\n  width: 100%;\n  height: 22rem;\n}\n.section-footer .overflow_x[data-v-61a7c374] {\n  overflow-x: auto;\n}\n.section-footer .overflow_x ul[data-v-61a7c374] {\n  min-width: 10rem;\n  width: 90%;\n  border-radius: 5px;\n  margin: 2rem 0;\n  background-color: #434848;\n  padding: 15px;\n  height: 80%;\n}\n.section-footer .overflow_x ul li[data-v-61a7c374] {\n  display: block;\n  color: white;\n  list-style: none;\n}\n.section-footer .overflow_x ul li h6[data-v-61a7c374] {\n  font-size: 100%;\n  font-weight: bold;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374] {\n  text-decoration: none;\n  color: white;\n  font-size: 95%;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .overflow_x ul li img[data-v-61a7c374] {\n  width: 60%;\n  height: 90%;\n  border-radius: 10px;\n  margin: 5px 0;\n  cursor: pointer;\n}\n.section-footer .bottom-footer[data-v-61a7c374] {\n  width: 100%;\n  padding: 0 15px;\n}\n.section-footer .bottom-footer i[data-v-61a7c374] {\n  color: white;\n  margin: 0.3rem;\n  cursor: pointer;\n}\n.section-footer .bottom-footer i[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .bottom-footer small[data-v-61a7c374] {\n  color: white;\n  color: #4f6f85;\n  font-size: 0.7rem;\n}\nfooter[data-v-61a7c374] {\n  position: absolute;\n  left: 0;\n  width: 100%;\n}", ""]);
+exports.push([module.i, "footer[data-v-61a7c374] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n}\n.section-footer[data-v-61a7c374] {\n  overflow-x: hidden;\n  background-color: #2e3333;\n  width: 100%;\n  height: 22rem;\n}\n.section-footer .overflow_x[data-v-61a7c374] {\n  overflow-x: auto;\n}\n.section-footer .overflow_x ul[data-v-61a7c374] {\n  min-width: 10rem;\n  width: 90%;\n  border-radius: 5px;\n  margin: 2rem 0;\n  background-color: #434848;\n  padding: 15px;\n  height: 80%;\n}\n.section-footer .overflow_x ul li[data-v-61a7c374] {\n  display: block;\n  color: white;\n  list-style: none;\n}\n.section-footer .overflow_x ul li h6[data-v-61a7c374] {\n  font-size: 100%;\n  font-weight: bold;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374] {\n  text-decoration: none;\n  color: white;\n  font-size: 95%;\n}\n.section-footer .overflow_x ul li a[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .overflow_x ul li img[data-v-61a7c374] {\n  width: 60%;\n  height: 90%;\n  border-radius: 10px;\n  margin: 5px 0;\n  cursor: pointer;\n}\n.section-footer .bottom-footer[data-v-61a7c374] {\n  width: 100%;\n  padding: 0 15px;\n}\n.section-footer .bottom-footer i[data-v-61a7c374] {\n  color: white;\n  margin: 0.3rem;\n  cursor: pointer;\n}\n.section-footer .bottom-footer i[data-v-61a7c374]:hover {\n  color: teal;\n}\n.section-footer .bottom-footer small[data-v-61a7c374] {\n  color: white;\n  color: #4f6f85;\n  font-size: 0.7rem;\n}", ""]);
 
 // exports
 
@@ -7256,7 +7256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}\n.restaurants-card[data-v-576b7eec] {\n  width: 18rem;\n  transition: all 1s;\n}\n.restaurants-card[data-v-576b7eec]:hover {\n  transform: scale(1.2);\n}\n.custom-btn[data-v-576b7eec] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\n.custom-btn[data-v-576b7eec]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}", ""]);
+exports.push([module.i, ".card_style[data-v-576b7eec] {\n  border-radius: 10px;\n  width: 10rem;\n  height: 5rem;\n  margin: 2px 3rem;\n  cursor: pointer;\n  background-color: #067979;\n  position: relative;\n}\n.card_style h3[data-v-576b7eec] {\n  font-weight: bold;\n  color: white;\n  font-size: 15px;\n  position: absolute;\n  bottom: 0px;\n}\nul[data-v-576b7eec] {\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-576b7eec] {\n  margin: 2rem;\n  list-style: none;\n}\nul li a[data-v-576b7eec] {\n  color: black;\n  font-size: 1.3rem;\n  font-weight: bold;\n}\nul li a[data-v-576b7eec]:hover {\n  text-decoration: none;\n}\nul li img[data-v-576b7eec] {\n  width: 10rem;\n  height: 5rem;\n}\n.restaurants-card[data-v-576b7eec] {\n  width: 18rem;\n  transition: all 1s;\n}\n.restaurants-card[data-v-576b7eec]:hover {\n  transform: scale(1.2);\n}\n.custom-btn[data-v-576b7eec] {\n  margin: 0 0.5rem;\n  padding: 0.6rem 1.5rem;\n  border-radius: 0.5rem;\n  background: white;\n  color: #067979;\n  box-shadow: 2px 3px rgba(0, 0, 0, 0.226);\n}\n.custom-btn[data-v-576b7eec]:hover {\n  background-color: #e7e7e7;\n  text-decoration: none;\n  color: #067979;\n}\n.searchElements[data-v-576b7eec] {\n  display: flex;\n  justify-content: space-between;\n}\n.searchElements label[data-v-576b7eec] {\n  padding-left: 50px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.multipleSearch a[data-v-576b7eec] {\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n  padding: 0.5rem 0.75rem;\n  border-radius: 5px;\n  margin-left: 15px;\n  margin-left: 50px;\n  margin-bottom: 20px;\n}\n.multipleSearch a[data-v-576b7eec]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #227dc7;\n  border-color: #2176bd;\n}", ""]);
 
 // exports
 
@@ -7294,7 +7294,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody{\r\n    margin-bottom:22rem;\n}\n.center-space{\r\n    width:80%;\r\n    margin: 0 auto;\n}\nhtml{\r\n    font-size: 15px;\r\n    width:100%;\n}\n*{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\nbody{\r\n    margin-bottom: 22rem;\n}\n.center-space{\r\n    width:80%;\r\n    margin: 0 auto;\n}\nhtml{\r\n    font-size: 15px;\r\n    width:100%;\r\n     position: relative;\r\n     min-height: 100%;\n}\n*{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -39823,7 +39823,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "section-footer" }, [
+    return _c("footer", { staticClass: "section-footer mt-auto" }, [
       _c("div", { staticClass: "container-fluid center-space" }, [
         _c("div", { staticClass: "row  overflow_x" }, [
           _c("div", { staticClass: "col-3" }, [
@@ -40810,51 +40810,55 @@ var render = function() {
             { staticClass: "col multipleSearch d-none animate__animated" },
             [
               _vm._l(_vm.categoriesList, function(category, index) {
-                return _c("div", { key: index }, [
-                  _c("label", { attrs: { for: category.name } }, [
-                    _vm._v(_vm._s(category.name))
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedCategories,
-                        expression: "selectedCategories"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: category.name },
-                    domProps: {
-                      value: category.id,
-                      checked: Array.isArray(_vm.selectedCategories)
-                        ? _vm._i(_vm.selectedCategories, category.id) > -1
-                        : _vm.selectedCategories
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.selectedCategories,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = category.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              (_vm.selectedCategories = $$a.concat([$$v]))
+                return _c(
+                  "div",
+                  { key: index, staticClass: "searchElements" },
+                  [
+                    _c("label", { attrs: { for: category.name } }, [
+                      _vm._v(_vm._s(category.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedCategories,
+                          expression: "selectedCategories"
+                        }
+                      ],
+                      attrs: { type: "checkbox", id: category.name },
+                      domProps: {
+                        value: category.id,
+                        checked: Array.isArray(_vm.selectedCategories)
+                          ? _vm._i(_vm.selectedCategories, category.id) > -1
+                          : _vm.selectedCategories
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.selectedCategories,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = category.id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.selectedCategories = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectedCategories = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
                           } else {
-                            $$i > -1 &&
-                              (_vm.selectedCategories = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
+                            _vm.selectedCategories = $$c
                           }
-                        } else {
-                          _vm.selectedCategories = $$c
                         }
                       }
-                    }
-                  })
-                ])
+                    })
+                  ]
+                )
               }),
               _vm._v(" "),
               _c(
@@ -40873,7 +40877,7 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "col pt-4" }, [
             _c(
               "a",
               {
