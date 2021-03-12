@@ -45,6 +45,9 @@ Route::post('/send-cart-data', function(Request $request) {
 
     $cart = json_decode($request->cart);
     $request->session()->put('cart', $cart);
+    $restaurant = $cart[0]->restaurant_id;
+    $request->session()->put('restaurant_id', $restaurant);
+
 });
 
 Route::get('order-summary', function (Request $request) {
@@ -61,19 +64,20 @@ Route::get('order-summary', function (Request $request) {
     $cart = $request->session()->get('cart');
 
     $total = 0;
+
+    $restaurant= Restaurant::find($request->session()->get('restaurant_id'));
+
     foreach ($cart as $item) {
 
-    $subTotal = $item->price * $item->quantity;
+        $subTotal = $item->price * $item->quantity;
         $total += $subTotal;
     }
 
     $request->session()->put('total', $total);
 
-    return view('guest.order_summary', compact('cart', 'total', 'token'));
+    return view('guest.order_summary', compact('cart', 'total', 'token', 'restaurant'));
 
-});
-
-
+})->name('summary');;
 
 Route::post('/checkout', function(OrderFormRequest $request) {
 
@@ -138,7 +142,6 @@ Route::post('/checkout', function(OrderFormRequest $request) {
 
 })->name('checkout');
 
-
 Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $request) {
     $years = [];
     foreach ($restaurant->restaurantToOrder as $order) {
@@ -190,6 +193,24 @@ Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $req
       array_push($orders_for_years, $count);
     }
 
-    return view('user.stats', compact('orders_for_years', 'years'));
+    $allDishes = $restaurant->restaurantToDish;
+    $orderPerDishData = [];
+
+    foreach ($allDishes as $dish) {
+
+        $allOrdered = $dish->dishToOrderedDish;
+        $totalOrdered = 0;
+
+        foreach ($allOrdered as $el) {
+
+            $totalOrdered += $el->dish_quantity;
+        }
+
+        array_push($orderPerDishData, ['name' => $dish->name, 'timesOrdered' => $totalOrdered]);
+
+    }
+
+
+    return view('user.stats', compact('orders_for_years', 'years', 'orderPerDishData'));
 
 })->middleware('auth')->name('stats');

@@ -1,27 +1,28 @@
 <template>
 
-    <div class="container-fluid">
+    <div class="container-fluid bgcustom">
         <div class="row">
             <div class="col-2">
                 <div class="row">
-                    <div class="col multipleSearch d-none animate__animated">
+                    <div class="col py-3 multipleSearch d-none animate__animated">
+                        <h6>Ricerca Avanzata</h6>
                         <div v-for="(category, index) in categoriesList" :key="index" class="searchElements">
-
-                            <label :for=category.name>{{category.name}}</label>
-                            <input type="checkbox" :id=category.name  :value=category.id v-model="selectedCategories">
+                                <label  :for=category.name>{{category.name}}</label>
+                                <input type="checkbox"  :id=category.name  :value=category.id v-model="selectedCategories">
 
                         </div>
 
-                        <a href="#" @click="displaySearched()">Cerca</a>
+                        <a href="#" class="mt-5 custom-btn" @click="displaySearched()">Cerca</a>
                     </div>
-                    <div class="col pt-4">
-                            <a class="btn custom-btn animate__animated btnSearch animate__fadeInRight" @click="showMultipleSearch()">
+                    <div class="col pt-4 divSearch animate__animated animate__fadeInRight  d-inline-block">
+                        
+                            <a class="btn custom-btn btnSearch d-inline-block " @click="showMultipleSearch()">
                                 Ricerca Avanzata
                             </a> 
                     </div>
                 </div>
             </div>
-            <div class=" col-10 d-flex justify-content-center flex-wrap">
+            <div class="col-10 d-flex justify-content-center flex-wrap">
                 <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
                     <div class="card-body d-flex justify-content-start align-items-end">
                         <h3 class="card-title"> {{category.name}} </h3>
@@ -32,7 +33,7 @@
         
 
 
-        <div class="row">
+        <div class="row ">
             <div class="offset-2 col-10">
                 <ul>
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
@@ -82,8 +83,18 @@ export default {
         showMultipleSearch(){
             document.querySelector('.multipleSearch').classList.toggle('animate__fadeInLeft');
             document.querySelector('.multipleSearch').classList.toggle('d-none');
-            document.querySelector('.btnSearch').classList.toggle('animate__fadeInLeft');
-            document.querySelector('.btnSearch').classList.toggle('animate__fadeInRight');
+            document.querySelector('.divSearch').classList.toggle('animate__fadeInLeft');
+            document.querySelector('.divSearch').classList.toggle('animate__fadeInRight');
+
+            if(document.querySelector('.btnSearch').innerText == "Ricerca Avanzata"){
+
+                document.querySelector('.btnSearch').innerText = "Chiudi";
+
+            }else if(document.querySelector('.btnSearch').innerText == "Chiudi"){
+
+                document.querySelector('.btnSearch').innerText = "Ricerca Avanzata";
+
+            }
 
         },
         displayRestaurants(id) {
@@ -118,15 +129,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.multipleSearch{
+    border: #00423d 1px solid;
+    border-left: none;
+    border-radius: 10%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color:#00998c;
+    color: white;
+    letter-spacing: 2px;
+    
+}
 .card_style{
     border-radius: 10px;
-    width: 10rem;
-    height: 5rem;
+    width: 15rem;
+    height: 8rem;
     margin: 2px  3rem;
     cursor: pointer;
     background-color: rgb(6, 121, 121);
     position: relative;
+      transition: all 0.5s ease;
+    filter: grayscale(60%);
     h3{
         font-weight: bold;
         color: white;
@@ -134,6 +157,9 @@ export default {
         position: absolute;
         bottom: 0px;
     }
+}
+.card_style:hover{
+    filter: grayscale(0%);
 }
 ul{
     display: flex;
@@ -144,7 +170,7 @@ ul{
         list-style: none;
 
         a{
-            color: black;
+            color: white;
             font-size: 1.3rem;
             font-weight: bold;
         }
@@ -188,21 +214,19 @@ ul{
             }   
     }
     .multipleSearch a{
-        color: #fff;
-        background-color: #227dc7;
-        border-color: #2176bd;
+        letter-spacing: 0;
         padding:0.5rem 0.75rem;
         border-radius:5px;
         margin-left: 15px;
         margin-left: 50px;
         margin-bottom: 20px;
     }
-    .multipleSearch a:hover{
-
-        text-decoration: none;
-        color: #fff;
-        background-color: #227dc7;
-        border-color: #2176bd;
-    }
     
+</style>
+<style>
+
+body{
+    background-image: url('/deliveboo_img/placeholder.svg');
+    background-repeat: repeat;
+}
 </style>
