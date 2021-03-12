@@ -1,0 +1,32 @@
+.homepage {
+
+    background-color: #00ccbc;
+    border-radius: 8px;
+    border:none;
+    padding: 10px;
+    transition: background-color .2s;
+    margin-top: 20px;
+    color: black;
+    text-decoration: none !important;
+}
+
+.homepage:hover {
+
+    background-color:rgba(0,204,188,0.4);
+}
+
+.background {
+
+    height: 90vh;
+    background-image: linear-gradient(to right, #00CCBC, #067979);
+
+    .my-card {
+
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 5px 10px rgba(0, 0, 0, 0.1);
+
+    }
+}
+
