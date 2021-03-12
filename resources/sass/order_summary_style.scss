@@ -78,6 +78,25 @@
     padding-top: 30px;
 }
 
+.loader-container {
+
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color:rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.active {
+
+    display: flex;
+}
+
 
 
 

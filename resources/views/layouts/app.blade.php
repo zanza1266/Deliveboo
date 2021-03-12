@@ -106,6 +106,7 @@
         <section-footer></section-footer>
     </div>
 
+
     @yield('scripts')
 </body>
 </html>

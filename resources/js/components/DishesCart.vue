@@ -240,14 +240,11 @@ export default {
 
 <style lang="scss" scoped>
 
-<<<<<<< HEAD
-=======
     .overflow-cart::-webkit-scrollbar {
 
      width: 12px;
     }
 
->>>>>>> 35a70876e82a0ae5b614b96fccdc0432f71fac2d
     a{
 
         color: #fff;
