@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/order_summary_style.css": "/css/order_summary_style.css",
-    "/css/checkout.css": "/css/checkout.css"
+    "/css/checkout.css": "/css/checkout.css",
+    "/css/stats_style.css": "/css/stats_style.css"
 }

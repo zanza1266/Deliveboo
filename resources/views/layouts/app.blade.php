@@ -37,7 +37,6 @@
         <link href="{{ asset('css/checkout.css') }}" rel="stylesheet">
     @endif
 
-
 </head>
 <body>
 

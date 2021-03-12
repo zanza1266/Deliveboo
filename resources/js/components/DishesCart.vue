@@ -29,8 +29,7 @@
 
 
             <!-- CARRELLO -->
-            
-                
+
             <div :class="cart.length > 0 ? 'col-2' : null ">
                 
                 <ul  v-if="cart.length > 0" class="overflow-cart px-2">
@@ -73,10 +72,10 @@
 
 
             </div>
-             <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
+            <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
 
-            <!-- Banner -->
+            <!-- BANNER -->
 
             <div class="banner-container" v-show="isBannerCart">
 
@@ -94,7 +93,7 @@
         </div>
 
     </div>
-  
+
 </template>
 
 <script>
@@ -131,7 +130,7 @@ export default {
 
         addCart (item) {
 
-            if (!item.quantity) {
+            if (!item.quantity || item.quantity > 1) {
 
                 Vue.set(item, 'quantity', 1);
             }
@@ -242,7 +241,8 @@ export default {
 <style lang="scss" scoped>
 
     .overflow-cart::-webkit-scrollbar {
-     width: 12px;               
+
+     width: 12px;
     }
 
     a{
@@ -269,7 +269,7 @@ export default {
     }
 
     .overflow-cart::-webkit-scrollbar-track {
-    
+
         background: black;
     }
 
@@ -290,7 +290,6 @@ export default {
 
         font-family: 'Akaya Telivigala', cursive;
         font-size: 1.2rem;
-        
         border-radius:10px;
     }
 
@@ -320,6 +319,7 @@ export default {
 
         cursor: pointer;
     }
+
     .bi-dash-circle:active{
 
         color: red;
