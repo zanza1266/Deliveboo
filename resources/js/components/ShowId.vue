@@ -12,19 +12,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>    
-div{
-    margin-top: 1rem ;
-    margin-bottom: 1rem;
+    .card-body{
+    
+    width: 80%;
+    
+    outline: none;
+    background-image: linear-gradient(
+    45deg
+    , lightgrey, transparent);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-}
+    }
+    .stats{
+        border: 1px solid #332d2f;
+        color: #332d2f;
+    }
+    .stats:hover{
+        color: white;
+        background-color: #332d2f;
+        border: 1px solid #332d2f;
+    }
+
+    .center-space{
+        position: relative;
+        
+        width:100%;
+        margin: 0;
+       
+    }
+    .center-space::before{
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        filter: brightness(60%);
+        background-image: url("https://wallpapercave.com/wp/wp4289147.jpg");
+        background-size: cover;
+    }
+    .card:hover{
+       -webkit-box-shadow: 14px 9px 5px 0px rgba(255,255,255, 0.9);
+        -moz-box-shadow: 14px 9px 5px 0px rgba(0,0,0,0.3);
+        box-shadow: 8px 8px 4px 0px #74757b;
+            
+    }
+    
 .card-container{
     border-radius: 5px;
     width: 45%;
-    margin: 0 auto;
+    margin: 3rem auto;
     & > *{
         margin: 0 auto;
         font-size: 1rem;
-        margin-top: 10px;
+        
     }
     img{
         text-align: center;
@@ -33,6 +73,7 @@ div{
         // object-fit: cover;
         background-size: cover;
     }
+    
     a:hover{
         color: white;
     }
@@ -62,5 +103,45 @@ div{
         transform: translate(-50%,-50%);
     }
 }
+    @media screen and (min-width: 992px) and (max-width: 1024px){
+        .card-container{
+            width:60%;
+        }
+        
+    }
+    
+    @media screen and (min-width: 769px) and (max-width: 991px){
+        .card-container{
+            width:70%;
+        }
+    }
+     @media screen and (min-width: 481px) and (max-width: 768px){
+        .card-container{
+            width:80%;
+        }
+        .card-container >*{
+            font-size: 0.8rem;
+        }
+        a{
+            font-size:0.7rem;
+        }
+        img{
+            height:5rem;
+        }
+    }
+     @media screen and (max-width: 480px){
+        .card-container{
+            width:90%;
+        }
+        .card-container >*{
+            font-size: 0.8rem;
+        }
+        a{
+            font-size:0.7rem;
+        }
+        img{
+            height:2rem;
+        }
+    }
 
 </style>

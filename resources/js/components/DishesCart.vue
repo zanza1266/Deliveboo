@@ -241,10 +241,6 @@ export default {
 
 <style lang="scss" scoped>
 
-    .overflow-cart::-webkit-scrollbar {
-     width: 12px;               
-    }
-
     a{
 
         color: #fff;
@@ -261,6 +257,10 @@ export default {
         color: #fff;
         background-color: #227dc7;
         border-color: #2176bd;
+    }
+    body .overflow-cart::-webkit-scrollbar-color {
+    
+        background: black;
     }
 
     .overflow-cart::-webkit-scrollbar {

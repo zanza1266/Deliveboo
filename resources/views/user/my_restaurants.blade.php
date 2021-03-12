@@ -18,7 +18,7 @@
                     <img src="{{$restaurant->logo}}" class="card-img-top" alt="restaurant-logo">
                         <div class="card-body">
                         
-                        <a href="{{route('my-restaurants.show', $restaurant->id)}}">{{$restaurant->name}}</a>
+                        <a href="{{route('my-restaurants.show', $restaurant->id)}}" class="stretched-link">{{$restaurant->name}}</a>
                         
                         </div>
                 </div>

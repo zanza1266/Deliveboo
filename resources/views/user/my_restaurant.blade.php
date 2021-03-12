@@ -8,17 +8,19 @@
             <div class="col-12">
                 <div class="card card-container ">
                     <img class="card-img-top"  src="{{asset($restaurant->logo)}}" alt="logo-restaurant">
-                    <div class="card-body">
+                    <div class="card-body text-center my-4">
                         <h2 class="card-title"><strong>Nome:</strong> {{$restaurant->name}}</h2>
                         <p class="card-text"><strong>Indirizzo:</strong> {{$restaurant->address}}</p>
                         <p class="card-text"><strong>Telefono:</strong> {{$restaurant->phone}}</p>
                         <label><strong>Categorie:</strong></label>
-                        <span class="d-flex justify-content-between flex-wrap">
-                            @foreach ($restaurant->restaurantToCategory as $category)
-                                <p>{{$category->name}}</p>
+                        
+                            
+                                @foreach ($restaurant->restaurantToCategory as $category)
+                                    <p><i class="bi bi-check"></i>{{$category->name}}</p>
 
-                            @endforeach
-                        </span>
+                                @endforeach
+                            
+                      
                         <p class="card-text"><strong>Sei aperto?</strong>
                           @if($restaurant->open == 0)
                             No
@@ -26,12 +28,13 @@
                             Sì
                           @endif
                         </p>
-                        <div class="row">
-                            <div class="col">
-                                <a class="btn btn-outline-info my-2" href="{{route('my-restaurants.edit', $restaurant->id) }}">Modifica il ristorante</a>
-
-
-                                <div class="banner-container" v-show="isBannerRestaurant">
+                        </div>
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn btn-outline-info float-right" href="{{route('my-restaurants.edit', $restaurant->id) }}">Modifica il ristorante</a>
+                    </div>
+                
+                    <div class="banner-container" v-show="isBannerRestaurant">
                                     
                                     <div class="banner">
 
@@ -52,22 +55,28 @@
                                     </div>
 
                                 </div>
-                                <button class="btn btn-outline-danger" @click="activeBannerRestaurant">Elimina Ristorante</button>
-
-                                <a class="my-2 btn btn-outline-success" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
-
-                                <a class="btn btn-outline-info my-2" href="{{route('stats', $restaurant->id) }}">Vedi statistiche ristorante</a>
-
-                            </div>
-                        </div>
+                    
+                    
+                    
+                    <div class="col-6">
+                    <a class="btn btn-outline-danger float-left" @click="activeBannerRestaurant">Elimina Ristorante</a>
                     </div>
-                </div>
-
                 
+                <div class="col-6">
+                    <a class="my-2 btn btn-outline-success float-right" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">Vedi i tuoi piatti</a>
+                </div>
+                <div class="col-6">
+                    <a class="btn btn-outline-info my-2 stats float-left" href="{{route('stats', $restaurant->id) }}">Vedi statistiche ristorante</a>
+                </div>
+                            
+                </div>
             </div>
         </div>
 
-    </div>
+                
+    
+</div>
+</div>
 </show-id>
 
 @endsection
