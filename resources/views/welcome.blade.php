@@ -21,6 +21,8 @@
     </head>
     <body>
         <div id="app">
+            <div id="loader" class="center"></div>
+
             <section-navbar>
 
                 <div class="flex-center position-ref full-height">
@@ -50,5 +52,16 @@
             
             
         </div>
+        <script>
+            document.onreadystatechange = function() { 
+                if (document.readyState !== "complete") { 
+                    document.querySelector("body").style.visibility = "hidden"; 
+                    document.querySelector("#loader").style.visibility = "visible"; 
+                } else { 
+                    document.querySelector("#loader").style.display = "none"; 
+                    document.querySelector("body").style.visibility = "visible"; 
+                } 
+            };
+        </script>
     </body>
 </html>

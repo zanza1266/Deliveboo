@@ -14,10 +14,12 @@
                 <div class="col d-flex justify-content-center head">
                     <h1>Riepilogo ordine</h1>
                 </div>
+
+                {{-- <b-spinner variant="primary" type="grow" label="Spinning"></b-spinner> --}}
             </div>
 
             <div class="row pt-4">
-                <div class="col-6 cart-summary d-flex flex-column align-items-center">
+                <div class="col-12 col-lg-6 cart-summary d-flex flex-column align-items-center">
 
 
                     <div class="cart-items">
@@ -50,7 +52,7 @@
 
                 </div>
 
-                <div class="col-6 payment-form">
+                <div class="col-12 col-lg-6 payment-form">
 
                     <form id="payment-form" action="{{route('checkout')}}" method="post" class="pr-5">
                         @method('POST')
@@ -118,6 +120,7 @@
             </div>
         </div>
     </section>
+
 
 @endsection
 

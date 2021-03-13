@@ -59,11 +59,10 @@
             
                 
             <div :class="cart.length > 0 ? 'col-2' : null " class=" cart-dish">
-                <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
-                
+                <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Vai alla cassa</button>
                 
                 <ul  v-if="cart.length > 0" class="overflow-cart px-2">
-                    <h4 class="py-2">~ Il tuo Menu ~</h4>
+                    <h4 class="py-2" style="text-align:center">~ Il tuo Menu ~</h4>
                     <li v-for="(item, index) in cart" :key="index">
 
                         <strong>
@@ -76,7 +75,7 @@
 
                         <div>
                             
-
+                            
                             <span @click="less(index)" class="cursor">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -103,8 +102,7 @@
 
             </div>
 
-
-            <!-- Banner -->
+            <!-- BANNER -->
 
             <div class="banner-container" v-show="isBannerCart">
 
@@ -122,7 +120,7 @@
         </div>
 
     </div>
-  
+
 </template>
 
 <script>
@@ -159,7 +157,7 @@ export default {
 
         addCart (item) {
 
-            if (!item.quantity) {
+            if (!item.quantity || item.quantity > 1) {
 
                 Vue.set(item, 'quantity', 1);
             }
@@ -268,6 +266,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 ul{
     padding-left: 0;
 }
@@ -278,7 +277,8 @@ ul{
     margin-bottom: 0.7rem;
 }
     .overflow-cart::-webkit-scrollbar {
-     width: 12px;               
+
+     width: 12px;
     }
 
     a{
@@ -298,23 +298,7 @@ ul{
         background-color: #227dc7;
         border-color: #2176bd;
     }
-
-    .overflow-cart::-webkit-scrollbar {
-
-        width: 12px;
-    }
-
-    .overflow-cart::-webkit-scrollbar-track {
     
-        background: black;
-    }
-
-    .overflow-cart::-webkit-scrollbar-thumb {
-
-        background-color: #00ccbc;    
-        border-radius: 20px;       
-        border: 3px solid black; 
-    }
 
     h4{
 
@@ -326,7 +310,6 @@ ul{
 
         
         font-size: 1.2rem;
-        
         border-radius:10px;
     }
 
@@ -338,6 +321,7 @@ ul{
 
         cursor: pointer;
     }
+
     .bi-dash-circle:active{
 
         color: red;
@@ -356,7 +340,7 @@ ul{
     }
     .overflow-cart{
 
-        overflow-y: auto;
+        overflow-y: hidden;
         height: 25rem;
 
         li{
@@ -514,6 +498,20 @@ ul{
     .center-space{
         width: 100%;
     }
+    .square-logo{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+    border: 1px solid rgb(243, 243, 243);
+   
+    & img{
+        border-radius: 10px;
+
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;  
+    }
+}
     
 }
 

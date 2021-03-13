@@ -1,0 +1,26 @@
+.graph {
+
+    padding: 25px 0 25px 0;
+    border-bottom: 1px solid grey;;
+}
+
+.dishes-data {
+
+    padding-top: 40px;
+
+    li {
+
+        list-style: none;
+        padding: 0 0 10px 10px;
+
+        span {
+
+            font-size: 17px;
+        }
+
+        .times {
+
+            color: red;
+        }
+    }
+}
