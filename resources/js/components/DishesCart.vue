@@ -1,32 +1,36 @@
 <template>
     <div class="container-fluid">
+
         <div class="row">
 
-            <div  :class="cart.length > 0 ? 'col-10' : 'col-12' ">
+            <div :class="cart.length > 0 ? 'col-10' : 'col-12' ">
 
-                <ul class="d-flex  flex-wrap">
-                    <li v-for="(dish, index) in allDishes" :key="index">
-                        <div class="card" style="width:20rem">
-                            <div class="image-overlay"> <img :src="'/' + dish.img" alt="" class="card-img-top">
-                                 <div class="middle d-flex align-items-center justify-content-center">
-                                    <div class="text"> 
-                                        <h3 class="card-title">{{dish.name}}</h3>
-                                        <p class="card-text">Prezzo: {{dish.price}}</p>
+                <div class="row" v-for="(type, index) in typesObj" :key="index" v-if="arrTypes.includes(type.id)">
+                    <div class="col">
+                        <h3 class="text-center pt-4 pb-4">{{type.name}}</h3>
+
+                        <ul class="d-flex flex-wrap">
+                            <li v-for="(dish, index) in allDishes" :key="index" v-if="dish.type_id == type.id">
+                                <div class="card" style="width:20rem">
+                                    <div class="image-overlay">
                                         
-                                        
-                                     </div>
-                                     
+                                        <img :src="'/' + dish.img" alt="" class="card-img-top">
+
+                                        <div class="middle d-flex align-items-center justify-content-center">
+                                            <div class="text"> 
+                                                <h3 class="card-title">{{dish.name}}</h3>
+                                                <p class="card-text">Prezzo: {{dish.price}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary my-3" @click="addCart(dish)">Aggiungi al carrello</button>
                                 </div>
-                                
-                            </div>
-                            <button class="btn btn-primary my-3" @click="addCart(dish)">Aggiungi al carrello</button>
-                        </div>
-                        
-                    </li>
-                </ul>
-            </div>
-            
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
+            </div>
 
             <!-- CARRELLO -->
 
@@ -68,8 +72,6 @@
 
                     </li>
                 </ul>
-                
-
 
             </div>
             <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
@@ -100,28 +102,50 @@
 export default {
     props: {
         dishes_json: String,
-        restaurant_json: String
+        restaurant_json: String,
+        types_json: String
     },
     mounted() {
 
         this.allDishes = JSON.parse(this.dishes_json);
         this.restaurant = JSON.parse(this.restaurant_json);
+        this.typesObj = JSON.parse(this.types_json);
+
+
+        JSON.parse(this.types_json).forEach(el => {
+            this.typesId.push(el.id);
+        });
 
         if (this.$session.exists('cart')) {
 
             this.cart = this.$session.get('cart');
         }
+
+        this.allDishes.forEach(el => {
+            
+            if (this.typesId.includes(el.type_id) && !this.arrTypes.includes(el.type_id)) {
+
+                this.arrTypes.push(el.type_id)
+            }
+        });
+
+        console.log(this.arrTypes);
+
+
     },
     data: function() {
         return {
 
             allDishes: null,
+            typesId: [],
             cart: [],
             idRestaurantInCart: null,
             isBannerCart: false,
             tmpItem: null,
             restaurant: null,
-            maxiumOrderQuantity: 100
+            maxiumOrderQuantity: 100,
+            typesObj: [],
+            arrTypes: []
         }
     },
 

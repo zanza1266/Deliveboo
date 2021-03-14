@@ -72,10 +72,15 @@
 
         img{
 
-            text-align: center;
             width: 100%;
-            height: 18rem;
             background-size: cover;
+        }
+
+        .img-cont {
+
+            width: 100%;
+            height: 30%;
+            padding: 5px;
         }
 
         a:hover{

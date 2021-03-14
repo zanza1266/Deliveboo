@@ -10,7 +10,9 @@
                 <div class="col-12">
                     <div class="card card-container ">
 
-                        <img class="card-img-top"  src="{{asset($restaurant->logo)}}" alt="logo-restaurant">
+                        <div class="img-cont">
+                            <img class="card-img-top"  src="{{asset($restaurant->logo)}}" alt="logo-restaurant">
+                        </div>
 
                         <div class="card-body text-center my-4">
                             <h2 class="card-title"><strong>Nome:</strong> {{$restaurant->name}}</h2>
