@@ -187,6 +187,7 @@
         <section-footer></section-footer>
     </div>
 
+
     @yield('scripts')
     <script>
         function dropDown(){
