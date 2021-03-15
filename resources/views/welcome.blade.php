@@ -36,14 +36,14 @@
                     </li>
                 </ul>
                 <div class="dropdown-burger " id="menu-burger-dropdwon">
-                    <li class="nav-item mt-3">
+                    {{-- <li class="nav-item mt-3">
                         <a href="/order-summary" class="d-flex nav-link cart-button">
-                            {{-- <p class="mb-0 mr-3">{{$total}}€</p> --}}
+                            <p class="mb-0 mr-3">{{$total}}€</p>
                             <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
                                 <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
                             </svg> 
                         </a>
-                    </li>
+                    </li> --}}
                     @guest
                         <li class="nav-item mt-3">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
@@ -99,14 +99,14 @@
 
                 <ul class="navbar-nav ml-auto navbar_visible ">
                 <!-- Authentication Links -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/order-summary" class="d-flex  nav-link cart-button">
-                        {{-- <p class="mb-0 mr-3">{{$total}}€</p> --}}
+                        <p class="mb-0 mr-3">{{$total}}€</p>
                         <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
                             <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
                         </svg> 
                     </a>
-                </li>
+                </li> --}}
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
