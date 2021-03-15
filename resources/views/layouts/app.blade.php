@@ -59,15 +59,15 @@
                     </li>
                 </ul>
 
-                <div class="dropdown-burger mt-2 " id="menu-burger-dropdwon">
+                <div class="dropdown-burger " id="menu-burger-dropdwon">
                     <li class="nav-item mt-3">
-                        <a href="/order-summary" class="d-flex nav-link cart-button">
-                            
+                        <a href="#" class="d-flex nav-link cart-button" @click="goSummaryNav">
+                            {{-- <p class="mb-0 mr-3">{{$total}}€</p> --}}
                             <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
                                 <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
                             </svg>
 
-                            <small class="ml-2">Totale:@{{totalCart}}€</small>
+                            <small class="ml-2">Totale: @{{totalCart}} &euro;</small>
                         </a>
                     </li>
                     @guest
@@ -125,11 +125,12 @@
             <ul class="navbar-nav ml-auto navbar_visible ">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a href="/order-summary" class="d-flex  nav-link cart-button">
+                    <a href="#" class="d-flex  nav-link cart-button" @click="goSummaryNav">
+                        {{-- <p class="mb-0 mr-3">{{$total}}€</p> --}}
                         <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
                             <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
 
-                            <small class="ml-2">Totale:@{{totalCart}}€</small>
+                            <small class="ml-2">Totale: @{{totalCart}} &euro;</small>
                         </svg> 
                     </a>
 
