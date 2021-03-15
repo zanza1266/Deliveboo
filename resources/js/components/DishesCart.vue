@@ -22,11 +22,58 @@
                             
                         </div> -->
 <template>
-    <div class="container-fluid  ">
+    <div class="container-fluid ">
         
-        <div class="row">
+        <div class="row ">
+            <div class="cart-small-background">
+                <div class="order-btn-small">
+                    <h4 v-if="cart.length > 0" class="py-2" style="text-align:center">~ Il tuo Menu ~</h4>
+                    <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Vai alla cassa</button>
 
-            <div  :class="cart.length > 0 ? 'col-lg-9 col-md-12' : 'col-12' ">
+                </div>
+                <div :class="cart.length > 0 ? 'col-12 col-lg-2  ' : null " class=" cart-dish-small">
+                    
+                    <ul  v-if="cart.length > 0" class="overflow-cart-small px-2">
+                        <li v-for="(item, index) in cart" :key="index">
+
+                            <strong>
+                                {{item.name}}
+                            </strong><br>
+                            
+                            <small>
+                                {{item.price}}€
+                            </small>
+
+                            <div>
+                                
+                                
+                                <span @click="less(index)" class="cursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                    </svg>
+                                </span>
+
+                                <span>{{item.quantity}}</span>
+
+                                <span @click="more(index)" class="cursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <hr style="width:90%">    
+                            <p class="text-danger cursor" @click="removeCart(item.id, index)">Rimuovi</p>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div  :class="cart.length > 0 ? 'col-12 col-lg-9 ' : 'col-12' ">
 
                 <ul class="">
                     <li v-for="(dish, index) in allDishes" :key="index">
@@ -67,7 +114,7 @@
             <!-- CARRELLO -->
             
                 
-            <div :class="cart.length > 0 ? 'col-2' : null " class=" cart-dish">
+            <div :class="cart.length > 0 ? 'col-12 col-lg-2  ' : null " class=" cart-dish">
                 <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Vai alla cassa</button>
                 
                 <ul  v-if="cart.length > 0" class="overflow-cart px-2">
@@ -101,7 +148,7 @@
                                 </svg>
                             </span>
                         </div>
-                        <hr style="width:8rem">    
+                        <hr style="width:90%">    
                         <p class="text-danger cursor" @click="removeCart(item.id, index)">Rimuovi</p>
 
                     </li>
@@ -126,7 +173,7 @@
 
         </div>
 
-    </div>
+    
 
 </template>
 
@@ -335,13 +382,6 @@ ul{
         
     }
 
-    .overflow-cart{
-
-        
-        font-size: 1.2rem;
-        border-radius:10px;
-    }
-
     li > *,h1{
 
         text-transform: capitalize;
@@ -368,15 +408,22 @@ ul{
         }
     }
     .overflow-cart{
-
-        overflow-y: hidden;
+        font-size: 1.2rem;
+        border-radius:10px;
+        overflow-y: auto;
+        overflow-x:hidden;
         height: 25rem;
 
         li{
-
+            width: 100%;
             margin: 0;
             padding:1rem ;
             border-radius: 10px;
+            margin: 0;
+            background-color: rgba(0, 204, 188, 0.05);
+            margin: 1rem 0;
+            padding:1rem ;
+           
         }
     }
 
@@ -478,7 +525,7 @@ ul{
     top:-12rem;
     right:0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 .img-dish{
     width: 7rem;
@@ -487,9 +534,69 @@ ul{
     border: 1px solid rgb(243, 243, 243);
     object-fit: cover;
 }
+.cart-dish-small{
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        button{
+            width: 50%;
+            height: 5rem;
+        }
+    }
+    .overflow-cart-small{
+        font-size: 1.2rem;
+        border-radius:10px;
+        overflow-y:hidden;
+        overflow-x:auto;
+        height: auto;
+        width: 100%;
+        margin-top: 0.5rem;
+        li{
+
+            margin: 0;
+            background-color: rgba(0, 204, 188, 0.05);
+            margin: 0 1rem;
+            padding:1rem ;
+            border-radius: 10px;
+            p{
+                font-size: 1rem;
+            }
+        }
+    }
+
+.order-btn-small{
+        display: none;
+    }
 @media screen and (max-width: 992px) {
     .cart-dish{
         display: none;
+
+    }
+    .cart-dish-small{
+        display: flex;
+        flex-direction: row;
+        .overflow-cart-small{
+            display: flex;
+            button{
+                height: 2rem;
+                width: 5rem;
+            }
+        
+
+        
+        }
+    }
+    .order-btn-small{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button{
+            margin: 0 auto;
+        }
+    }
+    .cart-small-background{
+        margin-bottom: 3rem ;
+        border-radius: 10px;
     }
 }
 @media screen and (max-width:576px){
@@ -536,8 +643,8 @@ ul{
     & img{
         border-radius: 10px;
 
-        width: 100%;
-        height: 100%; 
+        width: 6rem;
+        height: 6rem; 
         object-fit: cover;  
     }
 }
