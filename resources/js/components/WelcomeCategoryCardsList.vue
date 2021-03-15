@@ -43,7 +43,7 @@
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
                          <a class="card-restaurant" :href="'restaurant/' + restaurant.id">
                             <div class="card restaurants-card" style="width: 18rem;">
-                                <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" width="100%">
+                                <div class="d-flex justify-content-center"><img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top"></div>
                                 <div class="card-body">
                                 <h4 class="card-title">{{restaurant.name}}</h4>
                                     <p class="card-text">Indirizzo: {{restaurant.address}} <br>
