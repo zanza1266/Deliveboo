@@ -1,7 +1,7 @@
 <template>
-  <div class="jumbotron">
+  <div class="jumbotron d-flex align-items-center justify-content-center">
         <div class="text-center">
-                <h1 class="display-4 text-jumbo">Welcome to DeliveBoo</h1>
+                <h1 class="display-3 text-jumbo">Benvenuti in DeliveBoo</h1>
         
         </div>
        
@@ -28,5 +28,12 @@ export default {
 .text-jumbo{
     font-weight: bold;
     color: #00ccbc;
+}
+
+
+@media screen and (max-width: 815px){
+    .text-jumbo{
+        font-size: 2.6rem;
+    }
 }
 </style>
