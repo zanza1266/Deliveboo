@@ -2,9 +2,9 @@
 
     <div class="container-fluid bgcustom">
         <div class="row">
-            <div class="col-md-2 col-sm-12 mb-4">
+            <div class="col-sm-12 col-md-12 col-xl-2  mb-4">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12 py-3 multipleSearch d-none animate__animated">
+                    <div class="col-md-6   col-sm-12 py-3 multipleSearch d-none animate__animated">
                         <h6>Ricerca Avanzata</h6>
                         <div v-for="(category, index) in categoriesList" :key="index" class="searchElements">
                                 <label  :for=category.name>{{category.name}}</label>
@@ -22,9 +22,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 mr-1 col-sm-12">
-                <div class="row d-flex align-items-center">
-                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-md-3 col-sm-12"> 
+            <div class="col-sm-12 col-md-12 col-xl-10 ">
+                <div class="row align-items-center">
+                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-xl-3 col-md-4 col-sm-12"> 
                                 <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
                                    <div class="card-body d-flex justify-content-start align-items-end">
                                       <h3 class="card-title"> {{category.name}} </h3>
