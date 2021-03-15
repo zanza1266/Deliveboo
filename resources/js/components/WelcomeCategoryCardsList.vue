@@ -2,7 +2,7 @@
 
     <div class="container-fluid bgcustom">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-xl-2  mb-4"> 
+            <div class="col-sm-12 col-md-12 col-lg-5 col-xl-2  mb-4"> 
                 <div class="row">
                     <div class="col-sm-12 col-md-6 py-3 multipleSearch d-none animate__animated">
                         <h6>Ricerca Avanzata</h6>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-12 col-xl-10 ">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10 ">
                 <div class="row align-items-center">
                             <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-xl-3 col-md-4 col-sm-12"> 
                                 <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
