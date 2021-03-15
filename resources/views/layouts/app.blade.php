@@ -9,7 +9,7 @@
 
     <!--Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Great+Vibes&display=swap" rel="stylesheet">
+    
 
     {{-- CDN bootstrap  --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -37,24 +37,104 @@
         <link href="{{ asset('css/checkout.css') }}" rel="stylesheet">
     @endif
 
-
 </head>
 <body>
-
+    
     <div id="app">
+        <div id="loader" class="center"></div>
 
         <section-navbar-white>
-            <!-- Right Side Of Navbar -->
             
-            <ul class="navbar-nav ml-auto d-flex flex-row ">
+            <!-- Right Side Of Navbar -->
+            <div class="navbar-nav">
+                
+                <ul class="hamburger-menu"  >
+                    <li class="nav-item" onclick="dropDown()" >
+                        <span href="/order-summary" class="d-flex align-items-center nav-link cart-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        </span>
+                    </li>
+                </ul>
+                <div class="dropdown-burger " id="menu-burger-dropdwon">
+                    <li class="nav-item mt-3">
+                        <a href="/order-summary" class="d-flex nav-link cart-button">
+                            {{-- <p class="mb-0 mr-3">{{$total}}€</p> --}}
+                            <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+                                <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
+                            </svg> 
+                        </a>
+                    </li>
+                    @guest
+                        <li class="nav-item mt-3">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item mt-3">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle mt-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a> --}}
+    
+                            <div class="" aria-labelledby="navbarDropdown">
+    
+                                <a class="dropdown-item mt-2 " href="{{ route('home') }}">
+                                    {{ __('Home') }}
+                                </a>
+    
+                                <a class="dropdown-item mt-2" href="{{ route('my-restaurants.index') }}">
+                                    {{ __('I tuoi ristoranti') }}
+                                </a>
+    
+    
+                                @if(Route::is('my-restaurants.show'))
+                                    <a class="dropdown-item mt-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">
+                                        {{ __('I tuoi piatti') }}
+                                    </a>
+                                @endif
+    
+                                @if(Route::is('my-dishes.create') || Route::is('my-dishes.show') || Route::is('my-dishes.edit'))
+                                    <a class="dropdown-item mt-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant_index])}}">
+                                        {{ __('I tuoi piatti') }}
+                                    </a>
+                                @endif
+    
+                                <a class="dropdown-item my-3" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+    
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </div>
+            </div>
+            <ul class="navbar-nav ml-auto navbar_visible ">
                 <!-- Authentication Links -->
+                <li class="nav-item">
+                    <a href="/order-summary" class="d-flex  nav-link cart-button">
+                        {{-- <p class="mb-0 mr-3">{{$total}}€</p> --}}
+                        <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+                            <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
+                        </svg> 
+                    </a>
+                </li>
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                     @endif
                 @else
@@ -107,6 +187,23 @@
         <section-footer></section-footer>
     </div>
 
+
     @yield('scripts')
+    <script>
+        function dropDown(){
+            document.getElementById("menu-burger-dropdwon").classList.toggle("active");
+            document.getElementById("menu-burger-dropdwon").classList.toggle("animate__animated");
+            document.getElementById("menu-burger-dropdwon").classList.toggle("animate__slideInRight");
+        }
+        document.onreadystatechange = function() { 
+            if (document.readyState !== "complete") { 
+                document.querySelector("body").style.visibility = "hidden"; 
+                document.querySelector("#loader").style.visibility = "visible"; 
+            } else { 
+                document.querySelector("#loader").style.display = "none"; 
+                document.querySelector("body").style.visibility = "visible"; 
+            } 
+        }; 
+    </script>
 </body>
 </html>

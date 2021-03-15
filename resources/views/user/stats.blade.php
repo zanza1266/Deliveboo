@@ -21,6 +21,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('css/stats_style.css') }}" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -64,53 +66,90 @@
 
     </div>
 
-    @foreach ($orders_for_years as $orders_for_year)
-      <div class="">
-        <h1>Nell'anno {{$orders_for_year[13]}} il tuo ristorante ha ricevuto un totale di {{$orders_for_year[12]}} ordini</h1>
-        <div class="" style="width: 800px; height: 400px;">
-          <canvas id="myChart{{$orders_for_year[13]}}"></canvas>
+    <section class="stats">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col">
+                    <h3>Numero totale di ordini per anno:</h3>
+                </div>
+            </div>
+            @foreach ($orders_for_years as $orders_for_year)
+                <div class="row graph">
+
+                    <div class="col">
+                        <h1>{{$orders_for_year[13]}}</h1>
+                        <h5>Totale degli ordini: {{$orders_for_year[12]}}</h5>
+
+                        <div class="" style="width: 800px; height: 400px;">
+                            <canvas id="myChart{{$orders_for_year[13]}}"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+
+            <div class="row dishes-data">
+                <div class="col">
+
+                    <h3>Numero totale di ordini per singolo piatto:</h3>
+                    <ul class="">
+                        @foreach ($orderPerDishData as $dish)
+                            <li>
+                                <span class="name">{{$dish['name']}}: </span>
+                                <span class="times">{{$dish['timesOrdered']}}</span>
+                            </li>
+
+                        @endforeach
+                    </ul>
+
+                </div>
+            </div>
+
         </div>
-      </div>
-    @endforeach
+    </section>
+
 
 
     @foreach ($orders_for_years as $orders_for_year)
-    <?php
-      $clean_orders_for_year = [];
-      for ($i = 0; $i < 12 ; $i++) {
-        array_push($clean_orders_for_year, $orders_for_year[$i]);
-      }
-      $json = json_encode($clean_orders_for_year);
-    ?>
-    <script>
-        var ctx = document.getElementById('myChart{{$orders_for_year[13]}}');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
-                datasets: [{
-                    label: 'numero di ordini',
-                    data: JSON.parse('{{$json}}'),
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
+
+        <?php
+        $clean_orders_for_year = [];
+        for ($i = 0; $i < 12 ; $i++) {
+            array_push($clean_orders_for_year, $orders_for_year[$i]);
+        }
+        $json = json_encode($clean_orders_for_year);
+        ?>
+
+        <script>
+            var ctx = document.getElementById('myChart{{$orders_for_year[13]}}');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
+                    datasets: [{
+                        label: 'numero di ordini',
+                        data: JSON.parse('{{$json}}'),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
-            }
-        });
-    </script>
+            });
+        </script>
+
     @endforeach
 
 </body>

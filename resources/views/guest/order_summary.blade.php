@@ -17,7 +17,7 @@
             </div>
 
             <div class="row pt-4">
-                <div class="col-6 cart-summary d-flex flex-column align-items-center">
+                <div class="col-12 col-lg-6 cart-summary d-flex flex-column align-items-center">
 
 
                     <div class="cart-items">
@@ -50,7 +50,7 @@
 
                 </div>
 
-                <div class="col-6 payment-form">
+                <div class="col-12 col-lg-6 payment-form">
 
                     <form id="payment-form" action="{{route('checkout')}}" method="post" class="pr-5">
                         @method('POST')
@@ -110,7 +110,7 @@
                         <div class="form-group">
                             <div id="dropin-container"></div>
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
-                            <button class="confirm" type="submit" name="button">Conferma Ordine</button>
+                            <button class="confirm" type="submit" name="button" onclick="var el = document.getElementById('loader'); el.classList.add('active');">Conferma Ordine</button>
                         </div>
 
                     </form>
@@ -118,6 +118,12 @@
             </div>
         </div>
     </section>
+
+    {{-- LOADING COMPONENT --}}
+
+    <div class="loader-container" id="loader">
+        <b-spinner variant="primary" type="grow" label="Spinning"></b-spinner>
+    </div>
 
 @endsection
 

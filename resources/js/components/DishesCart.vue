@@ -1,12 +1,4 @@
-<template>
-    <div class="container-fluid">
-        <div class="row">
-
-            <div  :class="cart.length > 0 ? 'col-10' : 'col-12' ">
-
-                <ul class="d-flex  flex-wrap">
-                    <li v-for="(dish, index) in allDishes" :key="index">
-                        <div class="card" style="width:20rem">
+<!-- <div class="card" style="width:20rem">
                             <div class="image-overlay"> <img :src="'/' + dish.img" alt="" class="card-img-top">
                                  <div class="middle d-flex align-items-center justify-content-center">
                                     <div class="text"> 
@@ -14,12 +6,55 @@
                                         <p class="card-text">Prezzo: {{dish.price}}</p>
                                         
                                         
-                                     </div>
-                                     
+                                        <img :src="'/' + dish.img" alt="" class="card-img-top">
+
+                                        <div class="middle d-flex align-items-center justify-content-center">
+                                            <div class="text"> 
+                                                <h3 class="card-title">{{dish.name}}</h3>
+                                                <p class="card-text">Prezzo: {{dish.price}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary my-3" @click="addCart(dish)">Aggiungi al carrello</button>
                                 </div>
                                 
                             </div>
-                            <button class="btn btn-primary my-3" @click="addCart(dish)">Aggiungi al carrello</button>
+                            
+                        </div> -->
+<template>
+    <div class="container-fluid  ">
+        
+        <div class="row">
+
+            <div  :class="cart.length > 0 ? 'col-lg-9 col-md-12' : 'col-12' ">
+
+                <ul class="">
+                    <li v-for="(dish, index) in allDishes" :key="index">
+                        <div class="container-fluid ">
+                            <div class="row bg-light px-2 py-2 ">
+                                <div class="col-xl-2 col-md-4 col-lg-3 col-sm-4 col-xs-4">
+                                    <img :src="'/' + dish.img" alt="" class=" img-dish">
+                                </div>
+                                <div class="col-xl-7 col-md-4 col-lg-6 col-sm-4 col-xs-4 d-flex flex-column justify-content-center">
+                                    <div class="middle d-flex align-items-center ">
+                                        <div class="text"> 
+
+                                            <h3 class="card-title">{{dish.name}}</h3>
+                                            <!-- <small class="card-text">Prezzo: {{dish.price}}€</small> -->
+                                            <p>{{dish.ingredients}}</p>    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-4 col-lg-3 col-sm-4 col-xs-4 d-flex align-items-center justify-content-around">
+                                    <h5 class="card-text"><strong> {{dish.price}}€</strong></h5>
+                                    <button class="btn btn-outline-primary my-3" @click="addCart(dish)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                            <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         
                     </li>
@@ -27,14 +62,16 @@
             </div>
             
 
+            </div>
 
             <!-- CARRELLO -->
             
                 
-            <div :class="cart.length > 0 ? 'col-2' : null ">
+            <div :class="cart.length > 0 ? 'col-2' : null " class=" cart-dish">
+                <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Vai alla cassa</button>
                 
                 <ul  v-if="cart.length > 0" class="overflow-cart px-2">
-                    <h4 class="py-2">~ Il tuo Menu ~</h4>
+                    <h4 class="py-2" style="text-align:center">~ Il tuo Menu ~</h4>
                     <li v-for="(item, index) in cart" :key="index">
 
                         <strong>
@@ -47,7 +84,7 @@
 
                         <div>
                             
-
+                            
                             <span @click="less(index)" class="cursor">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -69,14 +106,10 @@
 
                     </li>
                 </ul>
-                
-
 
             </div>
-             <button class="text-right go-summary" v-if="cart.length > 0" @click="goSummary">Riepilogo Ordine</button>
 
-
-            <!-- Banner -->
+            <!-- BANNER -->
 
             <div class="banner-container" v-show="isBannerCart">
 
@@ -94,35 +127,57 @@
         </div>
 
     </div>
-  
+
 </template>
 
 <script>
 export default {
     props: {
         dishes_json: String,
-        restaurant_json: String
+        restaurant_json: String,
+        types_json: String
     },
     mounted() {
 
         this.allDishes = JSON.parse(this.dishes_json);
         this.restaurant = JSON.parse(this.restaurant_json);
+        this.typesObj = JSON.parse(this.types_json);
+
+
+        JSON.parse(this.types_json).forEach(el => {
+            this.typesId.push(el.id);
+        });
 
         if (this.$session.exists('cart')) {
 
             this.cart = this.$session.get('cart');
         }
+
+        this.allDishes.forEach(el => {
+            
+            if (this.typesId.includes(el.type_id) && !this.arrTypes.includes(el.type_id)) {
+
+                this.arrTypes.push(el.type_id)
+            }
+        });
+
+        console.log(this.arrTypes);
+
+
     },
     data: function() {
         return {
 
             allDishes: null,
+            typesId: [],
             cart: [],
             idRestaurantInCart: null,
             isBannerCart: false,
             tmpItem: null,
             restaurant: null,
-            maxiumOrderQuantity: 100
+            maxiumOrderQuantity: 100,
+            typesObj: [],
+            arrTypes: []
         }
     },
 
@@ -131,7 +186,7 @@ export default {
 
         addCart (item) {
 
-            if (!item.quantity) {
+            if (!item.quantity || item.quantity > 1) {
 
                 Vue.set(item, 'quantity', 1);
             }
@@ -241,8 +296,18 @@ export default {
 
 <style lang="scss" scoped>
 
+ul{
+    padding-left: 0;
+}
+.order-btn{
+    border: 1px solid #e8ebeb;
+    background-color: #fff;
+    color: #00b8a9;
+    margin-bottom: 0.7rem;
+}
     .overflow-cart::-webkit-scrollbar {
-     width: 12px;               
+
+     width: 12px;
     }
 
     a{
@@ -262,64 +327,30 @@ export default {
         background-color: #227dc7;
         border-color: #2176bd;
     }
-
-    .overflow-cart::-webkit-scrollbar {
-
-        width: 12px;
-    }
-
-    .overflow-cart::-webkit-scrollbar-track {
     
-        background: black;
-    }
-
-    .overflow-cart::-webkit-scrollbar-thumb {
-
-        background-color: #00ccbc;    
-        border-radius: 20px;       
-        border: 3px solid black; 
-    }
 
     h4{
 
         font-size: 1.5rem;
-        font-family: 'Akaya Telivigala', cursive;
+        
     }
 
     .overflow-cart{
 
-        font-family: 'Akaya Telivigala', cursive;
-        font-size: 1.2rem;
         
+        font-size: 1.2rem;
         border-radius:10px;
-    }
-
-    ul{
-    
-        list-style-type: none;
-        padding: 0;
-
-        li{
-
-            margin: 0.8rem;
-        }
     }
 
     li > *,h1{
 
         text-transform: capitalize;
     }
-
-    img{
-
-        width: 100%;
-        height: 10rem;
-    }
-
     .cursor:hover{
 
         cursor: pointer;
     }
+
     .bi-dash-circle:active{
 
         color: red;
@@ -329,10 +360,16 @@ export default {
 
         color: green;
     }
-
+    ul{
+        li{
+            
+            list-style: none;
+            margin-bottom:0.7rem ;
+        }
+    }
     .overflow-cart{
 
-        overflow-y: auto;
+        overflow-y: hidden;
         height: 25rem;
 
         li{
@@ -341,19 +378,6 @@ export default {
             padding:1rem ;
             border-radius: 10px;
         }
-    }
-
-    .go-summary{
-
-        position: absolute;
-        right:5%;
-        top: -50px;
-        text-decoration: none;
-        padding: 5px 12px;
-        border-radius: 10px;
-        background-color: #227dc7;
-        color: white;
-        width: 8.7rem;
     }
 
     .banner-container{
@@ -448,9 +472,76 @@ export default {
         opacity: 1;
         cursor: pointer;
     }
-    .btn{
-        width:50%;
-        margin: 0 auto;
+    
+.cart-dish{
+    position: absolute;
+    top:-12rem;
+    right:0;
+    display: flex;
+    flex-direction: column;
+}
+.img-dish{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 10px;
+    border: 1px solid rgb(243, 243, 243);
+    object-fit: cover;
+}
+@media screen and (max-width: 992px) {
+    .cart-dish{
+        display: none;
     }
+}
+@media screen and (max-width:576px){
+    .img-dish{
+        width: 100%;
+        height: 7rem;
+        border-radius: 10px;
+        border: 1px solid rgb(243, 243, 243);
+        object-fit: cover;
+    }
+}
+</style>
+<style lang="scss">
+.square-logo{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+    border: 1px solid rgb(243, 243, 243);
+   
+    & img{
+        border-radius: 10px;
+
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;  
+    }
+}
+.details-restaurant{
+    span{
+        font-size: 1.0rem;
+        margin-left: 0.5rem;
+    }
+}
+@media screen and (max-width: 576px) {
+    .center-space{
+        width: 100%;
+    }
+    .square-logo{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+    border: 1px solid rgb(243, 243, 243);
+   
+    & img{
+        border-radius: 10px;
+
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;  
+    }
+}
+    
+}
 
 </style>

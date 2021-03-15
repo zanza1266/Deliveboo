@@ -10944,3 +10944,11 @@ a.text-dark:focus {
   }
 }
 
+.logo-container {
+  width: 50%;
+  padding-bottom: 50px;
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: center;
+}
+

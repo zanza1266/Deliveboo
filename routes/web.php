@@ -193,6 +193,24 @@ Route::get('/stats/{restaurant}', function (Restaurant $restaurant, Request $req
       array_push($orders_for_years, $count);
     }
 
-    return view('user.stats', compact('orders_for_years', 'years'));
+    $allDishes = $restaurant->restaurantToDish;
+    $orderPerDishData = [];
+
+    foreach ($allDishes as $dish) {
+
+        $allOrdered = $dish->dishToOrderedDish;
+        $totalOrdered = 0;
+
+        foreach ($allOrdered as $el) {
+
+            $totalOrdered += $el->dish_quantity;
+        }
+
+        array_push($orderPerDishData, ['name' => $dish->name, 'timesOrdered' => $totalOrdered]);
+
+    }
+
+
+    return view('user.stats', compact('orders_for_years', 'years', 'orderPerDishData'));
 
 })->middleware('auth')->name('stats');

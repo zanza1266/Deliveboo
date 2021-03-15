@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Restaurant;
 use App\Http\Resources\RestaurantsResource;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -15,8 +16,9 @@ class RestaurantsController extends Controller
     {
 
       $dishes = $restaurant->restaurantToDish->where("available", "=", 1);
+      $types = Type::all();
 
-      return view('guest.restaurant', compact('restaurant', 'dishes'));
+      return view('guest.restaurant', compact('restaurant', 'dishes', 'types'));
     }
 
 
