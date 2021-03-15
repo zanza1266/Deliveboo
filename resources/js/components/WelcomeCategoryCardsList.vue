@@ -2,7 +2,7 @@
 
     <div class="container-fluid bgcustom">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-5 col-xl-2  mb-4"> 
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4  mb-4"> 
                 <div class="row">
                     <div class="col-sm-12 col-md-6 py-3 multipleSearch d-none animate__animated">
                         <h6>Ricerca Avanzata</h6>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10 ">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 ">
                 <div class="row align-items-center">
                             <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-xl-3 col-md-4 col-sm-12"> 
                                 <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
@@ -43,13 +43,12 @@
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
                          <a class="card-restaurant" :href="'restaurant/' + restaurant.id">
                             <div class="card restaurants-card" style="width: 18rem;">
-                                <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" >
+                                <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" width="100%">
                                 <div class="card-body">
                                 <h4 class="card-title">{{restaurant.name}}</h4>
                                     <p class="card-text">Indirizzo: {{restaurant.address}} <br>
                                         Telefono: {{restaurant.phone}}                                    
                                     </p>
-                                    <small>Types:</small>
                                 </div>
                             </div>
                         </a>
