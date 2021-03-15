@@ -24,8 +24,8 @@
             </div>
             <div class="col-md-9 mr-1 col-sm-12">
                 <div class="row d-flex align-items-center">
-                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-md-2 col-sm-12"> 
-                                <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + '&width=223&height=118' + ')' }" style="background-size: cover;">
+                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-md-3 col-sm-12"> 
+                                <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
                                    <div class="card-body d-flex justify-content-start align-items-end">
                                       <h3 class="card-title"> {{category.name}} </h3>
                                 </div>
@@ -182,7 +182,6 @@ small{
 }
 .card_style{
     border-radius: 10px;
-    width: 15rem;
     height: 8rem;
     margin: 2px  3rem;
     cursor: pointer;
