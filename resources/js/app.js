@@ -107,6 +107,23 @@ const app = new Vue({
 
             this.$session.set('cart', []);
             this.$session.set('totalCart', 0);
+        },
+
+        goSummaryNav () {
+
+            let cart = this.$session.get('cart')
+
+            let cartjson = JSON.stringify(cart);
+
+            // this.$session.clear('cart');
+
+            axios.post('/send-cart-data', {
+                cart: cartjson
+            })
+            .then(function (response) {
+
+                window.location.href = "/order-summary";
+            })
         }
     }
 });
