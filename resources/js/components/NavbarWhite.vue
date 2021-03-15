@@ -8,7 +8,7 @@
                     <ul class="">
                             <li>
                                 <a class="logo" href="/">
-                                    <img src="deliveboo_img/logo-white.png" width="150px" style="margin-top:5px;">
+                                    <img src="/deliveboo_img/logo-white.png" width="150px" style="margin-top:5px;">
                                 </a>
                             </li>
                             <li>

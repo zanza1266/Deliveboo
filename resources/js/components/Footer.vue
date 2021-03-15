@@ -2,8 +2,8 @@
 <footer class="section-footer mt-auto">
 
     <div class="container-fluid center-space">
-        <div class="row  overflow_x">
-            <div class="col-sm-12 col-md">
+        <div class="row justify-content-center overflow_x">
+            <div class="col-sm-12 col-md-5 col-xl-5 p-2">
                 <ul>
                     <li><h6>Giuseppe Zerino</h6></li>
                     <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/giuseppe-zerino-86a2bb1b7/">Giuseppe Zerino</a> </li>
@@ -13,7 +13,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-12 col-md">
+            <div class="col-sm-12 col-md-5 col-xl-5 p-2">
                 <ul>
                     <li><h6>Mirko Guerra</h6></li>
                     <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/mirko-guerra-90a268207/">Mirko Guerra</a> </li>
@@ -23,7 +23,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-12 col-md">
+            <div class="col-sm-12 col-md-5 col-xl-5 p-2">
                 <ul>
                     <li><h6>Gianluca Zanzarella</h6></li>
                     <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/gianluca-zanzarella/">Gianluca Zanzarella</a> </li>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-12 col-md">
+            <div class="col-sm-12 col-md-5 col-xl-5 p-2">
                 <ul>
                      <li><h6>Leonardo Barbieri</h6></li>
                     <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/leonardo-barbieri-340475194">Leonardo Barbieri</a> </li>
@@ -43,7 +43,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-12 col-md">
+            <div class="col-sm-12 col-md-5 col-xl-5 p-2">
                 <ul>
                      <li><h6>Martina Pozzerle</h6></li>
                     <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/martina-pozzerle/">Martina Pozzerle</a> </li>
