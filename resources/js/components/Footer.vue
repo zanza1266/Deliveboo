@@ -6,8 +6,8 @@
             <div class="col">
                 <ul>
                     <li><h6>Giuseppe Zerino</h6></li>
-                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/giuseppe-zerino-86a2bb1b7/">Mirko Guerra</a> </li>
-                    <li><b>Github:</b> <a href="https://github.com/Laxeer0">MirkoGuerra</a> </li>
+                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/giuseppe-zerino-86a2bb1b7/">Giuseppe Zerino</a> </li>
+                    <li><b>Github:</b> <a href="https://github.com/Laxeer0">Laxeer0</a> </li>
                     <li><b>Numero:</b> +39 334 9703296 </li>
                     <li><b>E-mail:</b> <a href="mailto:giuseppe.zerino28@gmail.com">giuseppe.zerino28@gmail.com</a></li>
                 </ul>
