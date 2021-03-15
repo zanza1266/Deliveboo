@@ -35,7 +35,7 @@
                         </span>
                     </li>
                 </ul>
-                <div class="dropdown-burger " id="menu-burger-dropdwon">
+                <div class="dropdown-burger " id="menu-burger-dropdwon" style="right:1rem">
                     {{-- <li class="nav-item mt-3">
                         <a href="/order-summary" class="d-flex nav-link cart-button">
                             <p class="mb-0 mr-3">{{$total}}€</p>
@@ -61,23 +61,23 @@
     
                             <div class="" aria-labelledby="navbarDropdown">
     
-                                <a class="dropdown-item mt-2 " href="{{ route('home') }}">
+                                <a class="dropdown-item my-2 " href="{{ route('home') }}">
                                     {{ __('Home') }}
                                 </a>
     
-                                <a class="dropdown-item mt-2" href="{{ route('my-restaurants.index') }}">
+                                <a class="dropdown-item my-2" href="{{ route('my-restaurants.index') }}">
                                     {{ __('I tuoi ristoranti') }}
                                 </a>
     
     
                                 @if(Route::is('my-restaurants.show'))
-                                    <a class="dropdown-item mt-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">
+                                    <a class="dropdown-item my-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">
                                         {{ __('I tuoi piatti') }}
                                     </a>
                                 @endif
     
                                 @if(Route::is('my-dishes.create') || Route::is('my-dishes.show') || Route::is('my-dishes.edit'))
-                                    <a class="dropdown-item mt-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant_index])}}">
+                                    <a class="dropdown-item my-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant_index])}}">
                                         {{ __('I tuoi piatti') }}
                                     </a>
                                 @endif
@@ -124,28 +124,28 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="{{ route('home') }}">
+                            <a class="dropdown-item my-2" href="{{ route('home') }}">
                                 {{ __('Home') }}
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('my-restaurants.index') }}">
+                            <a class="dropdown-item my-2" href="{{ route('my-restaurants.index') }}">
                                 {{ __('I tuoi ristoranti') }}
                             </a>
 
 
                             @if(Route::is('my-restaurants.show'))
-                                <a class="dropdown-item" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">
+                                <a class="dropdown-item my-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant->id])}}">
                                     {{ __('I tuoi piatti') }}
                                 </a>
                             @endif
 
                             @if(Route::is('my-dishes.create') || Route::is('my-dishes.show') || Route::is('my-dishes.edit'))
-                                <a class="dropdown-item" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant_index])}}">
+                                <a class="dropdown-item my-2" href="{{route('my-dishes.index', ['id_restaurant' => $restaurant_index])}}">
                                     {{ __('I tuoi piatti') }}
                                 </a>
                             @endif
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item my-2" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}

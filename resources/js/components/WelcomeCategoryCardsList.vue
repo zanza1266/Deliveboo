@@ -241,6 +241,7 @@ ul{
 </style>
 <style>
 
+
 body{
     background-image: url('/deliveboo_img/placeholder.svg');
     background-repeat: repeat;

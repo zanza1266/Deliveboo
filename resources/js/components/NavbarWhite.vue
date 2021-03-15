@@ -99,7 +99,7 @@ nav{
         }
     }
     .dropdown-item{
-        width: 90%;
+        width: 95%;
         margin: 0 0.5rem;    
         color: rgb(168, 41, 9);
         

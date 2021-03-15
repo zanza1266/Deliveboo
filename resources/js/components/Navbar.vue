@@ -74,6 +74,7 @@ nav{
                     color:  rgb(6, 121, 121);
                     box-shadow:2px 3px rgba(0, 0, 0, 0.226);
                     text-align: center;
+                    width: 90%;
                 }
                 a:hover{
                     background-color: rgb(231, 231, 231);
@@ -119,6 +120,7 @@ nav{
     .nav-item{
                 margin: 0 5px;
                 .nav-link{
+                    
                     margin: 0 0.5rem;
                     padding: 0.6rem 1.2rem;
                     border-radius: 0.5rem;
@@ -146,9 +148,7 @@ nav{
     
     
 }
-.dropdown-item{
 
-}
 
 
 
