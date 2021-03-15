@@ -1,8 +1,8 @@
 <template>
 
     <div class="container-fluid bgcustom">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4  mb-4"> 
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 mb-4"> 
                 <div class="row">
                     <div class="col-sm-12 col-md-6 py-3 multipleSearch d-none animate__animated">
                         <h6>Ricerca Avanzata</h6>
@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 ">
                 <div class="row align-items-center">
-                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-xl-3 col-md-4 col-sm-12"> 
+                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-sm-12 col-md-6 col-lg-6 col-xl-4 "> 
                                 <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
                                    <div class="card-body d-flex justify-content-start align-items-end">
                                       <h3 class="card-title"> {{category.name}} </h3>
@@ -42,8 +42,8 @@
                 <ul>    
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
                          <a class="card-restaurant" :href="'restaurant/' + restaurant.id">
-                            <div class="card restaurants-card" style="width: 18rem;">
-                                <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" width="100%">
+                            <div class="card restaurants-card">
+                                <div class="d-flex justify-content-center p-3"><img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top"></div>
                                 <div class="card-body">
                                 <h4 class="card-title">{{restaurant.name}}</h4>
                                     <p class="card-text">Indirizzo: {{restaurant.address}} <br>
@@ -70,25 +70,7 @@ export default {
     },
 
     mounted() {
-        $('.carousel .carousel-item').each(function(){
-            var minPerSlide = 4;
-            var next = $(this).next();
-            if (!next.length) {
-            next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-            
-            for (var i=0;i<minPerSlide;i++) {
-                next=next.next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                }
-                
-                next.children(':first-child').clone().appendTo($(this));
-            }
-        });
-
-        $('#categorySlider').carousel('pause');
+     
 
     },
 
@@ -214,10 +196,6 @@ ul{
         }
         a:hover{
             text-decoration: none;
-        }
-        img{
-            width: 10rem;
-            height: 5rem;
         }
     }
 }
