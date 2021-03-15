@@ -66,6 +66,7 @@ nav{
             }
             .nav-item{
                 a{
+                    
                     margin: 0 0.5rem;
                     padding: 0.6rem 1.5rem;
                     border-radius: 0.5rem;
@@ -96,7 +97,7 @@ nav{
 .dropdown-burger{
     position:absolute;
     top: 4.5rem;
-    height: 15rem;
+    height: 12rem;
     width: 10rem;
     background-color: white;
     z-index: 10;
@@ -144,6 +145,9 @@ nav{
     }
     
     
+}
+.dropdown-item{
+
 }
 
 
