@@ -55,10 +55,6 @@ nav{
                 border-radius: 5px;
                 padding: 0.2rem;
             }
-            svg{
-                width: 8rem;
-                height: 4rem;
-            }
             input[type="text" i] {
                 padding-left:5px ;
                 margin-left: 3rem;
@@ -68,7 +64,7 @@ nav{
 
                 
             }
-            .links{
+            .nav-item{
                 a{
                     margin: 0 0.5rem;
                     padding: 0.6rem 1.5rem;
@@ -76,6 +72,7 @@ nav{
                     background: white;
                     color:  rgb(6, 121, 121);
                     box-shadow:2px 3px rgba(0, 0, 0, 0.226);
+                    text-align: center;
                 }
                 a:hover{
                     background-color: rgb(231, 231, 231);
@@ -87,6 +84,69 @@ nav{
     }
 
 }
+.hamburger-menu{
+    display: none;
+    position: relative;
+    
+}
+.navbar_visible{
+    display: flex;
+    flex-direction: row;
+}
+.dropdown-burger{
+    position:absolute;
+    top: 4.5rem;
+    height: 15rem;
+    width: 10rem;
+    background-color: white;
+    z-index: 10;
+    display: none;
+    border-radius: 10px;
+
+}
+
+@media screen and (max-width:768px){
+    .hamburger-menu{
+        display: inline-block;
+    }
+    .navbar_visible{
+        display: none;
+    }
+    .active{
+        display: block;
+    }
+    .nav-item{
+                margin: 0 5px;
+                .nav-link{
+                    margin: 0 0.5rem;
+                    padding: 0.6rem 1.2rem;
+                    border-radius: 0.5rem;
+                    background: white;
+                    color: rgb(6, 121, 121) ;
+                    border: 1px solid rgb(224, 224, 224);
+                    transition: all 0.5s;    
+                    a{
+                        text-align: center;
+                    }            
+                }
+                .nav-link:hover{
+                    background-color:rgb(221, 221, 221) ;
+                    text-decoration: none;
+                    color: rgb(6, 121, 121);
+                    box-shadow:2px 3px rgba(0, 0, 0, 0.226);
+                    transition: all 0.5s;
+                }
+            }
+    .cart-button{
+        svg{
+            margin: 0 auto;
+        }
+    }
+    
+    
+}
+
+
 
 
 </style>

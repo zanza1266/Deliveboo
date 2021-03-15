@@ -14,8 +14,6 @@
                 <div class="col d-flex justify-content-center head">
                     <h1>Riepilogo ordine</h1>
                 </div>
-
-                {{-- <b-spinner variant="primary" type="grow" label="Spinning"></b-spinner> --}}
             </div>
 
             <div class="row pt-4">
@@ -112,7 +110,7 @@
                         <div class="form-group">
                             <div id="dropin-container"></div>
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
-                            <button class="confirm" type="submit" name="button">Conferma Ordine</button>
+                            <button @click='clearSessionCart' class="confirm" type="submit" name="button" onclick="var el = document.getElementById('my-loader'); el.classList.add('activate');" >Conferma Ordine</button>
                         </div>
 
                     </form>
@@ -121,6 +119,11 @@
         </div>
     </section>
 
+    {{-- LOADING COMPONENT --}}
+
+    <div class="loader-container" id="my-loader">
+        <b-spinner variant="primary" type="grow" label="Spinning"></b-spinner>
+    </div>
 
 @endsection
 

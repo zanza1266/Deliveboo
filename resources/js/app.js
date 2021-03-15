@@ -36,6 +36,7 @@ Vue.component('login', require('./components/Login.vue').default);
 
 
 
+
 // BOOTSTRAP-VUE
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -52,6 +53,8 @@ Vue.use(IconsPlugin)
 import VueSessionStorage from 'vue-sessionstorage'
 Vue.use(VueSessionStorage)
 
+import Data from './components/store.js';
+
 
 
 /**
@@ -60,14 +63,32 @@ Vue.use(VueSessionStorage)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
     data: {
         isBannerDish: false,
         isBannerRestaurant: false
     },
-    mounted() {
 
+
+    created() {
+
+        console.log(this.$session.get('totalCart'));
+
+        Data.totCart = this.$session.get('totalCart')
+
+    },
+
+    computed: {
+
+        totalCart: {
+
+            get: function () {
+
+                return Data.totCart;
+            }
+        }
     },
 
     methods: {
@@ -80,6 +101,12 @@ const app = new Vue({
         activeBannerRestaurant() {
 
             this.isBannerRestaurant = !this.isBannerRestaurant;
+        },
+
+        clearSessionCart() {
+
+            this.$session.set('cart', []);
+            this.$session.set('totalCart', 0);
         }
     }
 });
