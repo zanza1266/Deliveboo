@@ -1,8 +1,7 @@
 <template>
   <div class="jumbotron d-flex align-items-center justify-content-center">
         <div class="text-center">
-                <h1 class="display-3 text-jumbo">Benvenuti in DeliveBoo</h1>
-        
+            <h1 class="display-3 text-jumbo">Benvenuti in DeliveBoo</h1>
         </div>
        
         
@@ -27,7 +26,7 @@ export default {
 }
 .text-jumbo{
     font-weight: bold;
-    color: #00ccbc;
+    color: white;
 }
 
 

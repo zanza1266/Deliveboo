@@ -6,9 +6,9 @@
                 <div class="order-btn-small">
                     <h4 v-if="cart.length > 0" class="py-2" style="text-align:center">~ Il tuo Menu ~</h4>
                     <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Vai alla cassa</button>
-
                 </div>
-                <div :class="cart.length > 0 ? 'col-12 col-lg-2  ' : null " class=" cart-dish-small">
+
+                <div :class="cart.length > 0 ? 'col-12 col-lg-3' : null " class=" cart-dish-small">
                     
                     <ul  v-if="cart.length > 0" class="overflow-cart-small px-2">
                         <li v-for="(item, index) in cart" :key="index">
@@ -22,8 +22,6 @@
                             </small>
 
                             <div>
-                                
-                                
                                 <span @click="less(index)" class="cursor">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -84,14 +82,11 @@
                     </li>
                 </ul>
             </div>
-            
 
- 
 
             <!-- CARRELLO -->
-            
-                
-            <div :class="cart.length > 0 ? 'col-12 col-lg-2  ' : null " class=" cart-dish">
+
+            <div :class="cart.length > 0 ? 'col-12 col-lg-3' : null " class=" cart-dish">
                 <button class=" btn order-btn" v-if="cart.length > 0" @click="goSummary">Vai alla cassa</button>
                 
                 <ul  v-if="cart.length > 0" class="overflow-cart px-2">
@@ -538,7 +533,9 @@ ul{
     top:-12rem;
     right:0;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    min-width: 220px;
+
 }
 .img-dish{
     width: 7rem;
@@ -603,6 +600,8 @@ ul{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 30px 0;
+        border-top: 1px solid black;
         button{
             margin: 0 auto;
         }
