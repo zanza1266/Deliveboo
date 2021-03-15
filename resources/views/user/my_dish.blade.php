@@ -36,9 +36,10 @@
         
                                 <h3>Sei sicuro di voler eliminare questo piatto?</h3>
                                 <button class="btn btn-outline-danger" @click="activeBannerDish">Elimina</button>
+                                <a class="btn btn-outline-success mx-2" @click="activeBannerDish">Annulla</a>
                             </form>
 
-                            <button class="btn btn-outline-success mx-2" @click="activeBannerDish">Annulla</button>
+                            
                         </div>
                     </div>
 

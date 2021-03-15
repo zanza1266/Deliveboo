@@ -38,7 +38,7 @@
                                     </svg>
                                 </span>
                             </div>
-                            <hr style="width:90%">    
+                            <hr style="width:rem">    
                             <p class="text-danger cursor" @click="removeCart(item.id, index)">Rimuovi</p>
 
                         </li>
@@ -126,8 +126,6 @@
                     </li>
                 </ul>
 
-                <!-- <p>Totale: {{totalNavCart}}</p> -->
-
             </div>
 
             <!-- BANNER -->
@@ -146,8 +144,8 @@
             </div>
 
         </div>
-
-    </div> 
+    </div>
+    
 
 </template>
 
@@ -183,6 +181,7 @@ export default {
             }
         });
 
+        // console.log(this.arrTypes);
     },
 
     data: function() {
@@ -197,46 +196,38 @@ export default {
             restaurant: null,
             maxiumOrderQuantity: 100,
             typesObj: [],
-            arrTypes: [],
-            quantityWatcher: true
+            quantityWatcher: true,
+            arrTypes: []
         }
     },
 
-    watch: {
-
+     watch: {
         cart: function (val) {
-
             let total = 0;
-
             val.forEach(element => {
                 
                 let multiplied = element.price * element.quantity;
-
                 total += multiplied;
             });
-
             Data.totCart = total
             this.$session.set('totalCart', total);
 
+            console.log(this.$session.get('totalCart'));
         },
-
         quantityWatcher: function () {
-
             let total = 0;
-
             this.cart.forEach(element => {
                 
                 let multiplied = element.price * element.quantity;
-
                 total += multiplied;
             });
-
             Data.totCart = total
             this.$session.set('totalCart', total);
 
+            console.log(this.$session.get('totalCart'));
         }
-
     },
+
 
     methods: {
        
