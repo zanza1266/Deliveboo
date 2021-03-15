@@ -3,57 +3,57 @@
 
     <div class="container-fluid center-space">
         <div class="row  overflow_x">
-            <div class="col-3">
+            <div class="col">
                 <ul>
-
-                    <li><h6>Scopri DeliveBoo</h6></li>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a href="#">Pressroom</a></li>
-                    <li><a href="#">Il nostro blog</a></li>
-                    <li><a href="#">Programmazione</a></li>
-                    <li><a href="#">Design</a></li>
-                    <li><a href="#">Lavora con noi</a></li>
-                    <li><a href="#">Diventa nostro partner</a></li>
-    
+                    <li><h6>Giuseppe Zerino</h6></li>
+                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/giuseppe-zerino-86a2bb1b7/">Mirko Guerra</a> </li>
+                    <li><b>Github:</b> <a href="https://github.com/Laxeer0">MirkoGuerra</a> </li>
+                    <li><b>Numero:</b> +39 334 9703296 </li>
+                    <li><b>E-mail:</b> <a href="mailto:giuseppe.zerino28@gmail.com">giuseppe.zerino28@gmail.com</a></li>
                 </ul>
             </div>
-            <div class="col-3">
-                
+
+            <div class="col">
                 <ul>
-
-                    <li><h6>Note legali</h6></li>
-                    <li><a href="#">Termini e condizioni</a></li>
-                    <li><a href="#">Informativa sulla privacy</a></li>
-                    <li><a href="#">Cookies</a></li>
-    
+                    <li><h6>Mirko Guerra</h6></li>
+                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/mirko-guerra-90a268207/">Mirko Guerra</a> </li>
+                    <li><b>Github:</b> <a href="https://github.com/mirkoguerra">MirkoGuerra</a> </li>
+                    <li><b>Numero:</b> +39 320 9582596 </li>
+                    <li><b>E-mail:</b> <a href="mailto:mirkoguerra93@gmail.com">mirkoguerra93@gmail.com</a></li>
                 </ul>
-                
             </div>
-            <div class="col-3">
 
+            <div class="col">
                 <ul>
-
-                    <li><h6>Aiuto</h6></li>
-                    <li><a href="#">Contatti</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Tipi di cucina</a></li>
-                    <li><a href="#">Mappa del sito</a></li>
-    
+                    <li><h6>Gianluca Zanzarella</h6></li>
+                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/gianluca-zanzarella/">Gianluca Zanzarella</a> </li>
+                    <li><b>Github:</b> <a href="https://github.com/zanza1266">zanza1266</a> </li>
+                    <li><b>Numero:</b> +39 366 4822719 </li>
+                    <li><b>E-mail:</b> <a href="mailto:gianlucazanza@hotmail.com.com">gianlucazanza@hotmail.com.com</a></li>
                 </ul>
-                
             </div>
-            <div class="col-3">
 
+            <div class="col">
                 <ul>
-
-                    <li><h6>Porta DeliveBoo con te</h6></li>
-                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SCcWWyYL-qlyts-92R7oxQuJseBK3qeQzH4AUNNKW4qKadazLxDtjcAIZgQwfXB2ybw&usqp=CAU" alt=""></li>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Play_Store_badge_IT.svg/640px-Google_Play_Store_badge_IT.svg.png" alt=""></li>
-                    
-    
+                     <li><h6>Leonardo Barbieri</h6></li>
+                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/leonardo-barbieri-340475194">Leonardo Barbieri</a> </li>
+                    <li><b>Github:</b> <a href="https://github.com/Leobar00">Leobar00</a> </li>
+                    <li><b>Numero:</b> +39 320 8798962 </li>
+                    <li><b>E-mail:</b> <a href="mailto:barbierileon@gmail.com">barbierileon@gmail.com</a></li>
                 </ul>
-                
             </div>
+
+            <div class="col">
+                <ul>
+                     <li><h6>Martina Pozzerle</h6></li>
+                    <li><b>Linkedin:</b> <a href="https://www.linkedin.com/in/martina-pozzerle/">Martina Pozzerle</a> </li>
+                    <li><b>Github:</b> <a href="https://github.com/pozmar">pozmar</a> </li>
+                    <li><b>Numero:</b> +39 347 8865448 </li>
+                    <li><b>E-mail:</b> <a href="mailto:martina.pozzerle@libero.it">martina.pozzerle@libero.it</a></li>
+                </ul>
+            </div>
+
+
             
         </div>
         <div class="bottom-footer d-flex justify-content-between">
