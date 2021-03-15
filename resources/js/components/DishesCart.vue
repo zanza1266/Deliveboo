@@ -1,26 +1,3 @@
-<!-- <div class="card" style="width:20rem">
-                            <div class="image-overlay"> <img :src="'/' + dish.img" alt="" class="card-img-top">
-                                 <div class="middle d-flex align-items-center justify-content-center">
-                                    <div class="text"> 
-                                        <h3 class="card-title">{{dish.name}}</h3>
-                                        <p class="card-text">Prezzo: {{dish.price}}</p>
-                                        
-                                        
-                                        <img :src="'/' + dish.img" alt="" class="card-img-top">
-
-                                        <div class="middle d-flex align-items-center justify-content-center">
-                                            <div class="text"> 
-                                                <h3 class="card-title">{{dish.name}}</h3>
-                                                <p class="card-text">Prezzo: {{dish.price}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary my-3" @click="addCart(dish)">Aggiungi al carrello</button>
-                                </div>
-                                
-                            </div>
-                            
-                        </div> -->
 <template>
     <div class="container-fluid ">
         
@@ -109,7 +86,7 @@
             </div>
             
 
-            </div>
+ 
 
             <!-- CARRELLO -->
             
@@ -172,12 +149,13 @@
             </div>
 
         </div>
-
+    </div>
     
 
 </template>
 
 <script>
+import Data from './store.js';
 export default {
     props: {
         dishes_json: String,
@@ -208,10 +186,9 @@ export default {
             }
         });
 
-        console.log(this.arrTypes);
-
-
+        // console.log(this.arrTypes);
     },
+
     data: function() {
         return {
 
@@ -224,9 +201,38 @@ export default {
             restaurant: null,
             maxiumOrderQuantity: 100,
             typesObj: [],
+            quantityWatcher: true,
             arrTypes: []
         }
     },
+
+     watch: {
+        cart: function (val) {
+            let total = 0;
+            val.forEach(element => {
+                
+                let multiplied = element.price * element.quantity;
+                total += multiplied;
+            });
+            Data.totCart = total
+            this.$session.set('totalCart', total);
+
+            console.log(this.$session.get('totalCart'));
+        },
+        quantityWatcher: function () {
+            let total = 0;
+            this.cart.forEach(element => {
+                
+                let multiplied = element.price * element.quantity;
+                total += multiplied;
+            });
+            Data.totCart = total
+            this.$session.set('totalCart', total);
+
+            console.log(this.$session.get('totalCart'));
+        }
+    },
+
 
     methods: {
        
@@ -271,6 +277,7 @@ export default {
             }
 
             this.$session.set('cart', this.cart);
+
         },
 
         removeCart(id, index) {
@@ -286,6 +293,8 @@ export default {
 
             this.$session.set('cart', this.cart);
 
+            this.quantityWatcher = !this.quantityWatcher;
+
         },
 
         less (ind) {
@@ -295,6 +304,8 @@ export default {
                this.cart[ind].quantity -= 1;
             }
             this.$session.set('cart', this.cart);
+
+            this.quantityWatcher = !this.quantityWatcher;
         },
 
         more (ind) {
@@ -304,6 +315,8 @@ export default {
                 this.cart[ind].quantity += 1;
             }
             this.$session.set('cart', this.cart);
+
+            this.quantityWatcher = !this.quantityWatcher;
         },
 
 
@@ -311,7 +324,7 @@ export default {
 
             let cartjson = JSON.stringify(this.cart);
 
-            this.$session.clear('cart');
+            // this.$session.clear('cart');
 
             axios.post('/send-cart-data', {
                 cart: cartjson
