@@ -55,24 +55,6 @@ Vue.use(VueSessionStorage)
 
 import Data from './components/store.js';
 
-// Vue.mixin({
-//     data:  function (){
-//         return {
-
-//             totalNavCart: ''
-//         }
-//     },
-
-//     methods: {
-
-//         updateNavCart: function () {
-
-//             this.totalNavCart = this.$session.get('totalCart')
-
-//         },
-//     },
-// })
-
 
 
 /**
