@@ -2,7 +2,7 @@
 
     <div class="container-fluid bgcustom">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-xl-2  mb-4">
+            <div class="col-sm-12 col-md-12 col-xl-2  mb-4"> 
                 <div class="row">
                     <div class="col-md-6   col-sm-12 py-3 multipleSearch d-none animate__animated">
                         <h6>Ricerca Avanzata</h6>
