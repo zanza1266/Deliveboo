@@ -36,4 +36,10 @@ button{
 .card{
     margin: 7rem 0;
 }
+@media screen and (max-width:768px) {
+   svg{
+       width:15rem;
+       height:15rem;
+   } 
+}
 </style>
