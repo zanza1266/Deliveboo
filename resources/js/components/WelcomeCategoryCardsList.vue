@@ -2,9 +2,9 @@
 
     <div class="container-fluid bgcustom">
         <div class="row">
-            <div class="col-2">
+            <div class="col-md-2 col-sm-12 mb-4">
                 <div class="row">
-                    <div class="col py-3 multipleSearch d-none animate__animated">
+                    <div class="col-md-6 col-sm-12 py-3 multipleSearch d-none animate__animated">
                         <h6>Ricerca Avanzata</h6>
                         <div v-for="(category, index) in categoriesList" :key="index" class="searchElements">
                                 <label  :for=category.name>{{category.name}}</label>
@@ -14,7 +14,7 @@
 
                         <a href="#" class="mt-5 custom-btn" @click="displaySearched()">Cerca</a>
                     </div>
-                    <div class="col pt-4 divSearch animate__animated animate__fadeInRight  d-inline-block">
+                    <div class="col-md-6 col-sm-12 pt-4 divSearch animate__animated animate__fadeInRight  d-inline-block">
                         
                             <a class="btn custom-btn btnSearch d-inline-block " @click="showMultipleSearch()">
                                 Ricerca Avanzata
@@ -22,32 +22,37 @@
                     </div>
                 </div>
             </div>
-            <div class="col-10 d-flex justify-content-center flex-wrap">
-                <div v-for="(category, index) in categoriesList" :key="index" class="card text-center card_style" @click="displayRestaurants(category.id)"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
-                    <div class="card-body d-flex justify-content-start align-items-end">
-                        <h3 class="card-title"> {{category.name}} </h3>
+            <div class="col-md-9 mr-1 col-sm-12">
+                <div class="row d-flex align-items-center">
+                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-md-2 col-sm-12"> 
+                                <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + '&width=223&height=118' + ')' }" style="background-size: cover;">
+                                   <div class="card-body d-flex justify-content-start align-items-end">
+                                      <h3 class="card-title"> {{category.name}} </h3>
+                                </div>
+                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
 
 
         <div class="row ">
             <div class="offset-2 col-10">
-                <ul>
+                <hr class="py-2">
+                <ul>    
                     <li v-for="(restaurant, index) in displayedRestaurants" :key="index">
-
-                        <div class="card restaurants-card" style="width: 18rem;">
-                            <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" >
-                            <div class="card-body">
-                                <a class="card-title" :href="'restaurant/' + restaurant.id">{{restaurant.name}}</a>
-                                <p class="card-text">Indirizzo: {{restaurant.address}}</p>
-                                <small>
-                                    Telefono: {{restaurant.phone}}
-                                </small>
+                         <a class="card-restaurant" :href="'restaurant/' + restaurant.id">
+                            <div class="card restaurants-card" style="width: 18rem;">
+                                <img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top" >
+                                <div class="card-body">
+                                <h4 class="card-title">{{restaurant.name}}</h4>
+                                    <p class="card-text">Indirizzo: {{restaurant.address}} <br>
+                                        Telefono: {{restaurant.phone}}                                    
+                                    </p>
+                                    <small>Types:</small>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +71,25 @@ export default {
     },
 
     mounted() {
+        $('.carousel .carousel-item').each(function(){
+            var minPerSlide = 4;
+            var next = $(this).next();
+            if (!next.length) {
+            next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+            
+            for (var i=0;i<minPerSlide;i++) {
+                next=next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
 
+        $('#categorySlider').carousel('pause');
 
     },
 
@@ -99,6 +122,7 @@ export default {
         },
         displayRestaurants(id) {
 
+            this.displayedRestaurants = [];
             axios.get(`http://127.0.0.1:8000/api/restaurants-resource/${id}`)
             .then((res) =>{
                 
@@ -129,6 +153,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.card-restaurant{
+    text-decoration:none;
+    color:gray;
+    h4{
+        font-weight: bold;
+    }
+}
+
+.card-text{
+    font-size: 0.8rem;
+}
+
+small{
+    font-size:0.6rem;
+}
 .multipleSearch{
     border: #00423d 1px solid;
     border-left: none;
@@ -221,7 +261,7 @@ ul{
         margin-left: 50px;
         margin-bottom: 20px;
     }
-    
+   
 </style>
 <style>
 

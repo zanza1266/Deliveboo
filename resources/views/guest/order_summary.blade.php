@@ -110,7 +110,7 @@
                         <div class="form-group">
                             <div id="dropin-container"></div>
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
-                            <button class="confirm" type="submit" name="button" onclick="var el = document.getElementById('loader'); el.classList.add('active');">Conferma Ordine</button>
+                            <button @click='clearSessionCart' class="confirm" type="submit" name="button" onclick="var el = document.getElementById('my-loader'); el.classList.add('activate');" >Conferma Ordine</button>
                         </div>
 
                     </form>
@@ -121,7 +121,7 @@
 
     {{-- LOADING COMPONENT --}}
 
-    <div class="loader-container" id="loader">
+    <div class="loader-container" id="my-loader">
         <b-spinner variant="primary" type="grow" label="Spinning"></b-spinner>
     </div>
 
