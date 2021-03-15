@@ -24,12 +24,12 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 ">
                 <div class="row align-items-center">
-                            <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-sm-12 col-md-6 col-lg-6 col-xl-4 "> 
-                                <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
-                                   <div class="card-body d-flex justify-content-start align-items-end">
-                                      <h3 class="card-title"> {{category.name}} </h3>
-                                </div>
-                         </div>
+                    <div v-for="(category, index) in categoriesList" :key="index"  @click="displayRestaurants(category.id)" class="col-sm-12 col-md-6 col-lg-6 col-xl-4 "> 
+                        <div class="card card_style"  :style="{ backgroundImage: 'url(' + category.bgimg + ')' }" style="background-size: cover;">
+                            <div class="card-body d-flex justify-content-start align-items-end">
+                                    <h3 class="card-title"> {{category.name}} </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                             <div class="card restaurants-card">
                                 <div class="d-flex justify-content-center p-3"><img :src="restaurant.logo" alt="restaurant-logo" class="card-img-top"></div>
                                 <div class="card-body">
-                                <h4 class="card-title">{{restaurant.name}}</h4>
+                                    <h4 class="card-title">{{restaurant.name}}</h4>
                                     <p class="card-text">Indirizzo: {{restaurant.address}} <br>
                                         Telefono: {{restaurant.phone}}                                    
                                     </p>
