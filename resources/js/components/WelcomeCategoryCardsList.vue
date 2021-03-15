@@ -197,10 +197,6 @@ ul{
         a:hover{
             text-decoration: none;
         }
-        img{
-            width: 10rem;
-            height: 5rem;
-        }
     }
 }
 
