@@ -10,9 +10,9 @@
 Realization of a complex Web application inspired by Deliveroo, formed byBackend (Registration for business user and
 purchase service for guest user, Payment Provider Integration) and responsive Frontend interface.
 
-![](foto3.jpg)
+![](https://raw.githubusercontent.com/zanza1266/Deliveboo/main/foto3.png)
 
-![](foto2.jpg)
+![](https://raw.githubusercontent.com/zanza1266/Deliveboo/main/foto2.png)
 
 ![](https://raw.githubusercontent.com/zanza1266/Deliveboo/main/foto1.png)
 
