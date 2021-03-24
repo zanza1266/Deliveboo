@@ -14,7 +14,7 @@ purchase service for guest user, Payment Provider Integration) and responsive Fr
 
 ![](foto2.jpg)
 
-![](file:///C:/Users/gianl/Desktop/Deliveboo/foto1.png)
+![](https://raw.githubusercontent.com/zanza1266/Deliveboo/main/foto1.png)
 
 ![](foto4.gif)
 
